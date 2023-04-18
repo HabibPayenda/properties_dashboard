@@ -1,7 +1,7 @@
 import React from "react";
 // import styles from "./sidebar.module.css";
 import logo from '../../assets/logo.jpg'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = (props) => {
   return (
@@ -12,31 +12,36 @@ const Sidebar = (props) => {
       </div>
       <nav className="w-full">
         <ul className="w-full flex gap-3 flex-col">
-          <Link to="/">
+          <NavLink to="/">
             <li className="bg-blue-500 text-white w-full" >
               Home
             </li>
-          </Link>
-          <Link to="/properties" className="bg-blue-500 text-white w-full" >
+          </NavLink>
+          <NavLink to="/properties" className="bg-blue-500 text-white w-full" >
             <li>
               Properties
             </li>
-          </Link>
-          <Link to="/users" className="bg-blue-500 transition-all hover:bg-slate-600 text-white w-full" href="/">
+          </NavLink>
+          <NavLink to="/users" className="bg-blue-500 transition-all hover:bg-slate-600 text-white w-full" href="/">
             <li>
               Users
             </li>
-          </Link>
-          <Link to="/reviews" className="bg-blue-500 text-white w-full" >
+          </NavLink>
+          <NavLink to="/reviews" className="bg-blue-500 text-white w-full" >
             <li>
               Reviews
             </li>
-          </Link>
-          <Link to="/trainings" className="bg-blue-500 text-white w-full" >
+          </NavLink>
+          <NavLink to="/trainings" className="bg-blue-500 text-white w-full" >
             <li>
               Trainings
             </li>
-          </Link>
+          </NavLink>
+          <NavLink to="/trainers" className="bg-blue-500 text-white w-full" >
+            <li>
+              Trainers
+            </li>
+          </NavLink>
         </ul>
       </nav>
     </div>
