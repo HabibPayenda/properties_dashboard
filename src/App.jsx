@@ -5,6 +5,12 @@ import Sidebar from './components/sidebar/Sidebar'
 import Main from './components/main/main'
 import HomeSharedLayout from './pages/Layouts/HomeSharedLayout'
 import Home from './pages/home'
+import Property from './pages/Property'
+import PropertySharedLaout from './pages/Layouts/PropertySharedLaout'
+import Properties from './pages/Properties'
+import PageNotFound from './pages/PageNotFound'
+import UserSharedLayout from './pages/Layouts/UserSharedLayout'
+import Users from './pages/Users'
 
 
 function App() {
@@ -16,7 +22,15 @@ function App() {
       <Routes>
         <Route path='/' element={<HomeSharedLayout />}>
           <Route index element={<Home />} />
+          <Route path='properties' element={<PropertySharedLaout />}>
+            <Route index element={<Properties />} />
+            <Route path=':id' element={<Property />} />
+          </Route>
+          <Route path='users' element={<UserSharedLayout />}>
+            <Route index element={<Users />} />
+          </Route>
         </Route>
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
      </BrowserRouter>
      
