@@ -1,6 +1,7 @@
 import React from "react";
 // import styles from "./sidebar.module.css";
 import logo from '../../assets/logo.jpg'
+import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {
   return (
@@ -11,26 +12,26 @@ const Sidebar = (props) => {
       </div>
       <nav className="w-full">
         <ul className="w-full flex gap-3 flex-col">
-          <a href="/">
+          <Link to="/">
             <li className="bg-blue-500 text-white w-full" >
               Home
             </li>
-          </a>
-          <a className="bg-blue-500 text-white w-full" href="/">
+          </Link>
+          <Link to="/properties" className="bg-blue-500 text-white w-full" >
             <li>
-              About
+              Properties
             </li>
-          </a>
-          <a className="bg-blue-500 transition-all hover:bg-slate-600 text-white w-full" href="/">
-            <li>
-              Contact
-            </li>
-          </a>
-          <a className="bg-blue-500 text-white w-full" href="/">
+          </Link>
+          <Link to="/users" className="bg-blue-500 transition-all hover:bg-slate-600 text-white w-full" href="/">
             <li>
               Users
             </li>
-          </a>
+          </Link>
+          <Link className="bg-blue-500 text-white w-full" >
+            <li>
+              Users
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>
