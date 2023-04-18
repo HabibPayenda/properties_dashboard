@@ -11,6 +11,10 @@ import Properties from './pages/Properties'
 import PageNotFound from './pages/PageNotFound'
 import UserSharedLayout from './pages/Layouts/UserSharedLayout'
 import Users from './pages/Users'
+import ReviewsSharedLayout from './pages/Layouts/ReviewsSharedLayout'
+import Reviews from './pages/Reviews';
+import Trainings from './pages/Trainings'
+import TrainingsSharedLayout from './pages/Layouts/TrainingsSharedLayout'
 
 
 function App() {
@@ -28,6 +32,12 @@ function App() {
           </Route>
           <Route path='users' element={<UserSharedLayout />}>
             <Route index element={<Users />} />
+          </Route>
+          <Route path='reviews' element={<ReviewsSharedLayout />}>
+            <Route index element={<Reviews />} />
+          </Route>
+          <Route path='trainings' element={<TrainingsSharedLayout />}>
+            <Route index element={<Trainings />} />
           </Route>
         </Route>
         <Route path='*' element={<PageNotFound />} />

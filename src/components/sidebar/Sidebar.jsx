@@ -27,9 +27,14 @@ const Sidebar = (props) => {
               Users
             </li>
           </Link>
-          <Link className="bg-blue-500 text-white w-full" >
+          <Link to="/reviews" className="bg-blue-500 text-white w-full" >
             <li>
-              Users
+              Reviews
+            </li>
+          </Link>
+          <Link to="/trainings" className="bg-blue-500 text-white w-full" >
+            <li>
+              Trainings
             </li>
           </Link>
         </ul>
