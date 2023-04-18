@@ -6,13 +6,16 @@ export const signIn = createAsyncThunk(
   async (data) => {
    // Code 
    try {
-    const result = await LoginApi.post('/login', {name: data.name, password: data.password}, {
+    const result = await LoginApi.post('/admins/login', {name: data.name, password: data.password}, {
       onUploadProgress: (progress) => {
         if (progress.loaded / progress.total === 1) {
          
         }
       },
     });
+    console.log(result.data)
+    localStorage.setItem('admin', JSON.stringify(result.data.admin))
+    localStorage.setItem('token', JSON.stringify(result.data.token))
     return result.data
   } catch (error) {
     console.log(error)

@@ -7,7 +7,6 @@ const LoginApi = axios.create({
     Accept: 'application/json',
     'X-Requested-With': 'XMLHttpRequest',
     "Content-Type": "application/json",
-    Connection: 'keep-alive',
   },
 });
 
