@@ -19,6 +19,10 @@ import SuggestionsSharedLayout from './pages/Layouts/SuggestionsSharedLayout'
 import Suggestions from './pages/Suggestions'
 import PropertyManagersSharedLayout from './pages/Layouts/PropertyManagersSharedLayout'
 import PropertyManagers from './pages/PropertyManagers'
+import OffersSharedLayout from './pages/Layouts/OffersSharedLayout'
+import Offers from './pages/Offers'
+import AppointmentsSharedLayout from './pages/Layouts/AppointmentsSharedLayout'
+import Appointments from './pages/Appointments'
 
 
 function App() {
@@ -51,6 +55,12 @@ function App() {
           </Route>
           <Route path='property_managers' element={<PropertyManagersSharedLayout />}>
             <Route index element={<PropertyManagers />} />
+          </Route>
+          <Route path='offers' element={<OffersSharedLayout />}>
+            <Route index element={<Offers />} />
+          </Route>
+          <Route path='appointments' element={<AppointmentsSharedLayout />}>
+            <Route index element={<Appointments />} />
           </Route>
         </Route>
         <Route path='*' element={<PageNotFound />} />
