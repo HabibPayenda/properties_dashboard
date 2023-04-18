@@ -42,6 +42,11 @@ const Sidebar = (props) => {
               Trainers
             </li>
           </NavLink>
+          <NavLink to="/suggestions" className="bg-blue-500 text-white w-full" >
+            <li>
+              Suggestions
+            </li>
+          </NavLink>
         </ul>
       </nav>
     </div>

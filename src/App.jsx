@@ -17,6 +17,8 @@ import Trainings from './pages/Trainings'
 import TrainingsSharedLayout from './pages/Layouts/TrainingsSharedLayout'
 import TrainersSharedLayout from './pages/Layouts/TrainersSharedLayout'
 import Trainers from './pages/Trainers'
+import SuggestionsSharedLayout from './pages/Layouts/SuggestionsSharedLayout'
+import Suggestions from './pages/Suggestions'
 
 
 function App() {
@@ -43,6 +45,9 @@ function App() {
           </Route>
           <Route path='trainers' element={<TrainersSharedLayout />}>
             <Route index element={<Trainers />} />
+          </Route>
+          <Route path='suggestions' element={<SuggestionsSharedLayout />}>
+            <Route index element={<Suggestions />} />
           </Route>
         </Route>
         <Route path='*' element={<PageNotFound />} />
