@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import './app.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Sidebar from './components/sidebar/Sidebar'
-import Main from './components/main/main'
 import HomeSharedLayout from './pages/Layouts/HomeSharedLayout'
 import Home from './pages/Home'
 import Property from './pages/Property'
@@ -19,6 +17,8 @@ import TrainersSharedLayout from './pages/Layouts/TrainersSharedLayout'
 import Trainers from './pages/Trainers'
 import SuggestionsSharedLayout from './pages/Layouts/SuggestionsSharedLayout'
 import Suggestions from './pages/Suggestions'
+import PropertyManagersSharedLayout from './pages/Layouts/PropertyManagersSharedLayout'
+import PropertyManagers from './pages/PropertyManagers'
 
 
 function App() {
@@ -48,6 +48,9 @@ function App() {
           </Route>
           <Route path='suggestions' element={<SuggestionsSharedLayout />}>
             <Route index element={<Suggestions />} />
+          </Route>
+          <Route path='property_managers' element={<PropertyManagersSharedLayout />}>
+            <Route index element={<PropertyManagers />} />
           </Route>
         </Route>
         <Route path='*' element={<PageNotFound />} />

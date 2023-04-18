@@ -47,6 +47,11 @@ const Sidebar = (props) => {
               Suggestions
             </li>
           </NavLink>
+          <NavLink to="/property_managers" className="bg-blue-500 text-white w-full" >
+            <li>
+              Property Managers
+            </li>
+          </NavLink>
         </ul>
       </nav>
     </div>
