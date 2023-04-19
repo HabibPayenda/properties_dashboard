@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllAgents } from '../../data/agentsSlice';
 
+import AgentCreate from '../../Forms/AgentCreate';
+
 import styles from './agents.module.css'
 
 function Agents() {
@@ -17,7 +19,7 @@ function Agents() {
         Agents List
       </div>
       <div className={styles.addNewAgentContainer}>
-        Add new agent
+        <AgentCreate />
       </div>
 
     </div>

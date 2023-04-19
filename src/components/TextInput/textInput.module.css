@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: white;
+  padding: 3px 6px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.input {
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+}
