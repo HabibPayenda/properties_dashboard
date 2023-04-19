@@ -20,7 +20,7 @@ function Agents() {
     <div className={styles.container}>
       <div className={styles.agentsListContainer}>
         <SectionHeader title="Agents" />
-        <LongList data={agents} title="Agents List" />
+        <LongList data={agents} />
       </div>
       <div className={styles.addNewAgentContainer}>
         <AgentCreate />

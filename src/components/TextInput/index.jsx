@@ -13,6 +13,7 @@ function TextInput({
   onBlur,
   touched,
   errors,
+  containerClassName,
 }) {
   const showErrors = () => {
     if (errors && touched) {
@@ -21,7 +22,7 @@ function TextInput({
   };
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${containerClassName}`}>
         {label && <p className={styles.label}>{label}</p>}
         <input
           onBlur={onBlur}
@@ -31,7 +32,7 @@ function TextInput({
           placeholder={placeholder}
           id={id}
           onChange={onChange}
-          className={[styles.input, errors ? styles.error : ""]}
+          className={`${styles.input} ${className}`}
         />
       </div>
       {showErrors()}

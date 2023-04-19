@@ -2,8 +2,9 @@ import React from "react";
 import styles from "./longList.module.css";
 import LongListItem from "../LongListItem";
 import LongListBtn from "../LongListBtn";
+import LongListSearchBox from "../LongListSearchBox";
 
-function LongList({ title, data }) {
+function LongList({ data }) {
   let columnsCount = 0;
   const columnNames = [];
   if (data.length) {
@@ -34,7 +35,7 @@ function LongList({ title, data }) {
 
   return (
     <div className={styles.container}>
-      <h2>{title}</h2>
+      <LongListSearchBox />
       <div
         className={styles.listHeader}
         style={{
