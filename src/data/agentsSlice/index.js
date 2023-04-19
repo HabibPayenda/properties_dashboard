@@ -59,21 +59,22 @@ export const addAgent = createAsyncThunk(
   'agents/addAgent',
   async (data) => {
     // Code 
-    try {
-      const result = await PropertiesApi.post('/agents', {name: data.name, password: data.password, isAdmin: data.isAdmin}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
-        },
-      });
+    console.log("data is ", data)
+    // try {
+    //   const result = await PropertiesApi.post('/agents', {name: data.name, password: data.password, isAdmin: data.isAdmin}, {
+    //     onUploadProgress: (progress) => {
+    //       if (progress.loaded / progress.total === 1) {
+    //       }
+    //     },
+    //   });
   
-      if(result.data.admin) {
-      }
-      return 1;
-    } catch (error) {
-      console.log(error)
-      return error;
-    }
+    //   if(result.data.admin) {
+    //   }
+    //   return 1;
+    // } catch (error) {
+    //   console.log(error)
+    //   return error;
+    // }
   }
 );
 

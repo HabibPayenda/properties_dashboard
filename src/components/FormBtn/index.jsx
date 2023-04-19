@@ -3,7 +3,7 @@ import styles from "./formBtn.module.css";
 
 function FormBtn({ title, onClick }) {
   return (
-    <button className={styles.btn} onClick={onClick}>
+    <button type="submit" className={styles.btn} onClick={onClick}>
       {" "}
       {title}
     </button>
