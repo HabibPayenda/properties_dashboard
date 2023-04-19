@@ -4,8 +4,12 @@ import React from "react";
 import styles from "./agentCreate.module.css";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
+import { useSelector } from "react-redux";
+import FormBtn from "../../components/FormBtn";
 
 function AgentCreate() {
+  const admins = useSelector((state) => state.admin.admins);
+  console.log(admins);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -56,8 +60,11 @@ function AgentCreate() {
           value={formik.values.admin_id}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          label="Admin"
+          label="Admin:"
+          titles={admins.map((admin) => admin.name)}
+          values={admins.map((admin) => admin.id)}
         />
+        <FormBtn title="Create" onClick={formik.handleSubmit} />
       </form>
     </div>
   );

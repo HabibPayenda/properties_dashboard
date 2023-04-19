@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import LoginApi from '../../utils/api/propertiesLogin';
+import PropertiesApi from '../../utils/api/propertiesApi';
 
 export const signIn = createAsyncThunk(
-  'admin/signIn',
+  'admins/signIn',
   async (data) => {
    // Code 
    try {
@@ -23,22 +24,28 @@ export const signIn = createAsyncThunk(
   },
 );
 
-export const localSignIn = createAsyncThunk('user/localSignIn', async () => {
+export const localSignIn = createAsyncThunk('admins/localSignIn', async () => {
  // Code 
  const token = localStorage.getItem('token')
  const admin = localStorage.getItem('admin')
  return {token, admin};
 });
 
-export const signOut = createAsyncThunk('user/signOut', async () => {
+export const signOut = createAsyncThunk('admins/signOut', async () => {
  // Code 
  localStorage.removeItem('admin')
  localStorage.removeItem('token')
  return null;
 });
 
+export const getAllAdmins = createAsyncThunk('admins/getAllAdmins', async () => {
+ // Code 
+ const result = await PropertiesApi.get('/admins')
+ return result.data;
+});
+
 export const addAdmin = createAsyncThunk(
-  'admin/addAdmin',
+  'admins/addAdmin',
   async (data) => {
     // Code 
     try {
@@ -61,6 +68,7 @@ export const addAdmin = createAsyncThunk(
 
 const initialState = {
   admin: {},
+  admins: [],
   token: null,
   noToken: null,
   loading: 'idle',
@@ -81,6 +89,11 @@ export const adminSlice = createSlice({
       // Code
       state.token = action.payload.token;
       state.admin = JSON.parse(action.payload.admin);
+    });
+
+    builder.addCase(getAllAdmins.fulfilled, (state, action) => {
+      // Code
+      state.admins = action.payload.admins;
     });
 
     builder.addCase(signOut.fulfilled, (state, action) => {
