@@ -12,8 +12,6 @@ function FormSelect({ label, titles, values, value, onChange, onBlur, id }) {
           value={value}
           onChange={onChange}
           className={styles.select}
-          defaultChecked={true}
-          defaultValue
         >
           {titles?.map((title, index) => {
             return (

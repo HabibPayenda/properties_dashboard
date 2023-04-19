@@ -57,24 +57,21 @@ export const getAllAgents = createAsyncThunk(
 );
 export const addAgent = createAsyncThunk(
   'agents/addAgent',
-  async (data) => {
+  async ({name, hire_date, status, admin_id}) => {
     // Code 
-    console.log("data is ", data)
-    // try {
-    //   const result = await PropertiesApi.post('/agents', {name: data.name, password: data.password, isAdmin: data.isAdmin}, {
-    //     onUploadProgress: (progress) => {
-    //       if (progress.loaded / progress.total === 1) {
-    //       }
-    //     },
-    //   });
-  
-    //   if(result.data.admin) {
-    //   }
-    //   return 1;
-    // } catch (error) {
-    //   console.log(error)
-    //   return error;
-    // }
+    // console.log("data is ", data)
+    try {
+      const result = await PropertiesApi.post('/agents', {name: name, hire_date: hire_date, status: status, admin_id: admin_id * 1}, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error)
+      return error;
+    }
   }
 );
 
@@ -115,6 +112,7 @@ export const agentsSlice = createSlice({
 
     builder.addCase(addAgent.fulfilled, (state, action) => {
       // Code
+      state.agents = [...state.agents, action.payload.agent]
     });
   },
 });
