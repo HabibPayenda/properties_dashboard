@@ -19,6 +19,7 @@
 
 .listBody {
   display: grid;
+  grid-row-gap: 5px;
   height: 90%;
   width: 100%;
   padding: 10px;

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./longList.module.css";
 import LongListItem from "../LongListItem";
+import LongListBtn from "../LongListBtn";
 
 function LongList({ title, data }) {
   let columnsCount = 0;
@@ -25,6 +26,7 @@ function LongList({ title, data }) {
           }
           items.push(<LongListItem key={item.name} item={item[cur]} />);
         }
+        items.push(<LongListBtn />);
       });
     }
     return items;
@@ -36,8 +38,8 @@ function LongList({ title, data }) {
       <div
         className={styles.listHeader}
         style={{
-          gridTemplateColumns: `repeat(${columnsCount}, ${
-            100 / columnsCount
+          gridTemplateColumns: `repeat(${columnsCount + 1}, ${
+            100 / (columnsCount + 1)
           }%)`,
         }}
       >
@@ -48,8 +50,8 @@ function LongList({ title, data }) {
       <div
         className={styles.listBody}
         style={{
-          gridTemplateColumns: `repeat(${columnsCount}, ${
-            100 / columnsCount
+          gridTemplateColumns: `repeat(${columnsCount + 1}, ${
+            100 / (columnsCount + 1)
           }%)`,
           gridTemplateRows: `repeat(${data.length}, 30px)`,
         }}

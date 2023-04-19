@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import styles from "./longListBtn.module.css";
+import { NavLink } from "react-router-dom";
 
 function LongListBtn() {
-  return (
-    <div>LongListBtn</div>
-  )
+  return <NavLink className={styles.container}>View</NavLink>;
 }
 
-export default LongListBtn
+export default LongListBtn;
