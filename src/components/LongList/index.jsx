@@ -1,10 +1,61 @@
 import React from "react";
 import styles from "./longList.module.css";
+import LongListItem from "../LongListItem";
 
-function LongList({ title }) {
+function LongList({ title, data }) {
+  let columnsCount = 0;
+  const columnNames = [];
+  if (data.length) {
+    for (let item in data[0]) {
+      if (item == "created_at" || item == "updated_at") {
+        continue;
+      }
+      columnNames.push(item);
+      columnsCount += 1;
+    }
+  }
+  const renderItems = () => {
+    let items = [];
+    if (data.length) {
+      data?.map((item) => {
+        console.log("in map");
+        for (let cur in item) {
+          if (cur == "created_at" || cur == "updated_at") {
+            continue;
+          }
+          items.push(<LongListItem key={item.name} item={item[cur]} />);
+        }
+      });
+    }
+    return items;
+  };
+
   return (
     <div className={styles.container}>
       <h2>{title}</h2>
+      <div
+        className={styles.listHeader}
+        style={{
+          gridTemplateColumns: `repeat(${columnsCount}, ${
+            100 / columnsCount
+          }%)`,
+        }}
+      >
+        {columnNames?.map((item) => (
+          <p>{item}</p>
+        ))}
+      </div>
+      <div
+        className={styles.listBody}
+        style={{
+          gridTemplateColumns: `repeat(${columnsCount}, ${
+            100 / columnsCount
+          }%)`,
+          gridTemplateRows: `repeat(${data.length}, 30px)`,
+        }}
+      >
+        {renderItems()}
+      </div>
     </div>
   );
 }

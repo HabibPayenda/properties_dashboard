@@ -7,3 +7,19 @@
   width: 100%;
   border: solid 1px #999;
 }
+
+.listHeader {
+  display: grid;
+  height: 5%;
+  align-content: center;
+  background-color: #999;
+  width: 100%;
+  padding: 10px;
+}
+
+.listBody {
+  display: grid;
+  height: 90%;
+  width: 100%;
+  padding: 10px;
+}

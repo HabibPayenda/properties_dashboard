@@ -12,7 +12,6 @@ import SectionHeader from "../../components/SectionHeader";
 function Agents() {
   const agents = useSelector((state) => state.agents.agents);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getAllAgents());
     dispatch(getAllAdmins());
@@ -21,7 +20,7 @@ function Agents() {
     <div className={styles.container}>
       <div className={styles.agentsListContainer}>
         <SectionHeader title="Agents" />
-        <LongList title="Agents List" />
+        <LongList data={agents} title="Agents List" />
       </div>
       <div className={styles.addNewAgentContainer}>
         <AgentCreate />
