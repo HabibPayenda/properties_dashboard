@@ -23,6 +23,11 @@ const Sidebar = (props) => {
               Home
             </li>
           </NavLink>
+          <NavLink to="/agents" className="bg-blue-500 text-white w-full" >
+            <li>
+              Agents
+            </li>
+          </NavLink>
           <NavLink to="/properties" className="bg-blue-500 text-white w-full" >
             <li>
               Properties

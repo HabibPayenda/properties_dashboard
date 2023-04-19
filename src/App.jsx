@@ -28,6 +28,8 @@ import Appointments from './pages/Appointments'
 import Login from './pages/Login'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { localSignIn } from './data/adminSlice'
+import AgentsSharedLayout from './pages/Layouts/AgentsSharedLayout'
+import Agents from './pages/Agents'
 
 
 function App() {
@@ -49,6 +51,9 @@ function App() {
             <Route path='properties' element={<PropertySharedLaout />}>
               <Route index element={<Properties />} />
               <Route path=':id' element={<Property />} />
+            </Route>
+            <Route path='agents' element={<AgentsSharedLayout />}>
+              <Route index element={<Agents />} />
             </Route>
             <Route path='users' element={<UserSharedLayout />}>
               <Route index element={<Users />} />
