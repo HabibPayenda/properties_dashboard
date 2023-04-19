@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+}
+
+.agentsListContainer {
+  display: flex;
+  flex: 2;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  height: 100%;
+}
+
+.addNewAgentContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  height: 100%;
+}
