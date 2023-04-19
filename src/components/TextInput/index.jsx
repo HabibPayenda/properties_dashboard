@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './textInput.module.css'
+import styles from "./textInput.module.css";
 
 function TextInput({
   name,
@@ -9,21 +9,33 @@ function TextInput({
   onChange,
   type,
   className,
-  label
+  label,
+  onBlur,
+  touched,
+  errors,
 }) {
+  const showErrors = () => {
+    if (errors && touched) {
+      return <span className={styles.errors}>{errors}</span>;
+    }
+  };
   return (
-    <div className={styles.container}>
-      {label && <p className={styles.label}>{label}</p>}
-      <input
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        id={id}
-        onChange={onChange}
-        className={[styles.input]}
+    <>
+      <div className={styles.container}>
+        {label && <p className={styles.label}>{label}</p>}
+        <input
+          onBlur={onBlur}
+          type={type}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          id={id}
+          onChange={onChange}
+          className={[styles.input, errors ? styles.error : ""]}
         />
       </div>
+      {showErrors()}
+    </>
   );
 }
 
