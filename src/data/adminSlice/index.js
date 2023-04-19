@@ -13,7 +13,6 @@ export const signIn = createAsyncThunk(
         }
       },
     });
-    console.log(result.data)
     localStorage.setItem('admin', JSON.stringify(result.data.admin))
     localStorage.setItem('token', JSON.stringify(result.data.token))
     return result.data
@@ -26,11 +25,15 @@ export const signIn = createAsyncThunk(
 
 export const localSignIn = createAsyncThunk('user/localSignIn', async () => {
  // Code 
+ const token = localStorage.getItem('token')
+ const admin = localStorage.getItem('admin')
  return {token, admin};
 });
 
 export const signOut = createAsyncThunk('user/signOut', async () => {
  // Code 
+ localStorage.removeItem('admin')
+ localStorage.removeItem('token')
  return null;
 });
 

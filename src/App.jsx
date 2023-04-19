@@ -26,15 +26,18 @@ import Offers from './pages/Offers'
 import AppointmentsSharedLayout from './pages/Layouts/AppointmentsSharedLayout'
 import Appointments from './pages/Appointments'
 import Login from './pages/Login'
-import { Provider, useDispatch } from 'react-redux'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import { localSignIn } from './data/adminSlice'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const token = useSelector((state) => state.admin.token)
 
-  const token = JSON.stringify(localStorage.getItem('token'));
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(localSignIn())  
+  }, [])
 
 
   const adminPresent = () => {

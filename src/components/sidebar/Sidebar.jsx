@@ -2,8 +2,14 @@ import React from "react";
 // import styles from "./sidebar.module.css";
 import logo from '../../assets/logo.jpg'
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signOut } from "../../data/adminSlice";
 
 const Sidebar = (props) => {
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(signOut())
+  }
   return (
     <div className="flex flex-grow flex-col bg-yellow-50 h-screen items-center justify-start col-span-2">
       <div className="p-4">
@@ -60,6 +66,11 @@ const Sidebar = (props) => {
           <NavLink to="/appointments" className="bg-blue-500 text-white w-full" >
             <li>
               Appointments
+            </li>
+          </NavLink>
+          <NavLink to="/" onClick={handleLogout} className="bg-blue-500 text-white w-full" >
+            <li>
+              Logout
             </li>
           </NavLink>
         </ul>
