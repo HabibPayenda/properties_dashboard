@@ -9,11 +9,13 @@
 
 .agentsListContainer {
   display: flex;
-  flex: 2;
+  flex-direction: column;
+  flex: 2.5;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #eee;
   height: 100%;
+  width: 100%;
 }
 
 .addNewAgentContainer {

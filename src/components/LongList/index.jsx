@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import styles from "./longList.module.css";
 
-function LongList() {
+function LongList({ title }) {
   return (
-    <div>LongList</div>
-  )
+    <div className={styles.container}>
+      <h2>{title}</h2>
+    </div>
+  );
 }
 
-export default LongList
+export default LongList;

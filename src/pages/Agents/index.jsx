@@ -6,6 +6,8 @@ import AgentCreate from "../../Forms/AgentCreate";
 
 import styles from "./agents.module.css";
 import { getAllAdmins } from "../../data/adminSlice";
+import LongList from "../../components/LongList";
+import SectionHeader from "../../components/SectionHeader";
 
 function Agents() {
   const agents = useSelector((state) => state.agents.agents);
@@ -17,7 +19,10 @@ function Agents() {
   }, []);
   return (
     <div className={styles.container}>
-      <div className={styles.agentsListContainer}>Agents List</div>
+      <div className={styles.agentsListContainer}>
+        <SectionHeader title="Agents" />
+        <LongList title="Agents List" />
+      </div>
       <div className={styles.addNewAgentContainer}>
         <AgentCreate />
       </div>
