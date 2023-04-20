@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./propertyManagers.module.css";
 import SectionHeader from "../../components/SectionHeader";
+import PropertyManagerCreate from "../../Forms/PropertyManagerCreate";
 
 function PropertyManagers() {
   return (
@@ -9,7 +10,9 @@ function PropertyManagers() {
         <SectionHeader title="Property Managers" />
         <div className={styles.list}>Property Managers List</div>
       </div>
-      <div className={styles.propertyManagersAdd}>Add PropertyManger</div>
+      <div className={styles.propertyManagersAdd}>
+        <PropertyManagerCreate />
+      </div>
     </div>
   );
 }
