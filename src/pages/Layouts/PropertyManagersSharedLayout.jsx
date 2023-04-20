@@ -1,10 +1,9 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import SectionHeader from "../../components/SectionHeader";
 
 function PropertyManagersSharedLayout() {
-  return (
-    <Outlet />
-  )
+  return <Outlet />;
 }
 
-export default PropertyManagersSharedLayout
+export default PropertyManagersSharedLayout;

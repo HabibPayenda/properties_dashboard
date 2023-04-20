@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./longList.module.css";
 import LongListItem from "../LongListItem";
 import LongListBtn from "../LongListBtn";
 import LongListSearchBox from "../LongListSearchBox";
 
 function LongList({ data }) {
+  const [dataToRender, setDataToRender] = useState([]);
+
+  if (data.length && dataToRender.length === 0) {
+    setDataToRender(data);
+  }
+
   let columnsCount = 0;
   const columnNames = [];
+
   if (data.length) {
     for (let item in data[0]) {
       if (item == "created_at" || item == "updated_at") {
@@ -16,16 +23,17 @@ function LongList({ data }) {
       columnsCount += 1;
     }
   }
+
+  let items;
   const renderItems = () => {
-    let items = [];
-    if (data.length) {
-      data?.map((item) => {
-        console.log("in map");
+    items = [];
+    if (dataToRender.length) {
+      dataToRender?.map((item) => {
         for (let cur in item) {
           if (cur == "created_at" || cur == "updated_at") {
             continue;
           }
-          items.push(<LongListItem key={item.name} item={item[cur]} />);
+          items.push(<LongListItem key={item[cur]} item={item[cur]} />);
         }
         items.push(<LongListBtn />);
       });
@@ -33,9 +41,16 @@ function LongList({ data }) {
     return items;
   };
 
+  console.log(renderItems());
+
+  console.log("length", items?.length);
+
   return (
     <div className={styles.container}>
-      <LongListSearchBox />
+      <LongListSearchBox
+        dataToRender={dataToRender}
+        setDataToRender={setDataToRender}
+      />
       <div
         className={styles.listHeader}
         style={{
