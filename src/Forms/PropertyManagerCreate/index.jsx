@@ -10,13 +10,13 @@ import propertyManagerCreateSchema from "./propertyManagerCreateSchema";
 import { addAgent } from "../../data/agentsSlice";
 
 function PropertyManagerCreate() {
-  const admins = useSelector((state) => state.admin.admins);
+  const agents = useSelector((state) => state.agents.agents);
+  console.log(agents);
 
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAgent(formik.values));
   };
 
   const formik = useFormik({
@@ -87,8 +87,8 @@ function PropertyManagerCreate() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           label="Agent:"
-          titles={admins.map((admin) => admin.name)}
-          values={admins.map((admin) => admin.id)}
+          titles={agents.map((agent) => agent.name)}
+          values={agents.map((agent) => agent.id)}
           errors={formik.errors.admin_id}
           touched={formik.touched.admin_id}
           id="agent_id"
