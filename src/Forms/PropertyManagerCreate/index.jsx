@@ -7,7 +7,7 @@ import FormSelect from "../../components/FromSelect";
 import { useDispatch, useSelector } from "react-redux";
 import FormBtn from "../../components/FormBtn";
 import propertyManagerCreateSchema from "./propertyManagerCreateSchema";
-import { addAgent } from "../../data/agentsSlice";
+import { addPropertyManager } from "../../data/propertyManagersSlice";
 
 function PropertyManagerCreate() {
   const agents = useSelector((state) => state.agents.agents);
@@ -17,6 +17,7 @@ function PropertyManagerCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
+    dispatch(addPropertyManager(formik.values));
   };
 
   const formik = useFormik({
@@ -65,7 +66,6 @@ function PropertyManagerCreate() {
           value={formik.values.company_name}
           id="company_name"
           type="text"
-          name="name"
           errors={formik.errors.company_name}
           touched={formik.touched.company_name}
         />

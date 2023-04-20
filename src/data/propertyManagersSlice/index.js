@@ -76,7 +76,7 @@ export const addPropertyManager = createAsyncThunk(
 );
 
 const initialState = {
-  propertyManagers: {},
+  propertyManagers: [],
   token: null,
   noToken: null,
   loading: 'idle',
@@ -105,14 +105,14 @@ export const propertyManagersSlice = createSlice({
       state.admin = {};
     });
 
-    builder.addCase(getAllAgents.fulfilled, (state, action) => {
+    builder.addCase(getAllPropertyManagers.fulfilled, (state, action) => {
       // Code
-      state.agents = action.payload.property_managers;
+      state.propertyManagers = action.payload.property_managers;
     });
 
-    builder.addCase(addAgent.fulfilled, (state, action) => {
+    builder.addCase(addPropertyManager.fulfilled, (state, action) => {
       // Code
-      state.agents = [...state.agents, action.payload.property_manager]
+      state.propertyManagers = [...state.agents, action.payload.property_manager]
     });
   },
 });
