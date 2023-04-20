@@ -22,9 +22,9 @@ function PropertyManagerCreate() {
   const formik = useFormik({
     initialValues: {
       name: "",
-      hire_date: "",
+      company_name: "",
       status: "",
-      admin_id: "",
+      agent_id: "",
     },
     validationSchema: propertyManagerCreateSchema,
     onSubmit: handleFormSubmit,
@@ -46,7 +46,7 @@ function PropertyManagerCreate() {
           label="Name:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Agent Name"
+          placeholder="Manager Name"
           className={styles.input}
           value={formik.values.name}
           id="name"
@@ -55,19 +55,21 @@ function PropertyManagerCreate() {
           errors={formik.errors.name}
           touched={formik.touched.name}
         />
+
         <TextInput
-          label="Hire Date:"
+          label="Company:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Hire date"
+          placeholder="Company Name"
           className={styles.input}
-          value={formik.values.hire_date}
-          id="hire_date"
-          name="hire_date"
-          type="date"
-          errors={formik.errors.hire_date}
-          touched={formik.touched.hire_date}
+          value={formik.values.company_name}
+          id="company_name"
+          type="text"
+          name="name"
+          errors={formik.errors.company_name}
+          touched={formik.touched.company_name}
         />
+
         <FormSelect
           id="status"
           value={formik.values.status}
@@ -81,15 +83,15 @@ function PropertyManagerCreate() {
         />
 
         <FormSelect
-          value={formik.values.admin_id}
+          value={formik.values.agent_id}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          label="Admin:"
+          label="Agent:"
           titles={admins.map((admin) => admin.name)}
           values={admins.map((admin) => admin.id)}
           errors={formik.errors.admin_id}
           touched={formik.touched.admin_id}
-          id="admin_id"
+          id="agent_id"
         />
         <FormBtn title="Create" onClick={formik.handleSubmit} />
       </form>
