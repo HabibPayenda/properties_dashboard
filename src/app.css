@@ -15,6 +15,15 @@
   background-color: black;
 }
 
+.tableContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
 
 table {
   font-family: Arial, Helvetica, sans-serif;
