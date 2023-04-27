@@ -89,7 +89,7 @@ function PropertyManagersTable() {
                     })}
                     <Link
                       className="tableViewBtn"
-                      to={`agent/${row.allCells[0].row.original.id}`}
+                      to={`property_manager/${row.allCells[0].row.original.id}`}
                     >
                       View
                     </Link>

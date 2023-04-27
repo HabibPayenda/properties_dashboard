@@ -31,6 +31,7 @@ import { localSignIn } from "./data/adminSlice";
 import AgentsSharedLayout from "./pages/Layouts/AgentsSharedLayout";
 import Agents from "./pages/Agents";
 import Agent from "./pages/Agent";
+import PropertyManager from "./pages/PropertyManager";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -75,6 +76,10 @@ function App() {
               element={<PropertyManagersSharedLayout />}
             >
               <Route index element={<PropertyManagers />} />
+              <Route
+                path="property_manager/:id"
+                element={<PropertyManager />}
+              />
             </Route>
             <Route path="offers" element={<OffersSharedLayout />}>
               <Route index element={<Offers />} />
