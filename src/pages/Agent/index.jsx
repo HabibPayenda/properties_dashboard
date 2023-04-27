@@ -18,7 +18,11 @@ function Agent() {
   return (
     <div className={styles.container}>
       <SectionHeader title={`Agent ${agent?.name} details`} />
-      <div className={styles.contentContainer}>Agent</div>
+      <div className={styles.contentContainer}>
+        <div className={styles.column}>Properties </div>
+        <div className={styles.column}>Property Managers</div>
+        <div className={styles.column}>Trainings</div>
+      </div>
     </div>
   );
 }

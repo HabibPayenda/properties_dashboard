@@ -11,4 +11,16 @@
 .contentContainer {
   display: flex;
   flex: 9;
+  gap: 10px;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: blue;
+  flex: 1;
+  
 }
