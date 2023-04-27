@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+}
+
+.contentContainer {
+  display: flex;
+  flex: 9;
+}
