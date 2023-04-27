@@ -28,10 +28,10 @@ function PropertyManager() {
           <ContentHeader title="Properties" />
         </div>
         <div className={styles.column}>
-          <ContentHeader title="Property Managers" />
+          <ContentHeader title="Reviews" />
         </div>
         <div className={styles.column}>
-          <ContentHeader title="Trainings" />
+          <ContentHeader title="Address" />
         </div>
       </div>
     </div>
