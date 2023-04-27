@@ -4,6 +4,7 @@ import SectionHeader from "../../components/SectionHeader";
 import PropertyManagerCreate from "../../Forms/PropertyManagerCreate";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPropertyManagers } from "../../data/propertyManagersSlice";
+import PropertyManagersTable from "../../tables/PropertyManagersTable";
 
 function PropertyManagers() {
   const dispatch = useDispatch();
@@ -19,10 +20,8 @@ function PropertyManagers() {
     <div className={styles.propertyManagersContainer}>
       <div className={styles.propertyManagersList}>
         <SectionHeader title="Property Managers" />
-        <div className={styles.list}>
-          <h1>Propety manager List</h1>
-          {propertyManagers &&
-            propertyManagers.map((manager) => <p>{manager.name}</p>)}
+        <div style={{ flex: 9, width: "100%" }}>
+          <PropertyManagersTable />
         </div>
       </div>
       <div className={styles.propertyManagersAdd}>
