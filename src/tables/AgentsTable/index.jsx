@@ -10,6 +10,7 @@ import {
 import { AgentTableComlumns } from "./columns";
 import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
+import { Link } from "react-router-dom";
 
 function AgentsTable() {
   const agents = useSelector((state) => state.agents.agents);
@@ -75,14 +76,23 @@ function AgentsTable() {
           <tbody {...getTableBodyProps()}>
             {page.map((row) => {
               prepareRow(row);
+              console.log(row.allCells[0].row.original.id);
               return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                    );
-                  })}
-                </tr>
+                <>
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      );
+                    })}
+                    <Link
+                      className="tableViewBtn"
+                      to={`agent/${row.allCells[0].row.original.id}`}
+                    >
+                      View
+                    </Link>
+                  </tr>
+                </>
               );
             })}
           </tbody>
