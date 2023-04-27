@@ -76,7 +76,7 @@ export const addAgent = createAsyncThunk(
 );
 
 const initialState = {
-  agents: {},
+  agents: [],
   token: null,
   noToken: null,
   loading: 'idle',

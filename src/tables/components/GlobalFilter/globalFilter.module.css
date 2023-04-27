@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.label {
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: solid 1px #eee;
+}
+
+.input {
+  width: 85%;
+  border: solid 1px blueviolet;
+  padding: 2px 5px;
+}
+
+.input:focus {
+  border: solid 1px blueviolet;
+  outline: none;
+}
