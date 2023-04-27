@@ -10,7 +10,7 @@ function Properties() {
       <div style={{ flex: 9, width: "100%", height: "83%" }}>
         <SectionHeader title="Properties" />
         <div className={styles.contentContainer}>
-          <Link className={styles.link} to="/homes">
+          <Link className={styles.link} to="homes">
             <PropertyCard title="Homes" count={0} />
           </Link>
           <PropertyCard title="Cars" count={0} />
