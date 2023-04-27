@@ -16,8 +16,9 @@ function Properties() {
           <Link className={styles.link} to="cars">
             <PropertyCard title="Cars" count={0} />
           </Link>
-
-          <PropertyCard title="Warehouses" count={0} />
+          <Link className={styles.link} to="warehouses">
+            <PropertyCard title="Warehouses" count={0} />
+          </Link>
           <PropertyCard title="Lands" count={0} />
         </div>
       </div>
