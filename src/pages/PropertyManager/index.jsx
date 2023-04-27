@@ -27,13 +27,24 @@ function PropertyManager() {
       <div className={styles.contentContainer}>
         <div className={styles.column}>
           <ContentHeader title="Properties" />
-          <PropertiesSummary properties={propertyManager?.properties} />
+          <p>{`Count: ${propertyManager?.properties?.length}`}</p>
+          {propertyManager?.properties?.length < 1 && (
+            <h3>
+              There are no properties associated with this property manager
+            </h3>
+          )}
         </div>
         <div className={styles.column}>
           <ContentHeader title="Reviews" />
+          {propertyManager?.property_manager_reviews?.length < 1 && (
+            <h3>There are no reviews associated with this property manager</h3>
+          )}
         </div>
         <div className={styles.column}>
           <ContentHeader title="Address" />
+          {propertyManager?.property_manager_addresses?.length < 1 && (
+            <h3>There is no address associated with this property manager</h3>
+          )}
         </div>
       </div>
     </div>
