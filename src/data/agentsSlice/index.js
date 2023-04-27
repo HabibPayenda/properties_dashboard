@@ -39,10 +39,29 @@ export const signOut = createAsyncThunk('user/signOut', async () => {
 
 export const getAllAgents = createAsyncThunk(
   'agents/getAllAgents',
-  async (data) => {
+  async () => {
     // Code 
     try {
       const result = await PropertiesApi.get('/agents', {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error)
+      return error;
+    }
+  }
+);
+export const getAgent = createAsyncThunk(
+  'agents/getAgent',
+  async (id) => {
+    // Code 
+    console.log(id)
+    try {
+      const result = await PropertiesApi.get(`agents/${id}`, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -77,6 +96,7 @@ export const addAgent = createAsyncThunk(
 
 const initialState = {
   agents: [],
+  showAgent: {},
   token: null,
   noToken: null,
   loading: 'idle',
@@ -108,6 +128,10 @@ export const agentsSlice = createSlice({
     builder.addCase(getAllAgents.fulfilled, (state, action) => {
       // Code
       state.agents = action.payload.agents;
+    });
+    builder.addCase(getAgent.fulfilled, (state, action) => {
+      // Code
+      state.showAgent = action.payload.agent;
     });
 
     builder.addCase(addAgent.fulfilled, (state, action) => {
