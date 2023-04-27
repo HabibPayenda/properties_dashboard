@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+}
+
+.contentContainer {
+  display: flex;
+  flex: 9;
+  gap: 10px;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #eee;
+  flex-direction: column;
+  flex: 1;
+}
