@@ -22,3 +22,12 @@
   border: solid 1px blueviolet;
   cursor: not-allowed;
 }
+
+.pageNumbers {
+  background-color: blueviolet;
+  padding: 4px 8px;
+  color: #eee;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}

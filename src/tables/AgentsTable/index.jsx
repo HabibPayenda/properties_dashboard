@@ -40,9 +40,10 @@ function AgentsTable() {
     previousPage,
     canNextPage,
     canPreviousPage,
+    pageOptions,
   } = tableInstance;
 
-  const { globalFilter } = state;
+  const { globalFilter, pageIndex } = state;
 
   return (
     <>
@@ -92,6 +93,8 @@ function AgentsTable() {
         nextPage={nextPage}
         canNextPage={canNextPage}
         canPreviousPage={canPreviousPage}
+        pageIndex={pageIndex}
+        pageOptions={pageOptions}
       />
     </>
   );
