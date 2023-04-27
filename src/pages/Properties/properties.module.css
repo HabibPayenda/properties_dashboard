@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+  height: 100%;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  padding: 12px;
+  flex: 9;
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+}
+
+.link {
+  height: 100%;
+  width: 100%;
+}
