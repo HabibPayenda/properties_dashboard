@@ -38,6 +38,8 @@ function AgentsTable() {
     setGlobalFilter,
     nextPage,
     previousPage,
+    canNextPage,
+    canPreviousPage,
   } = tableInstance;
 
   const { globalFilter } = state;
@@ -85,7 +87,12 @@ function AgentsTable() {
           </tbody>
         </table>
       </div>
-      <Pagination previousPage={previousPage} nextPage={nextPage} />
+      <Pagination
+        previousPage={previousPage}
+        nextPage={nextPage}
+        canNextPage={canNextPage}
+        canPreviousPage={canPreviousPage}
+      />
     </>
   );
 }
