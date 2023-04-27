@@ -48,6 +48,7 @@ export const getAllPropertyManagers = createAsyncThunk(
           }
         },
       });
+      console.log(result.data)
       return result.data;
     } catch (error) {
       console.log(error)
@@ -67,6 +68,7 @@ export const getPropertyManager = createAsyncThunk(
           }
         },
       });
+      console.log(result.data)
       return result.data;
     } catch (error) {
       console.log(error)

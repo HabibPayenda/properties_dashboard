@@ -5,6 +5,7 @@ import SectionHeader from "../../components/SectionHeader";
 import styles from "./propertyManager.module.css";
 import ContentHeader from "../../components/ContentHeader";
 import { getPropertyManager } from "../../data/propertyManagersSlice";
+import PropertiesSummary from "../../components/PropertiesSummary";
 
 function PropertyManager() {
   const { id } = useParams();
@@ -26,6 +27,7 @@ function PropertyManager() {
       <div className={styles.contentContainer}>
         <div className={styles.column}>
           <ContentHeader title="Properties" />
+          <PropertiesSummary properties={propertyManager?.properties} />
         </div>
         <div className={styles.column}>
           <ContentHeader title="Reviews" />
