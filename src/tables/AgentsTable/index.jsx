@@ -1,9 +1,15 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { useTable, useSortBy, useFilters, useGlobalFilter } from "react-table";
+import {
+  useTable,
+  useSortBy,
+  useGlobalFilter,
+  usePagination,
+} from "react-table";
 
 import { AgentTableComlumns } from "./columns";
 import GlobalFilter from "../components/GlobalFilter";
+import Pagination from "../components/Pagination";
 
 function AgentsTable() {
   const agents = useSelector((state) => state.agents.agents);
@@ -18,17 +24,20 @@ function AgentsTable() {
       data,
     },
     useGlobalFilter,
-    useSortBy
+    useSortBy,
+    usePagination
   );
 
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    page,
     prepareRow,
     state,
     setGlobalFilter,
+    nextPage,
+    previousPage,
   } = tableInstance;
 
   const { globalFilter } = state;
@@ -58,7 +67,7 @@ function AgentsTable() {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -72,6 +81,7 @@ function AgentsTable() {
           })}
         </tbody>
       </table>
+      <Pagination previousPage={previousPage} nextPage={nextPage} />
     </>
   );
 }

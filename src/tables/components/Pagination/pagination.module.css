@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  align-self: flex-end;
+}
+
+.btn {
+  background-color: blueviolet;
+  color: white;
+  width: 60px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
