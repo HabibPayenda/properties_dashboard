@@ -13,7 +13,10 @@ function Properties() {
           <Link className={styles.link} to="homes">
             <PropertyCard title="Homes" count={0} />
           </Link>
-          <PropertyCard title="Cars" count={0} />
+          <Link className={styles.link} to="cars">
+            <PropertyCard title="Cars" count={0} />
+          </Link>
+
           <PropertyCard title="Warehouses" count={0} />
           <PropertyCard title="Lands" count={0} />
         </div>

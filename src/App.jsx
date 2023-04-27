@@ -33,6 +33,7 @@ import Agents from "./pages/Agents";
 import Agent from "./pages/Agent";
 import PropertyManager from "./pages/PropertyManager";
 import Homes from "./pages/Homes";
+import Cars from "./pages/Cars";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -53,6 +54,7 @@ function App() {
               <Route index element={<Properties />} />
               <Route path=":id" element={<Property />} />
               <Route path="homes" element={<Homes />} />
+              <Route path="cars" element={<Cars />} />
             </Route>
             <Route path="agents" element={<AgentsSharedLayout />}>
               <Route index element={<Agents />} />
