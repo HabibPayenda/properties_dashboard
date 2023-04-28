@@ -5,14 +5,17 @@ import SectionHeader from "../../components/SectionHeader";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../data/homeSlice";
+import { getAllCars } from "../../data/CarsSlice";
 
 function Properties() {
   const homes = useSelector((state) => state.homes.homes);
+  const cars = useSelector((state) => state.cars.cars);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllHomes());
+    dispatch(getAllCars());
   }, []);
   return (
     <div className={styles.container}>
@@ -23,7 +26,7 @@ function Properties() {
             <PropertyCard title="Homes" count={homes?.length} />
           </Link>
           <Link className={styles.link} to="cars">
-            <PropertyCard title="Cars" count={0} />
+            <PropertyCard title="Cars" count={cars?.length} />
           </Link>
           <Link className={styles.link} to="warehouses">
             <PropertyCard title="Warehouses" count={0} />
