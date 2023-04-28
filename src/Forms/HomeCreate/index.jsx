@@ -13,13 +13,16 @@ function HomeCreate() {
   const propertyManagers = useSelector(
     (state) => state.propertyManagers.propertyManagers
   );
+
   console.log(agents);
+  console.log(propertyManagers);
 
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
     dispatch(addHome(formik.values));
+    formik.resetForm();
   };
 
   const formik = useFormik({
@@ -42,6 +45,8 @@ function HomeCreate() {
       }
     }
   };
+
+  console.log(formik.values);
 
   return (
     <div className={styles.container}>
@@ -82,7 +87,6 @@ function HomeCreate() {
           value={formik.values.description}
           id="description"
           type="text"
-          name="name"
           errors={formik.errors.description}
           touched={formik.touched.description}
         />
@@ -118,12 +122,12 @@ function HomeCreate() {
           titles={propertyManagers.map(
             (propertyManager) => propertyManager.name
           )}
-          values={agents.map((propertyManager) => propertyManager.id)}
+          values={propertyManagers.map((propertyManager) => propertyManager.id)}
           errors={formik.errors.property_manager_id}
           touched={formik.touched.property_manager_id}
           id="property_manager_id"
         />
-        <FormBtn title="Create" onClick={formik.handleSubmit} />
+        <FormBtn title="Create" onClick={() => handleFormSubmit()} />
       </form>
       <div>{showErrors()}</div>
     </div>

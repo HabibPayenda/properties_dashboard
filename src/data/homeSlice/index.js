@@ -42,15 +42,18 @@ export const getHome = createAsyncThunk(
 );
 export const addHome = createAsyncThunk(
   'homes/addHome',
-  async ({owner_name, property_id}) => {
+  async ({owner_name, name, status, property_manager_id, agent_id, description }) => {
+
+    console.log(owner_name, name, status, property_manager_id, agent_id, description)
 
     try {
-      const result = await PropertiesApi.post('/homes', {owner_name: owner_name, property_id: property_id * 1}, {
+      const result = await PropertiesApi.post('/homes', {owner_name: owner_name, name: name, availability_status: status, property_manager_id: property_manager_id * 1, agent_id: agent_id * 1, description: description }, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
         },
       });
+      console.log(result.data)
       return result.data;
     } catch (error) {
       console.log(error)
