@@ -30,4 +30,5 @@
 .contentContainer {
   display: flex;
   flex: 9;
+  width: 100%;
 }
