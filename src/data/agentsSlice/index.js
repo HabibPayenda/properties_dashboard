@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import PropertiesApi from '../../utils/api/propertiesApi';
+import months from '../../utils/months';
 
 export const signIn = createAsyncThunk(
   'agent/signIn',
@@ -94,6 +95,8 @@ export const addAgent = createAsyncThunk(
   }
 );
 
+
+
 const initialState = {
   agents: [],
   showAgent: {},
@@ -101,6 +104,8 @@ const initialState = {
   noToken: null,
   loading: 'idle',
   role: null,
+  chartMonths: [],
+  chartData: []
 };
 
 export const agentsSlice = createSlice({
@@ -128,6 +133,27 @@ export const agentsSlice = createSlice({
     builder.addCase(getAllAgents.fulfilled, (state, action) => {
       // Code
       state.agents = action.payload.agents;
+      let count = 0;
+      let index;
+      action.payload.agents.forEach(agent => {
+        const month = new Date(agent.created_at.slice(0, -1)).getMonth()
+        const monthText = months[month]
+        
+
+        if(state.chartMonths.indexOf(monthText) == -1) {
+          count = 0;
+          state.chartMonths.push(monthText);
+          console.log('index to be : ', state.chartMonths.indexOf(monthText))
+          count += 1;
+          index = state.chartMonths.indexOf(monthText);
+          
+          state.chartData[index] = 1;
+        } else {
+          count += 1;
+          console.log("index is : ", index)
+            state.chartData[index] = count ;
+        }
+      }); 
     });
     builder.addCase(getAgent.fulfilled, (state, action) => {
       // Code

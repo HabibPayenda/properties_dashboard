@@ -37,6 +37,7 @@ import Cars from "./pages/Cars";
 import WareHouses from "./pages/WareHouses";
 import Lands from "./pages/Lands";
 import HomesSharedLayout from "./pages/Layouts/HomesSharedLayout";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -52,7 +53,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeSharedLayout />}>
-            <Route index element={<Home />} />
+            <Route index element={<Dashboard />} />
             <Route path="properties" element={<PropertySharedLaout />}>
               <Route index element={<Properties />} />
               <Route path=":id" element={<Property />} />
