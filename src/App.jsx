@@ -36,6 +36,7 @@ import Homes from "./pages/Homes";
 import Cars from "./pages/Cars";
 import WareHouses from "./pages/WareHouses";
 import Lands from "./pages/Lands";
+import HomesSharedLayout from "./pages/Layouts/HomesSharedLayout";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -55,7 +56,10 @@ function App() {
             <Route path="properties" element={<PropertySharedLaout />}>
               <Route index element={<Properties />} />
               <Route path=":id" element={<Property />} />
-              <Route path="homes" element={<Homes />} />
+              <Route path="homes" element={<HomesSharedLayout />}>
+                <Route index element={<Homes />} />
+                <Route path=":id" element={<Home />} />
+              </Route>
               <Route path="cars" element={<Cars />} />
               <Route path="warehouses" element={<WareHouses />} />
               <Route path="lands" element={<Lands />} />

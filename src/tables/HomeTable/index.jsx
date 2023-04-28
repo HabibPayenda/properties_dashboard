@@ -87,7 +87,7 @@ function HomesTable() {
                     })}
                     <Link
                       className="tableViewBtn"
-                      to={`property_manager/${row.allCells[0].row.original.id}`}
+                      to={`${row.allCells[0].row.original.id}`}
                     >
                       View
                     </Link>
