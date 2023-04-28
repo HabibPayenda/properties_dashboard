@@ -35,6 +35,7 @@ import PropertyManager from "./pages/PropertyManager";
 import Homes from "./pages/Homes";
 import Cars from "./pages/Cars";
 import WareHouses from "./pages/WareHouses";
+import Lands from "./pages/Lands";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -57,6 +58,7 @@ function App() {
               <Route path="homes" element={<Homes />} />
               <Route path="cars" element={<Cars />} />
               <Route path="warehouses" element={<WareHouses />} />
+              <Route path="lands" element={<Lands />} />
             </Route>
             <Route path="agents" element={<AgentsSharedLayout />}>
               <Route index element={<Agents />} />
