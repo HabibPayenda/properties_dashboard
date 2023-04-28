@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./homes.module.css";
 import SectionHeader from "../../components/SectionHeader";
+import HomeCreate from "../../Forms/HomeCreate";
 
 function Homes() {
   return (
@@ -9,7 +10,9 @@ function Homes() {
         <SectionHeader title="Homes" />
         <div className={styles.contentContainer}></div>
       </div>
-      <div className={styles.addNewContainer}></div>
+      <div className={styles.addNewContainer}>
+        <HomeCreate />
+      </div>
     </div>
   );
 }
