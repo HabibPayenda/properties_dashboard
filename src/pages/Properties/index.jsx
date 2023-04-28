@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropertyCard from "../../components/PropertyCard";
 import styles from "./properties.module.css";
 import SectionHeader from "../../components/SectionHeader";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllHomes } from "../../data/homeSlice";
 
 function Properties() {
+  const homes = useSelector((state) => state.homes.homes);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllHomes());
+  }, []);
   return (
     <div className={styles.container}>
       <div style={{ flex: 9, width: "100%", height: "83%" }}>
         <SectionHeader title="Properties" />
         <div className={styles.contentContainer}>
           <Link className={styles.link} to="homes">
-            <PropertyCard title="Homes" count={0} />
+            <PropertyCard title="Homes" count={homes?.length} />
           </Link>
           <Link className={styles.link} to="cars">
             <PropertyCard title="Cars" count={0} />
