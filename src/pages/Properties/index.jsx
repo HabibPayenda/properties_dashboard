@@ -6,16 +6,19 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHomes } from "../../data/homeSlice";
 import { getAllCars } from "../../data/CarsSlice";
+import { getAllLands } from "../../data/LandsSlice";
 
 function Properties() {
   const homes = useSelector((state) => state.homes.homes);
   const cars = useSelector((state) => state.cars.cars);
+  const lands = useSelector((state) => state.lands.lands);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllHomes());
     dispatch(getAllCars());
+    dispatch(getAllLands());
   }, []);
   return (
     <div className={styles.container}>
@@ -32,7 +35,7 @@ function Properties() {
             <PropertyCard title="Warehouses" count={0} />
           </Link>
           <Link className={styles.link} to="lands">
-            <PropertyCard title="Lands" count={0} />
+            <PropertyCard title="Lands" count={lands?.length} />
           </Link>
         </div>
       </div>
