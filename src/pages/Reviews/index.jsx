@@ -5,14 +5,19 @@ import ReviewCard from "../../components/ReviewCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUserReviews } from "../../data/userReviewsSlice";
 import { getAllAgentReviews } from "../../data/agentReviewsSlice";
+import { getAllPropertyManagerReviews } from "../../data/propertyManagerReviewsSlice";
 
 function Reviews() {
   const dispatch = useDispatch();
   const userReviews = useSelector((state) => state.userReviews.userReviews);
   const agentReviews = useSelector((state) => state.agentReviews.agentReviews);
+  const propertyManagerReviews = useSelector(
+    (state) => state.propertyManagerReviews.propertyManagerReviews
+  );
   useEffect(() => {
     dispatch(getAllUserReviews());
     dispatch(getAllAgentReviews());
+    dispatch(getAllPropertyManagerReviews());
   }, []);
   return (
     <div className={styles.container}>
@@ -23,7 +28,7 @@ function Reviews() {
           <ReviewCard title="Agent Reviews" count={agentReviews?.length} />
           <ReviewCard
             title="Property Manager Reviews"
-            count="all property manager reviews"
+            count={propertyManagerReviews?.length}
           />
         </div>
       </div>
