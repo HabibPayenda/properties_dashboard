@@ -38,6 +38,7 @@ import WareHouses from "./pages/WareHouses";
 import Lands from "./pages/Lands";
 import HomesSharedLayout from "./pages/Layouts/HomesSharedLayout";
 import Dashboard from "./pages/Dashboard";
+import User from "./pages/User";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -71,6 +72,7 @@ function App() {
             </Route>
             <Route path="users" element={<UserSharedLayout />}>
               <Route index element={<Users />} />
+              <Route path=":id" element={<User />} />
             </Route>
             <Route path="reviews" element={<ReviewsSharedLayout />}>
               <Route index element={<Reviews />} />

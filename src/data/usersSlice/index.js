@@ -44,7 +44,7 @@ export const getAllUsers = createAsyncThunk('users/getAllUsers', async () => {
  return result.data;
 });
 
-export const getUser = createAsyncThunk('users/getAllUsers', async (id) => {
+export const getUser = createAsyncThunk('users/getUser', async (id) => {
  // Code 
  const result = await PropertiesApi.get(`/users/${id}`)
  return result.data;
@@ -52,10 +52,9 @@ export const getUser = createAsyncThunk('users/getAllUsers', async (id) => {
 
 export const addUser = createAsyncThunk(
   'users/addUser',
-  async (data) => {
-    // Code 
+  async ({name, password, date_of_birth, gender}) => {
     try {
-      const result = await axios.post('/users', {name: data.name, password: data.password, isAdmin: data.isAdmin}, {
+      const result = await PropertiesApi.post('/users', {name: name, password: password, date_of_birth: date_of_birth, gender: gender}, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }

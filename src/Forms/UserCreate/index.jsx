@@ -3,23 +3,18 @@ import React from "react";
 import styles from "./userCreate.module.css";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import FormBtn from "../../components/FormBtn";
-import { addHome } from "../../data/homeSlice";
 import userCreateSchema from "./userCreateSchema";
+import { addUser } from "../../data/usersSlice";
 
 function UserCreate() {
-  const agents = useSelector((state) => state.agents.agents);
-  const propertyManagers = useSelector(
-    (state) => state.propertyManagers.propertyManagers
-  );
-
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addHome(formik.values));
-    formik.resetForm();
+    dispatch(addUser(formik.values));
+    // formik.resetForm();
   };
 
   const formik = useFormik({
@@ -45,7 +40,7 @@ function UserCreate() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Create New Home</h2>
+      <h2 className={styles.title}>Create New User</h2>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <TextInput
           label="Name:"
