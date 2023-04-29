@@ -3,7 +3,6 @@ import UserSearchesTable from "../../tables/UserSearchesTable";
 import styles from "./userSearches.module.css";
 import { useSelector } from "react-redux";
 import SectionHeader from "../../components/SectionHeader";
-import UserCreate from "../../Forms/UserCreate";
 
 function UserSearches() {
   const user = useSelector((state) => state.users.showUser);
