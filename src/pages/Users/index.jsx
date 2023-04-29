@@ -1,6 +1,7 @@
 import React from "react";
 import SectionHeader from "../../components/SectionHeader";
 import styles from "./users.module.css";
+import UserCreate from "../../Forms/UserCreate";
 
 function Users() {
   return (
@@ -9,7 +10,9 @@ function Users() {
         <SectionHeader title="Users" />
         <div style={{ flex: 9, width: "100%" }}></div>
       </div>
-      <div className={styles.addNew}></div>
+      <div className={styles.addNew}>
+        <UserCreate />
+      </div>
     </div>
   );
 }
