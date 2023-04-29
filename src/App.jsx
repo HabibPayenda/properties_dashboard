@@ -39,6 +39,11 @@ import Lands from "./pages/Lands";
 import HomesSharedLayout from "./pages/Layouts/HomesSharedLayout";
 import Dashboard from "./pages/Dashboard";
 import User from "./pages/User";
+import UserDetailSharedLayout from "./pages/Layouts/UserDetailSharedLayout";
+import UserSearches from "./pages/UserSearches";
+import UserViews from "./pages/UserViews";
+import UserFavorites from "./pages/UserFavorites";
+import UserReviews from "./pages/UserReviews";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -72,7 +77,13 @@ function App() {
             </Route>
             <Route path="users" element={<UserSharedLayout />}>
               <Route index element={<Users />} />
-              <Route path=":id" element={<User />} />
+              <Route path=":id" element={<UserDetailSharedLayout />}>
+                <Route index element={<User />} />
+                <Route path="searches" element={<UserSearches />} />
+                <Route path="views" element={<UserViews />} />
+                <Route path="favorites" element={<UserFavorites />} />
+                <Route path="reviews" element={<UserReviews />} />
+              </Route>
             </Route>
             <Route path="reviews" element={<ReviewsSharedLayout />}>
               <Route index element={<Reviews />} />

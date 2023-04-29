@@ -47,6 +47,7 @@ export const getAllUsers = createAsyncThunk('users/getAllUsers', async () => {
 export const getUser = createAsyncThunk('users/getUser', async (id) => {
  // Code 
  const result = await PropertiesApi.get(`/users/${id}`)
+ console.log(result.data)
  return result.data;
 });
 
