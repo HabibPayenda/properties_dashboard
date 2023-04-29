@@ -7,6 +7,7 @@ import CarsSlice from './CarsSlice';
 import LandsSlice from './LandsSlice';
 import usersSlice from './usersSlice';
 import userReviewsSlice from './userReviewsSlice';
+import agentReviewsSlice from './agentReviewsSlice';
 const store = configureStore({
   reducer: {
     admin: adminSlice,
@@ -16,7 +17,8 @@ const store = configureStore({
     cars: CarsSlice,
     lands: LandsSlice,
     users: usersSlice,
-    userReviews: userReviewsSlice
+    userReviews: userReviewsSlice,
+    agentReviews: agentReviewsSlice
   },
 });
 
