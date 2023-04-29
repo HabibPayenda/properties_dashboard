@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./userReviews.module.css";
 import { useSelector } from "react-redux";
 import SectionHeader from "../../components/SectionHeader";
-import UserReviewsTable from "../../tables/UsersReviewsTable";
+import UserReviewsTable from "../../tables/UserReviewsTable";
 
 function UserReviews() {
   const user = useSelector((state) => state.users.showUser);

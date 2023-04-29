@@ -7,16 +7,16 @@ import {
   usePagination,
 } from "react-table";
 
-import { UsersReviewsTableComlumns } from "./columns";
+import { UserReviewsTableComlumns } from "./columns";
 import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 
-function UsersReviewsTable() {
-  const userReviews = useSelector((state) => state.userReviews.userReviews);
+function UserReviewsTable() {
+  const user = useSelector((state) => state.users.showUser);
 
-  const columns = useMemo(() => UsersReviewsTableComlumns, []);
-  const data = useMemo(() => userReviews, []);
+  const columns = useMemo(() => UserReviewsTableComlumns, []);
+  const data = useMemo(() => user?.user_reviews, []);
 
   const tableInstance = useTable(
     {
@@ -109,4 +109,4 @@ function UsersReviewsTable() {
   );
 }
 
-export default UsersReviewsTable;
+export default UserReviewsTable;

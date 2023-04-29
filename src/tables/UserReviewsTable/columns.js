@@ -1,4 +1,4 @@
-export const UsersReviewsTableComlumns = [
+export const UserReviewsTableComlumns = [
   {
     Header: "Id",
     accessor: "id"
