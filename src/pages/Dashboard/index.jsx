@@ -10,6 +10,8 @@ function Dashboard() {
 
   const agentsLabels = useSelector((state) => state.agents.chartMonths);
   const agentsData = useSelector((state) => state.agents.chartData);
+  const homesLabels = useSelector((state) => state.homes.chartMonths);
+  const homesData = useSelector((state) => state.homes.chartData);
 
   return (
     <div className={styles.container}>
@@ -23,11 +25,11 @@ function Dashboard() {
       />
       <DashBoardCard
         chart={
-          <LineChart data={agentsData} labels={agentsLabels} label="Agents" />
+          <LineChart data={homesData} labels={homesLabels} label="Homes" />
         }
-        title="Agents"
-        text="All agents graph"
-        to="agents"
+        title="Homes"
+        text="All homes graph"
+        to="properties/homes"
       />
       <DashBoardCard
         chart={

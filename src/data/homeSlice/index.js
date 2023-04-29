@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import PropertiesApi from '../../utils/api/propertiesApi';
+import months from '../../utils/months';
 
 
 
@@ -69,6 +70,8 @@ const initialState = {
   noToken: null,
   loading: 'idle',
   role: null,
+  chartMonths: [],
+  chartData: []
 };
 
 export const homesSlice = createSlice({
@@ -79,6 +82,27 @@ export const homesSlice = createSlice({
     builder.addCase(getAllHomes.fulfilled, (state, action) => {
       // Code
       state.homes = action.payload.homes;
+      let count = 0;
+      let index;
+      action.payload.homes.forEach(home => {
+        const month = new Date(home.created_at.slice(0, -1)).getMonth()
+        const monthText = months[month]
+        
+
+        if(state.chartMonths.indexOf(monthText) == -1) {
+          count = 0;
+          state.chartMonths.push(monthText);
+          console.log('index to be : ', state.chartMonths.indexOf(monthText))
+          count += 1;
+          index = state.chartMonths.indexOf(monthText);
+          
+          state.chartData[index] = 1;
+        } else {
+          count += 1;
+          console.log("index is : ", index)
+            state.chartData[index] = count ;
+        }
+      }); 
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
