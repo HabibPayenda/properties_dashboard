@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  background-color: blueviolet;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px #999;
+  overflow: hidden;
+  height: 33%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 3;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #eee;
+  width: 100%;
+  flex: 1;
+}

@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex: 2.5;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 9;
+  width: 100%;
+  flex-direction: column;
+  padding: 12px;
+  gap: 6px;
+  background-color: #fff;
+}
+
+.graphsContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  padding: 12px;
+  gap: 6px;
+}
+
+.graph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  box-shadow: 1px 1px 3px #999;
+  width: 100%;
+  background-color: #eee;
+}
