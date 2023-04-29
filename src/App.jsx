@@ -44,6 +44,9 @@ import UserSearches from "./pages/UserSearches";
 import UserViews from "./pages/UserViews";
 import UserFavorites from "./pages/UserFavorites";
 import UserReviews from "./pages/UserReviews";
+import UsersReviews from "./pages/UsersReviews";
+import AgentsReviews from "./pages/AgentsReviews";
+import PropertyManagersReviews from "./pages/PropertyManagersReviews";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -87,6 +90,12 @@ function App() {
             </Route>
             <Route path="reviews" element={<ReviewsSharedLayout />}>
               <Route index element={<Reviews />} />
+              <Route path="users" element={<UsersReviews />} />
+              <Route path="agents" element={<AgentsReviews />} />
+              <Route
+                path="property_managers_reviews"
+                element={<PropertyManagersReviews />}
+              />
             </Route>
             <Route path="trainings" element={<TrainingsSharedLayout />}>
               <Route index element={<Trainings />} />

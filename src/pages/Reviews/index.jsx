@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUserReviews } from "../../data/userReviewsSlice";
 import { getAllAgentReviews } from "../../data/agentReviewsSlice";
 import { getAllPropertyManagerReviews } from "../../data/propertyManagerReviewsSlice";
+import { Link } from "react-router-dom";
 
 function Reviews() {
   const dispatch = useDispatch();
@@ -24,12 +25,23 @@ function Reviews() {
       <div className={styles.list}>
         <SectionHeader title="Reviews" />
         <div className={styles.contentContainer}>
-          <ReviewCard title="User Reviews" count={userReviews?.length} />
-          <ReviewCard title="Agent Reviews" count={agentReviews?.length} />
-          <ReviewCard
-            title="Property Manager Reviews"
-            count={propertyManagerReviews?.length}
-          />
+          <Link style={{ flex: 1, height: "33%", width: "100%" }} to="users">
+            <ReviewCard title="User Reviews" count={userReviews?.length} />
+          </Link>
+
+          <Link style={{ flex: 1, height: "33%", width: "100%" }} to="agents">
+            <ReviewCard title="Agent Reviews" count={agentReviews?.length} />
+          </Link>
+
+          <Link
+            style={{ flex: 1, height: "33%", width: "100%" }}
+            to="property_managers_reviews"
+          >
+            <ReviewCard
+              title="Property Manager Reviews"
+              count={propertyManagerReviews?.length}
+            />
+          </Link>
         </div>
       </div>
       <div className={styles.graphsContainer}>
