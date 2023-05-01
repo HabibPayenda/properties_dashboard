@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./appointments.module.css";
 import SectionHeader from "../../components/SectionHeader";
-import HomeCreate from "../../Forms/HomeCreate";
 import AppointmentsTable from "../../tables/Appointments";
+import AppointmentCreate from "../../Forms/AppointmentCreate";
+import { useDispatch } from "react-redux";
+import { getAllAppointments } from "../../data/appointmentSlice";
 
 function Appointments() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllAppointments());
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.listContainer}>
@@ -16,7 +23,7 @@ function Appointments() {
         </div>
       </div>
       <div className={styles.addNewContainer}>
-        <HomeCreate />
+        <AppointmentCreate />
       </div>
     </div>
   );

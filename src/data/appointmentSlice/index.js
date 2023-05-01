@@ -1,14 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import PropertiesApi from '../../utils/api/propertiesApi';
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import PropertiesApi from "../../utils/api/propertiesApi";
 
 export const getAllAppointments = createAsyncThunk(
-  'appointments/getAllAppointments',
+  "appointments/getAllAppointments",
   async () => {
-    // Code 
+    // Code
     try {
-      const result = await PropertiesApi.get('/appointments', {
+      const result = await PropertiesApi.get("/appointments", {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -16,16 +14,16 @@ export const getAllAppointments = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const getAppointment = createAsyncThunk(
-  'appointments/getAppointment',
+  "appointments/getAppointment",
   async (id) => {
-    // Code 
-    console.log(id)
+    // Code
+    console.log(id);
     try {
       const result = await PropertiesApi.get(`appointments/${id}`, {
         onUploadProgress: (progress) => {
@@ -35,25 +33,44 @@ export const getAppointment = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
-export const addAppointment = createAsyncThunk(
-  'appointments/addAppointment',
-  async ({owner_name, property_id}) => {
 
+// status: "",
+// notes: "",
+// user_id: "",
+// property_id: "",
+// agent_id: "",
+// start: "",
+// end: "",
+export const addAppointment = createAsyncThunk(
+  "appointments/addAppointment",
+  async ({ status, notes, user_id, property_id, agent_id, start, end }) => {
     try {
-      const result = await PropertiesApi.post('/appointments', {owner_name: owner_name, property_id: property_id * 1}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
+      const result = await PropertiesApi.post(
+        "/appointments",
+        {
+          status: status,
+          notes: notes,
+          user_id: user_id * 1,
+          property_id: property_id * 1,
+          agent_id: agent_id * 1,
+          start: start,
+          end: end,
         },
-      });
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
@@ -64,15 +81,14 @@ const initialState = {
   showAppointment: {},
   token: null,
   noToken: null,
-  loading: 'idle',
+  loading: "idle",
   role: null,
 };
 
 export const AppointmentsSlice = createSlice({
-  name: 'appointments',
+  name: "appointments",
   initialState,
   extraReducers: (builder) => {
-
     builder.addCase(getAllAppointments.fulfilled, (state, action) => {
       // Code
       state.appointments = action.payload.appointments;
@@ -84,7 +100,7 @@ export const AppointmentsSlice = createSlice({
 
     builder.addCase(addAppointment.fulfilled, (state, action) => {
       // Code
-      state.appointments = [...state.appointments, action.payload.appointment]
+      state.appointments = [...state.appointments, action.payload.appointment];
     });
   },
 });
