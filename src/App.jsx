@@ -47,6 +47,7 @@ import UserReviews from "./pages/UserReviews";
 import UsersReviews from "./pages/UsersReviews";
 import AgentsReviews from "./pages/AgentsReviews";
 import PropertyManagersReviews from "./pages/PropertyManagersReviews";
+import Appointment from "./pages/Appointment";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -121,6 +122,7 @@ function App() {
             </Route>
             <Route path="appointments" element={<AppointmentsSharedLayout />}>
               <Route index element={<Appointments />} />
+              <Route path=":id" element={<Appointment />} />
             </Route>
           </Route>
           <Route path="*" element={<PageNotFound />} />
