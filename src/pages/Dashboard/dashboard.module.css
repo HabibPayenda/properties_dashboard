@@ -1,9 +1,33 @@
 .container {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   grid-column-start: 3;
   grid-column-end: 11;
   gap: 10px;
   padding: 10px;
+  width: 100%;
+}
+
+.chartsContianer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+  padding: 10px;
+  flex: 1;
+  width: 100%;
+}
+
+.calendarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  grid-column-start: 1;
+  grid-column: 4;
+  width: 100%;
 }
