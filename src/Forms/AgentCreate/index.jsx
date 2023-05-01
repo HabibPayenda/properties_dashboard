@@ -5,9 +5,9 @@ import styles from "./agentCreate.module.css";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
 import { useDispatch, useSelector } from "react-redux";
-import FormBtn from "../../components/FormBtn";
 import agentCreateSchema from "./agentCreateSchema";
 import { addAgent } from "../../data/agentsSlice";
+import FormBtn from "../../components/FormBtn";
 
 function AgentCreate() {
   const admins = useSelector((state) => state.admin.admins);

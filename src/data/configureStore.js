@@ -9,6 +9,7 @@ import usersSlice from './usersSlice';
 import userReviewsSlice from './userReviewsSlice';
 import agentReviewsSlice from './agentReviewsSlice';
 import propertyManagerReviewsSlice from './propertyManagerReviewsSlice';
+import appointmentSlice from './appointmentSlice';
 const store = configureStore({
   reducer: {
     admin: adminSlice,
@@ -20,7 +21,8 @@ const store = configureStore({
     users: usersSlice,
     userReviews: userReviewsSlice,
     agentReviews: agentReviewsSlice,
-    propertyManagerReviews: propertyManagerReviewsSlice
+    propertyManagerReviews: propertyManagerReviewsSlice,
+    appointments: appointmentSlice
   },
 });
 
