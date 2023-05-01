@@ -17,7 +17,11 @@ function AppointmentCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAppointment(formik.values));
+    try {
+      dispatch(addAppointment(formik.values));
+    } catch (error) {
+      console.log(error);
+    }
     // formik.resetForm();
   };
 
@@ -133,7 +137,7 @@ function AppointmentCreate() {
           touched={formik.touched.end}
         />
 
-        <FormBtn title="Create" onClick={() => handleFormSubmit()} />
+        <FormBtn title="Create" onClick={formik.handleSubmit} />
       </form>
       <div>{showErrors()}</div>
     </div>

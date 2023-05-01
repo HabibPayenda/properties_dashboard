@@ -17,7 +17,7 @@ function AppointmentsTable() {
   console.log(appointments);
 
   const columns = useMemo(() => AppointmentTableComlumns, []);
-  const data = useMemo(() => appointments, []);
+  const data = useMemo(() => appointments, [appointments]);
 
   const tableInstance = useTable(
     {

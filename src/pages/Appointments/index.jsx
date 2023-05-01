@@ -11,7 +11,7 @@ function Appointments() {
 
   useEffect(() => {
     dispatch(getAllAppointments());
-  }, []);
+  }, [dispatch]);
   return (
     <div className={styles.container}>
       <div className={styles.listContainer}>

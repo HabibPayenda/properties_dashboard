@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import PropertiesApi from "../../utils/api/propertiesApi";
+import { toast } from "react-toastify";
 
 export const getAllAppointments = createAsyncThunk(
   "appointments/getAllAppointments",
@@ -83,6 +84,7 @@ const initialState = {
   noToken: null,
   loading: "idle",
   role: null,
+  added: "idle",
 };
 
 export const AppointmentsSlice = createSlice({
@@ -98,9 +100,18 @@ export const AppointmentsSlice = createSlice({
       state.showAppointment = action.payload.appointment;
     });
 
+    builder.addCase(addAppointment.pending, (state, action) => {
+      // Code
+      state.added = "idle";
+    });
+
     builder.addCase(addAppointment.fulfilled, (state, action) => {
       // Code
+      state.added = "added";
       state.appointments = [...state.appointments, action.payload.appointment];
+      toast.success("Appointment added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
   },
 });
