@@ -17,7 +17,7 @@ function HomesTable() {
   console.log(homes);
 
   const columns = useMemo(() => HomesTableComlumns, []);
-  const data = useMemo(() => homes, []);
+  const data = useMemo(() => homes, [homes]);
 
   const tableInstance = useTable(
     {

@@ -17,7 +17,7 @@ function AgentsTable() {
   console.log(agents);
 
   const columns = useMemo(() => AgentTableComlumns, []);
-  const data = useMemo(() => agents, []);
+  const data = useMemo(() => agents, [agents]);
 
   const tableInstance = useTable(
     {

@@ -19,7 +19,7 @@ function PropertyManagersTable() {
   console.log(propertyManagers);
 
   const columns = useMemo(() => PropertyManagerTableComlumns, []);
-  const data = useMemo(() => propertyManagers, []);
+  const data = useMemo(() => propertyManagers, [propertyManagers]);
 
   const tableInstance = useTable(
     {

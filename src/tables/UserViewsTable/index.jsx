@@ -16,7 +16,7 @@ function UserViewsTable() {
   const user = useSelector((state) => state.users.showUser);
 
   const columns = useMemo(() => UserViewsTableComlumns, []);
-  const data = useMemo(() => user?.user_views, []);
+  const data = useMemo(() => user?.user_views, [user_views]);
 
   const tableInstance = useTable(
     {

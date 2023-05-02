@@ -16,7 +16,7 @@ function UsersTable() {
   const users = useSelector((state) => state.users.users);
 
   const columns = useMemo(() => UserTableComlumns, []);
-  const data = useMemo(() => users, []);
+  const data = useMemo(() => users, [users]);
 
   const tableInstance = useTable(
     {

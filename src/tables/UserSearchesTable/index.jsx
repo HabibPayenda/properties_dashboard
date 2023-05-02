@@ -16,7 +16,7 @@ function UserSearchesTable() {
   const user = useSelector((state) => state.users.showUser);
 
   const columns = useMemo(() => UserSearchesTableComlumns, []);
-  const data = useMemo(() => user?.user_searches, []);
+  const data = useMemo(() => user?.user_searches, [user_searches]);
 
   const tableInstance = useTable(
     {
