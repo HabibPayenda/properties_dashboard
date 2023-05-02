@@ -101,6 +101,7 @@ function HomeCreate() {
           values={["available", "not_available"]}
           errors={formik.errors.status}
           touched={formik.touched.status}
+          setFieldValue={formik.setFieldValue}
         />
 
         <FormSelect
@@ -113,6 +114,7 @@ function HomeCreate() {
           errors={formik.errors.agent_id}
           touched={formik.touched.agent_id}
           id="agent_id"
+          setFieldValue={formik.setFieldValue}
         />
         <FormSelect
           value={formik.values.property_manager_id}
@@ -126,6 +128,7 @@ function HomeCreate() {
           errors={formik.errors.property_manager_id}
           touched={formik.touched.property_manager_id}
           id="property_manager_id"
+          setFieldValue={formik.setFieldValue}
         />
         <FormBtn title="Create" onClick={() => handleFormSubmit()} />
       </form>
