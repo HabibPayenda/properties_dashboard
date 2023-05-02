@@ -121,6 +121,13 @@ export const usersSlice = createSlice({
       state.showUser = action.payload.user;
     });
 
+    builder.addCase(addUser.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addUser.fulfilled, (state, action) => {
       // Code
 
