@@ -1,66 +1,75 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import PropertiesApi from '../../utils/api/propertiesApi';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import PropertiesApi from "../../utils/api/propertiesApi";
 
 export const signIn = createAsyncThunk(
-  'propertyManagers/signIn',
+  "propertyManagers/signIn",
   async (data) => {
-   // Code 
-   try {
-    const result = await PropertiesApi.post('/property_managers/login', {name: data.name, password: data.password}, {
-      onUploadProgress: (progress) => {
-        if (progress.loaded / progress.total === 1) {
-         
+    // Code
+    try {
+      const result = await PropertiesApi.post(
+        "/property_managers/login",
+        { name: data.name, password: data.password },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
         }
-      },
-    });
-    localStorage.setItem('admin', JSON.stringify(result.data.admin))
-    localStorage.setItem('token', JSON.stringify(result.data.token))
-    return result.data
-  } catch (error) {
-    console.log(error)
-    return error;
+      );
+      localStorage.setItem("admin", JSON.stringify(result.data.admin));
+      localStorage.setItem("token", JSON.stringify(result.data.token));
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   }
-  },
 );
 
-export const localSignIn = createAsyncThunk('propertyManagers/localSignIn', async () => {
- // Code 
- const token = localStorage.getItem('token')
- const admin = localStorage.getItem('admin')
- return {token, admin};
-});
+export const localSignIn = createAsyncThunk(
+  "propertyManagers/localSignIn",
+  async () => {
+    // Code
+    const token = localStorage.getItem("token");
+    const admin = localStorage.getItem("admin");
+    return { token, admin };
+  }
+);
 
-export const signOut = createAsyncThunk('propertyManagers/signOut', async () => {
- // Code 
- localStorage.removeItem('admin')
- localStorage.removeItem('token')
- return null;
-});
+export const signOut = createAsyncThunk(
+  "propertyManagers/signOut",
+  async () => {
+    // Code
+    localStorage.removeItem("admin");
+    localStorage.removeItem("token");
+    return null;
+  }
+);
 
 export const getAllPropertyManagers = createAsyncThunk(
-  'propertyManagers/getAllPropertyManagers',
+  "propertyManagers/getAllPropertyManagers",
   async (data) => {
-    // Code 
+    // Code
     try {
-      const result = await PropertiesApi.get('/property_managers', {
+      const result = await PropertiesApi.get("/property_managers", {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
         },
       });
-      console.log(result.data)
+      console.log(result.data);
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 
 export const getPropertyManager = createAsyncThunk(
-  'propertyManagers/getPropertyManager',
+  "propertyManagers/getPropertyManager",
   async (id) => {
-    // Code 
+    // Code
     try {
       const result = await PropertiesApi.get(`/property_managers/${id}`, {
         onUploadProgress: (progress) => {
@@ -68,29 +77,38 @@ export const getPropertyManager = createAsyncThunk(
           }
         },
       });
-      console.log(result.data)
+      console.log(result.data);
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const addPropertyManager = createAsyncThunk(
-  'propertyManagers/addAgent',
-  async ({name, company_name, status, agent_id}) => {
-    // Code 
+  "propertyManagers/addAgent",
+  async ({ name, company_name, status, agent_id }) => {
+    // Code
     // console.log("data is ", data)
     try {
-      const result = await PropertiesApi.post('/property_managers', {name: name, company_name: company_name, status: status, agent_id: agent_id * 1}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
+      const result = await PropertiesApi.post(
+        "/property_managers",
+        {
+          name: name,
+          company_name: company_name,
+          status: status,
+          agent_id: agent_id * 1,
         },
-      });
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
@@ -101,18 +119,18 @@ const initialState = {
   showPropertyManager: {},
   token: null,
   noToken: null,
-  loading: 'idle',
+  loading: "idle",
   role: null,
 };
 
 export const propertyManagersSlice = createSlice({
-  name: 'propertyManagers',
+  name: "propertyManagers",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(signIn.fulfilled, (state, action) => {
-     // Code
-     state.token = action.payload.token;
-     state.admin = action.payload.admin;
+      // Code
+      state.token = action.payload.token;
+      state.admin = action.payload.admin;
     });
 
     builder.addCase(localSignIn.fulfilled, (state, action) => {
@@ -139,7 +157,13 @@ export const propertyManagersSlice = createSlice({
 
     builder.addCase(addPropertyManager.fulfilled, (state, action) => {
       // Code
-      state.propertyManagers = [...state.agents, action.payload.property_manager]
+      state.propertyManagers = [
+        ...state.agents,
+        action.payload.property_manager,
+      ];
+      toast.success("Property Manager added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
   },
 });
