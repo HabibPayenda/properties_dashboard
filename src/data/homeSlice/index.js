@@ -123,6 +123,13 @@ export const homesSlice = createSlice({
       state.showHome = action.payload.home;
     });
 
+    builder.addCase(addHome.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addHome.fulfilled, (state, action) => {
       // Code
       state.homes = [...state.homes, action.payload.home];
