@@ -1,14 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import PropertiesApi from '../../utils/api/propertiesApi';
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import PropertiesApi from "../../utils/api/propertiesApi";
 
 export const getAllPropertyManagerReviews = createAsyncThunk(
-  'propertyManagerReviews/getAllPropertyManagerReviews',
+  "propertyManagerReviews/getAllPropertyManagerReviews",
   async () => {
-    // Code 
+    // Code
     try {
-      const result = await PropertiesApi.get('/property_manager_reviews', {
+      const result = await PropertiesApi.get("/property_manager_reviews", {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -16,16 +14,16 @@ export const getAllPropertyManagerReviews = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const getPropertyManagerReview = createAsyncThunk(
-  'propertyManagerReviews/getPropertyManagerReview',
+  "propertyManagerReviews/getPropertyManagerReview",
   async (id) => {
-    // Code 
-    console.log(id)
+    // Code
+    console.log(id);
     try {
       const result = await PropertiesApi.get(`property_manager_reviews/${id}`, {
         onUploadProgress: (progress) => {
@@ -35,25 +33,28 @@ export const getPropertyManagerReview = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const addPropertyManagerReview = createAsyncThunk(
-  'propertyManagerReviews/addPropertyManagerReview',
-  async ({owner_name, property_id}) => {
-
+  "propertyManagerReviews/addPropertyManagerReview",
+  async ({ owner_name, property_id }) => {
     try {
-      const result = await PropertiesApi.post('/property_manager_reviews', {owner_name: owner_name, property_id: property_id * 1}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
-        },
-      });
+      const result = await PropertiesApi.post(
+        "/property_manager_reviews",
+        { owner_name: owner_name, property_id: property_id * 1 },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
@@ -64,15 +65,14 @@ const initialState = {
   showPropertyManagerReview: {},
   token: null,
   noToken: null,
-  loading: 'idle',
+  loading: "idle",
   role: null,
 };
 
 export const PropertyManagerReviewsReviewsSlice = createSlice({
-  name: 'propertyManagerReviews',
+  name: "propertyManagerReviews",
   initialState,
   extraReducers: (builder) => {
-
     builder.addCase(getAllPropertyManagerReviews.fulfilled, (state, action) => {
       // Code
       state.propertyManagerReviews = action.payload.property_manager_reviews;
@@ -84,7 +84,13 @@ export const PropertyManagerReviewsReviewsSlice = createSlice({
 
     builder.addCase(addPropertyManagerReview.fulfilled, (state, action) => {
       // Code
-      state.propertyManagerReviews = [...state.propertyManagerReviews, action.payload.property_manager_review]
+      state.propertyManagerReviews = [
+        ...state.propertyManagerReviews,
+        action.payload.property_manager_review,
+      ];
+      toast.success("Review added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
   },
 });
