@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import PropertiesApi from "../../utils/api/propertiesApi";
 import months from "../../utils/months";
+import { toast } from "react-toastify";
 
 export const getAllHomes = createAsyncThunk("homes/getAllHomes", async () => {
   // Code

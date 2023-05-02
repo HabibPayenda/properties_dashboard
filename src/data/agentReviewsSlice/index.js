@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import PropertiesApi from "../../utils/api/propertiesApi";
+import { toast } from "react-toastify";
 
 export const getAllAgentReviews = createAsyncThunk(
   "agentReviews/getAllAgentReviews",

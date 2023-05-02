@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import LoginApi from "../../utils/api/propertiesLogin";
 import PropertiesApi from "../../utils/api/propertiesApi";
+import { toast } from "react-toastify";
 
 export const signIn = createAsyncThunk("users/signIn", async (data) => {
   // Code
