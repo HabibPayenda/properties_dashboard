@@ -76,6 +76,13 @@ export const CarsSlice = createSlice({
       state.showCar = action.payload.car;
     });
 
+    builder.addCase(addCar.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addCar.fulfilled, (state, action) => {
       // Code
       state.cars = [...state.cars, action.payload.car];
