@@ -95,7 +95,7 @@ export const adminSlice = createSlice({
       // Code
       state.token = action.payload.token;
       state.admin = action.payload.admin;
-      toast.success("Signed In successfully.", {
+      toast.info("Signed In successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
@@ -122,7 +122,7 @@ export const adminSlice = createSlice({
       // Code
       state.token = action.payload;
       state.admin = {};
-      toast.success("Signed Out successfully.", {
+      toast.info("Signed Out successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });

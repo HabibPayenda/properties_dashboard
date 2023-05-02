@@ -13,10 +13,6 @@ function Calendar(props) {
 
   const events = [];
 
-  console.log(appointments[0]?.start);
-  console.log(moment(appointments[0]?.start).toDate());
-  console.log(moment(appointments[0]?.start)._i);
-
   appointments?.forEach((appointment) => {
     let event = {};
     event.start = moment(appointment.start.slice(0, -1)).toDate();
