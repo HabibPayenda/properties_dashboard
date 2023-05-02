@@ -1,31 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./formSelect.module.css";
+import Select from "react-select";
 
-function FormSelect({ label, titles, values, value, onChange, onBlur, id }) {
+function FormSelect({
+  label,
+  titles,
+  values,
+  onBlur,
+  id,
+  errors,
+  touched,
+  setFieldValue,
+  setFieldTouched,
+  formSubmitted,
+}) {
+  let options = [];
+  titles?.forEach((label, idx) => {
+    let option = {};
+    option.label = label;
+    option.value = values[idx];
+    options.push(option);
+  });
+
+  const showErrors = () => {
+    if (errors && touched) {
+      return <span className={styles.errors}>{errors}</span>;
+    }
+  };
+
+  const [newValue, setNewValue] = useState({ label: "Select", value: null });
+
+  const handleOptionChange = (value) => {
+    setFieldValue(id, value.value);
+    setNewValue(value);
+  };
+
   return (
     <>
       <div className={styles.container}>
         {label && <p className={styles.label}>{label}</p>}
-        <select
-          onBlur={onBlur}
+        <Select
+          onChange={(value) => handleOptionChange(value)}
+          onBlur={() => setFieldTouched(id)}
           id={id}
-          value={value}
-          onChange={onChange}
           className={styles.select}
-        >
-          {titles?.map((title, index) => {
-            return (
-              <option
-                key={title}
-                className={styles.option}
-                value={values[index]}
-              >
-                {title}
-              </option>
-            );
-          })}
-        </select>
+          options={options}
+          value={newValue}
+        />
       </div>
+      {showErrors()}
     </>
   );
 }

@@ -102,12 +102,20 @@ export const AppointmentsSlice = createSlice({
 
     builder.addCase(addAppointment.pending, (state, action) => {
       // Code
+      state.added = "pending";
+    });
+
+    builder.addCase(addAppointment.rejected, (state, action) => {
+      // Code
       state.added = "idle";
+      toast.error("There was an error, try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
 
     builder.addCase(addAppointment.fulfilled, (state, action) => {
       // Code
-      state.added = "added";
+      state.added = "idle";
       state.appointments = [...state.appointments, action.payload.appointment];
       toast.success("Appointment added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,

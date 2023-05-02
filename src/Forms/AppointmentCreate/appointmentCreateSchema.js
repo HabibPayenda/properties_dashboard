@@ -7,7 +7,7 @@ const AppointmentCreateSchema = yup.object().shape({
   property_id: yup.string().required("Property ID is required"),
   agent_id: yup.number().required("Agent is a must"),
   start: yup.date().required("Start date is required"),
-  agent_id: yup.number().required("End date is required"),
+  end: yup.date().required("End date is required"),
 });
 
 export default AppointmentCreateSchema;

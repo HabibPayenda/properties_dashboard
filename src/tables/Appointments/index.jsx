@@ -87,7 +87,7 @@ function AppointmentsTable() {
                     })}
                     <Link
                       className="tableViewBtn"
-                      to={`agent/${row.allCells[0].row.original.id}`}
+                      to={`${row.allCells[0].row.original.id}`}
                     >
                       View
                     </Link>

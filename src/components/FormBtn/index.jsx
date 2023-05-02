@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./formBtn.module.css";
 
-function FormBtn({ title, onClick }) {
+function FormBtn({ title, onClick, loading }) {
   return (
-    <button type="submit" className={styles.btn} onClick={onClick}>
-      {" "}
-      {title}
+    <button
+      disabled={loading === "pending" ? true : false}
+      type="submit"
+      className={styles.btn}
+      onClick={onClick}
+    >
+      {loading === "pending" ? loading : title}
     </button>
   );
 }

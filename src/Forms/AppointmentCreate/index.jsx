@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,16 +13,17 @@ function AppointmentCreate() {
   const agents = useSelector((state) => state.agents.agents);
   const users = useSelector((state) => state.users.users);
 
+  const isAppointmentAdded = useSelector((state) => state.appointments.added);
+
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
-    console.log("clicked");
     try {
       dispatch(addAppointment(formik.values));
+      formik.resetForm();
     } catch (error) {
       console.log(error);
     }
-    // formik.resetForm();
   };
 
   const formik = useFormik({
@@ -39,13 +40,10 @@ function AppointmentCreate() {
     onSubmit: handleFormSubmit,
   });
 
-  const showErrors = () => {
-    for (let error in formik.errors) {
-      if (formik.touched[error]) {
-        return <p>{formik.errors[error]}</p>;
-      }
-    }
-  };
+  // const handleSelectChange = (value) => {
+  //   console.log(value);
+  //   formik.handleChange(value);
+  // };
 
   console.log(formik.values);
 
@@ -56,13 +54,15 @@ function AppointmentCreate() {
         <FormSelect
           id="status"
           value={formik.values.status}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
           label="Status:"
           titles={["Pending", "Done", "Canceled"]}
           values={["pending", "done", "canceled"]}
           errors={formik.errors.status}
           touched={formik.touched.status}
+          setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
+          isSubmitting={formik.isSubmitting}
+          formSubmitted={isAppointmentAdded}
         />
 
         <TextInput
@@ -80,38 +80,41 @@ function AppointmentCreate() {
 
         <FormSelect
           value={formik.values.user_id}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
           label="User:"
           titles={users.map((user) => user.name)}
           values={users.map((user) => user.id)}
           errors={formik.errors.user_id}
           touched={formik.touched.user_id}
           id="user_id"
+          setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
+          formSubmitted={isAppointmentAdded}
         />
 
         <FormSelect
           value={formik.values.agent_id}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
           label="Agent:"
           titles={agents.map((agent) => agent.name)}
           values={agents.map((agent) => agent.id)}
           errors={formik.errors.agent_id}
           touched={formik.touched.agent_id}
           id="agent_id"
+          setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
+          formSubmitted={isAppointmentAdded}
         />
 
         <FormSelect
           value={formik.values.property_id}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
           label="Property:"
           titles={homes.map((home) => home.owner_name)}
           values={homes.map((home) => home.id)}
           errors={formik.errors.property_id}
           touched={formik.touched.property_id}
           id="property_id"
+          setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
+          formSubmitted={isAppointmentAdded}
         />
 
         <TextInput
@@ -137,9 +140,12 @@ function AppointmentCreate() {
           touched={formik.touched.end}
         />
 
-        <FormBtn title="Create" onClick={formik.handleSubmit} />
+        <FormBtn
+          title="Create"
+          onClick={formik.handleSubmit}
+          loading={isAppointmentAdded}
+        />
       </form>
-      <div>{showErrors()}</div>
     </div>
   );
 }
