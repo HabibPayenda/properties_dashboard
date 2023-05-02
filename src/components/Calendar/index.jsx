@@ -41,7 +41,7 @@ function Calendar(props) {
       style={{ height: "300px" }}
       {...props}
       localizer={localizer}
-      defaultView={"week"}
+      defaultView={"day"}
       events={events}
       components={components}
     />

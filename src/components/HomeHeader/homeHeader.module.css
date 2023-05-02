@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  padding: 12px;
+  box-shadow: 1px 1px 3px #999;
+  margin-top: 1px;
+  gap: 24px;
+  font-size: 16px;
+  color: #eee;
+}

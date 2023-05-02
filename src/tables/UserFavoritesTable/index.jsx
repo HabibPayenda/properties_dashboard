@@ -16,7 +16,7 @@ function UserFavoritesTable() {
   const user = useSelector((state) => state.users.showUser);
 
   const columns = useMemo(() => UserFavoritesTableComlumns, []);
-  const data = useMemo(() => user?.user_favorites, [user_favorites]);
+  const data = useMemo(() => user?.user_favorites, [user?.user_favorites]);
 
   const tableInstance = useTable(
     {

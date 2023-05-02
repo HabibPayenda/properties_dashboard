@@ -16,7 +16,7 @@ function UserReviewsTable() {
   const user = useSelector((state) => state.users.showUser);
 
   const columns = useMemo(() => UserReviewsTableComlumns, []);
-  const data = useMemo(() => user?.user_reviews, [user_reviews]);
+  const data = useMemo(() => user?.user_reviews, [user?.user_reviews]);
 
   const tableInstance = useTable(
     {

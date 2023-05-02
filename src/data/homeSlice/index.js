@@ -44,15 +44,6 @@ export const addHome = createAsyncThunk(
     agent_id,
     description,
   }) => {
-    console.log(
-      owner_name,
-      name,
-      status,
-      property_manager_id,
-      agent_id,
-      description
-    );
-
     try {
       const result = await PropertiesApi.post(
         "/homes",
@@ -63,6 +54,36 @@ export const addHome = createAsyncThunk(
           property_manager_id: property_manager_id * 1,
           agent_id: agent_id * 1,
           description: description,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+export const addHomeRoom = createAsyncThunk(
+  "homes/addHomeRoom",
+  async ({ width, length, windows, cup_board, to_sun, color, home_id }) => {
+    try {
+      const result = await PropertiesApi.post(
+        "/homes/room",
+        {
+          width: width * 1,
+          length: length * 1,
+          windows: windows * 1,
+          cup_board: cup_board,
+          to_sun: to_sun,
+          color: color,
+          home_id: home_id * 1,
         },
         {
           onUploadProgress: (progress) => {
@@ -122,6 +143,21 @@ export const homesSlice = createSlice({
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
       state.showHome = action.payload.home;
+    });
+
+    builder.addCase(addHomeRoom.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(addHomeRoom.fulfilled, (state, action) => {
+      // Code
+      state.showHome = action.payload.home;
+      toast.success("Room added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
 
     builder.addCase(addHome.rejected, (state, action) => {
