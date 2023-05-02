@@ -1,14 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import PropertiesApi from '../../utils/api/propertiesApi';
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import PropertiesApi from "../../utils/api/propertiesApi";
 
 export const getAllUserReviews = createAsyncThunk(
-  'userReviews/getAllUserReviews',
+  "userReviews/getAllUserReviews",
   async () => {
-    // Code 
+    // Code
     try {
-      const result = await PropertiesApi.get('/user_reviews', {
+      const result = await PropertiesApi.get("/user_reviews", {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -16,16 +14,16 @@ export const getAllUserReviews = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const getUserReview = createAsyncThunk(
-  'userReviews/getUserReview',
+  "userReviews/getUserReview",
   async (id) => {
-    // Code 
-    console.log(id)
+    // Code
+    console.log(id);
     try {
       const result = await PropertiesApi.get(`user_reviews/${id}`, {
         onUploadProgress: (progress) => {
@@ -35,25 +33,28 @@ export const getUserReview = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const addUserReview = createAsyncThunk(
-  'userReviews/addUserReview',
-  async ({owner_name, property_id}) => {
-
+  "userReviews/addUserReview",
+  async ({ owner_name, property_id }) => {
     try {
-      const result = await PropertiesApi.post('/user_reviews', {owner_name: owner_name, property_id: property_id * 1}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
-        },
-      });
+      const result = await PropertiesApi.post(
+        "/user_reviews",
+        { owner_name: owner_name, property_id: property_id * 1 },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
@@ -64,15 +65,14 @@ const initialState = {
   showUserReview: {},
   token: null,
   noToken: null,
-  loading: 'idle',
+  loading: "idle",
   role: null,
 };
 
 export const UserReviewsSlice = createSlice({
-  name: 'userReviews',
+  name: "userReviews",
   initialState,
   extraReducers: (builder) => {
-
     builder.addCase(getAllUserReviews.fulfilled, (state, action) => {
       // Code
       state.userReviews = action.payload.user_reviews;
@@ -84,7 +84,10 @@ export const UserReviewsSlice = createSlice({
 
     builder.addCase(addUserReview.fulfilled, (state, action) => {
       // Code
-      state.userReviews = [...state.userReviews, action.payload.user_review]
+      state.userReviews = [...state.userReviews, action.payload.user_review];
+      toast.success("Review added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
   },
 });
