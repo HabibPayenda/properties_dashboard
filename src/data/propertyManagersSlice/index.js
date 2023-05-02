@@ -155,6 +155,13 @@ export const propertyManagersSlice = createSlice({
       state.showPropertyManager = action.payload.property_manager;
     });
 
+    builder.addCase(addPropertyManager.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addPropertyManager.fulfilled, (state, action) => {
       // Code
       state.propertyManagers = [
