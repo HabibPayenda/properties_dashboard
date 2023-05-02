@@ -163,6 +163,13 @@ export const agentsSlice = createSlice({
       state.showAgent = action.payload.agent;
     });
 
+    builder.addCase(addAgent.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addAgent.fulfilled, (state, action) => {
       // Code
       state.agents = [...state.agents, action.payload.agent];
