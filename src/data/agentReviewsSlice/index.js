@@ -1,14 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import PropertiesApi from '../../utils/api/propertiesApi';
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import PropertiesApi from "../../utils/api/propertiesApi";
 
 export const getAllAgentReviews = createAsyncThunk(
-  'agentReviews/getAllAgentReviews',
+  "agentReviews/getAllAgentReviews",
   async () => {
-    // Code 
+    // Code
     try {
-      const result = await PropertiesApi.get('/agent_reviews', {
+      const result = await PropertiesApi.get("/agent_reviews", {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
@@ -16,16 +14,16 @@ export const getAllAgentReviews = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const getAgentReview = createAsyncThunk(
-  'agentReviews/getAgentReview',
+  "agentReviews/getAgentReview",
   async (id) => {
-    // Code 
-    console.log(id)
+    // Code
+    console.log(id);
     try {
       const result = await PropertiesApi.get(`agent_reviews/${id}`, {
         onUploadProgress: (progress) => {
@@ -35,25 +33,28 @@ export const getAgentReview = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
 );
 export const addAgentReview = createAsyncThunk(
-  'agentReviews/addAgentReview',
-  async ({owner_name, property_id}) => {
-
+  "agentReviews/addAgentReview",
+  async ({ owner_name, property_id }) => {
     try {
-      const result = await PropertiesApi.post('/agent_reviews', {owner_name: owner_name, property_id: property_id * 1}, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
-        },
-      });
+      const result = await PropertiesApi.post(
+        "/agent_reviews",
+        { owner_name: owner_name, property_id: property_id * 1 },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return error;
     }
   }
@@ -64,15 +65,14 @@ const initialState = {
   showAgentReview: {},
   token: null,
   noToken: null,
-  loading: 'idle',
+  loading: "idle",
   role: null,
 };
 
 export const AgentReviewsSlice = createSlice({
-  name: 'agentReviews',
+  name: "agentReviews",
   initialState,
   extraReducers: (builder) => {
-
     builder.addCase(getAllAgentReviews.fulfilled, (state, action) => {
       // Code
       state.agentReviews = action.payload.agent_reviews;
@@ -84,7 +84,10 @@ export const AgentReviewsSlice = createSlice({
 
     builder.addCase(addAgentReview.fulfilled, (state, action) => {
       // Code
-      state.agentReviews = [...state.agentReviews, action.payload.agent_review]
+      state.agentReviews = [...state.agentReviews, action.payload.agent_review];
+      toast.success("Review added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
   },
 });
