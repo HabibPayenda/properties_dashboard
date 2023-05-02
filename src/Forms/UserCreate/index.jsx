@@ -92,6 +92,7 @@ function UserCreate() {
           errors={formik.errors.gender}
           touched={formik.touched.gender}
           setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
         />
         <FormBtn title="Create" onClick={() => handleFormSubmit()} />
       </form>

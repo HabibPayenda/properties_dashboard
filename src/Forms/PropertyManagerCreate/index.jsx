@@ -81,6 +81,7 @@ function PropertyManagerCreate() {
           errors={formik.errors.status}
           touched={formik.touched.status}
           setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
         />
 
         <FormSelect
@@ -94,6 +95,7 @@ function PropertyManagerCreate() {
           touched={formik.touched.admin_id}
           id="agent_id"
           setFieldValue={formik.setFieldValue}
+          setFieldTouched={formik.setFieldTouched}
         />
         <FormBtn title="Create" onClick={formik.handleSubmit} />
       </form>
