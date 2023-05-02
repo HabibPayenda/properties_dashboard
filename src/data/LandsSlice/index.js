@@ -76,6 +76,13 @@ export const LandsSlice = createSlice({
       state.showLand = action.payload.land;
     });
 
+    builder.addCase(addLand.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addLand.fulfilled, (state, action) => {
       // Code
       state.lands = [...state.lands, action.payload.land];
