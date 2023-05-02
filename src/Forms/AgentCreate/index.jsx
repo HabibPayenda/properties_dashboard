@@ -78,6 +78,7 @@ function AgentCreate() {
           values={["active", "not_active"]}
           errors={formik.errors.status}
           touched={formik.touched.status}
+          setFieldValue={formik.setFieldValue}
         />
 
         <FormSelect
@@ -90,10 +91,10 @@ function AgentCreate() {
           errors={formik.errors.admin_id}
           touched={formik.touched.admin_id}
           id="admin_id"
+          setFieldValue={formik.setFieldValue}
         />
         <FormBtn title="Create" onClick={formik.handleSubmit} />
       </form>
-      <div>{showErrors()}</div>
     </div>
   );
 }
