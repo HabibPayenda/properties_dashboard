@@ -84,6 +84,13 @@ export const adminSlice = createSlice({
   name: "admin",
   initialState,
   extraReducers: (builder) => {
+    builder.addCase(signIn.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(signIn.fulfilled, (state, action) => {
       // Code
       state.token = action.payload.token;
@@ -102,6 +109,13 @@ export const adminSlice = createSlice({
     builder.addCase(getAllAdmins.fulfilled, (state, action) => {
       // Code
       state.admins = action.payload.admins;
+    });
+
+    builder.addCase(signOut.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
 
     builder.addCase(signOut.fulfilled, (state, action) => {
