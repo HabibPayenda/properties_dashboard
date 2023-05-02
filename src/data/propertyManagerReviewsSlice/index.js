@@ -82,6 +82,13 @@ export const PropertyManagerReviewsReviewsSlice = createSlice({
       state.showPropertyManagerReview = action.payload.property_manager_review;
     });
 
+    builder.addCase(addPropertyManagerReview.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
     builder.addCase(addPropertyManagerReview.fulfilled, (state, action) => {
       // Code
       state.propertyManagerReviews = [
