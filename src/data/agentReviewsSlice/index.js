@@ -82,6 +82,12 @@ export const AgentReviewsSlice = createSlice({
       state.showAgentReview = action.payload.agent_review;
     });
 
+    builder.addCase(addAgentReview.rejected, (state, action) => {
+      // Code
+      toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
     builder.addCase(addAgentReview.fulfilled, (state, action) => {
       // Code
       state.agentReviews = [...state.agentReviews, action.payload.agent_review];
