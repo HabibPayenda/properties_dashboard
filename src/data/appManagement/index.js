@@ -6,14 +6,14 @@ const initialState = {
 };
 
 const appManagementSlice = createSlice({
-  name: "counter",
+  name: "appManagement",
   initialState,
   reducers: {
     increment(state) {
       state.value++;
     },
     showSidebar(state) {
-      state.isSidebarShown = true;
+      state.isSidebarShown = !state.isSidebarShown;
     },
     decrement(state) {
       state.value--;
@@ -24,6 +24,6 @@ const appManagementSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } =
+export const { increment, decrement, incrementByAmount, showSidebar } =
   appManagementSlice.actions;
 export default appManagementSlice.reducer;

@@ -28,8 +28,11 @@ function Dashboard() {
     dispatch(getAllAgents());
   }, []);
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.chartsContianer}>
         <DashBoardCard
           chart={

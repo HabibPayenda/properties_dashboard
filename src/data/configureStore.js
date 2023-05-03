@@ -24,7 +24,7 @@ const store = configureStore({
     agentReviews: agentReviewsSlice,
     propertyManagerReviews: propertyManagerReviewsSlice,
     appointments: appointmentSlice,
-    appState: appManagement,
+    appManagement: appManagement,
   },
 });
 

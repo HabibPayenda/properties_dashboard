@@ -2,43 +2,81 @@ import React from "react";
 import styles from "./sidebar.module.css";
 import logo from "../../assets/logo.jpg";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../../data/adminSlice";
 import SideBarItem from "../SideBarItem";
 import SideBarItemLink from "../SideBarItemLink";
 import userImage from "../../assets/user.jpg";
 
+import { showSidebar } from "../../data/appManagement";
+console.log(showSidebar);
+
 const Sidebar = (props) => {
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+  console.log(isSidebarShown);
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(signOut());
   };
+
+  const toggleSidebar = () => {
+    dispatch(showSidebar("hello"));
+  };
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.header}>
         <div className={styles.headerTop}>
           <div className={styles.logoContainer}>
             <div className={styles.logoIcon}>
               <i className={["fa-solid fa-igloo"]}></i>
             </div>
-            <h1 className={styles.logoText}>PAPI</h1>
+            {isSidebarShown && <h1 className={styles.logoText}>PAPI</h1>}
           </div>
-          <i className="fa-solid fa-bars"></i>
+          {!isSidebarShown && (
+            <div className={styles.iconContainer}>
+              <i
+                onClick={() => toggleSidebar()}
+                className="fa-solid fa-bars"
+              ></i>
+            </div>
+          )}
+          {isSidebarShown && (
+            <div className={styles.iconContainer}>
+              <i
+                onClick={() => toggleSidebar()}
+                className="fa-solid fa-xmark"
+              ></i>
+            </div>
+          )}
         </div>
-        <div className={styles.userDetail}>
+        <div
+          className={
+            isSidebarShown ? styles.userDetail : styles.userDetailClose
+          }
+        >
           <div className={styles.userInfo}>
-            <div className={styles.userImageContainer}>
+            <div
+              className={
+                isSidebarShown
+                  ? styles.userImageContainer
+                  : styles.userImageContainerClose
+              }
+            >
               <img className={styles.userImage} src={userImage} alt="logo" />
             </div>
-            <div className={styles.userMessageContianer}>
-              <p className={styles.userMessageHi}>Hi,</p>
-              <p className={styles.userMessageName}>Habib Payenda</p>
-            </div>
+            {isSidebarShown && (
+              <div className={styles.userMessageContianer}>
+                <p className={styles.userMessageHi}>Hi,</p>
+                <p className={styles.userMessageName}>Habib Payenda</p>
+              </div>
+            )}
           </div>
-          <i className="fa-solid fa-ellipsis-vertical"></i>
+          {isSidebarShown && <i className="fa-solid fa-ellipsis-vertical"></i>}
         </div>
       </div>
-      <nav className={styles.navbar}>
+      <nav className={isSidebarShown ? styles.navbar : styles.navbarClose}>
         <ul className={styles.sideBarItemsContainer}>
           <li>
             <SideBarItem

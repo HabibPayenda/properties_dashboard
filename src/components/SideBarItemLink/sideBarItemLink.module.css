@@ -13,6 +13,21 @@
   flex: 1;
 }
 
+.containerClose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  min-width: 40px;
+  padding: 3px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  font-size: 12px;
+  border: solid 1px #eee;
+}
+
 .iconContainer {
   color: #555;
   padding: 0 3px;
@@ -23,7 +38,7 @@
 }
 
 .title {
-  color: #555;
+  color: black;
   transition: all 0.3s;
 }
 
@@ -36,6 +51,18 @@
 }
 
 .container:hover .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+.containerClose:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.containerClose:hover .title {
+  color: blueviolet;
+}
+
+.containerClose:hover .iconContainer {
   background-color: blueviolet;
   color: #eee;
 }
