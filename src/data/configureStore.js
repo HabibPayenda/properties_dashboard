@@ -1,15 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import adminSlice from './adminSlice';
-import agentsSlice from './agentsSlice';
-import propertyManagersSlice from './propertyManagersSlice';
-import  homesSlice from './homeSlice';
-import CarsSlice from './CarsSlice';
-import LandsSlice from './LandsSlice';
-import usersSlice from './usersSlice';
-import userReviewsSlice from './userReviewsSlice';
-import agentReviewsSlice from './agentReviewsSlice';
-import propertyManagerReviewsSlice from './propertyManagerReviewsSlice';
-import appointmentSlice from './appointmentSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import adminSlice from "./adminSlice";
+import agentsSlice from "./agentsSlice";
+import propertyManagersSlice from "./propertyManagersSlice";
+import homesSlice from "./homeSlice";
+import CarsSlice from "./CarsSlice";
+import LandsSlice from "./LandsSlice";
+import usersSlice from "./usersSlice";
+import userReviewsSlice from "./userReviewsSlice";
+import agentReviewsSlice from "./agentReviewsSlice";
+import propertyManagerReviewsSlice from "./propertyManagerReviewsSlice";
+import appointmentSlice from "./appointmentSlice";
+import appManagement from "./appManagement";
 const store = configureStore({
   reducer: {
     admin: adminSlice,
@@ -22,7 +23,8 @@ const store = configureStore({
     userReviews: userReviewsSlice,
     agentReviews: agentReviewsSlice,
     propertyManagerReviews: propertyManagerReviewsSlice,
-    appointments: appointmentSlice
+    appointments: appointmentSlice,
+    appState: appManagement,
   },
 });
 
