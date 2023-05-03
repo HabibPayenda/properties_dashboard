@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  background-color: transparent;
+  min-width: 40px;
+  padding: 3px 24px;
+  padding-left: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+}
+
+.iconContainer {
+  color: #555;
+  padding: 0 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.title {
+  color: #555;
+  transition: all 0.3s;
+}
+
+.container:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.container:hover .title {
+  color: blueviolet;
+}
+
+.container:hover .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.active {
+  background-color: rgba(138, 43, 226, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  min-width: 40px;
+  padding: 3px 24px;
+  padding-left: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.active .title  {
+  color: blueviolet;
+}
+
+.active .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.active::after {
+  background-color: blueviolet;
+  content: '';
+  height: 50%;
+  width: 5px;
+  position: absolute;
+  top: 25%;
+  right: 6px;
+  border-radius: 6px;
+  z-index: 1000;
+}

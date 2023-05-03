@@ -135,11 +135,7 @@ function App() {
     return <Login />;
   };
 
-  return (
-    <div className="grid grid-cols-10">
-      {token ? adminPresent() : adminNotPresent()}
-    </div>
-  );
+  return <div>{token ? adminPresent() : adminNotPresent()}</div>;
 }
 
 export default App;

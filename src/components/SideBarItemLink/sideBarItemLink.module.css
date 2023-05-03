@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  background-color: transparent;
+  min-width: 40px;
+  padding: 3px 24px;
+  padding-left: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+}
+
+.iconContainer {
+  color: #555;
+  padding: 0 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.title {
+  color: #555;
+  transition: all 0.3s;
+}
+
+.container:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.container:hover .title {
+  color: blueviolet;
+}
+
+.container:hover .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}

@@ -1,9 +1,12 @@
 import React from "react";
-// import styles from "./sidebar.module.css";
+import styles from "./sidebar.module.css";
 import logo from "../../assets/logo.jpg";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../data/adminSlice";
+import SideBarItem from "../SideBarItem";
+import SideBarItemLink from "../SideBarItemLink";
+import userImage from "../../assets/user.jpg";
 
 const Sidebar = (props) => {
   const dispatch = useDispatch();
@@ -11,60 +14,118 @@ const Sidebar = (props) => {
     dispatch(signOut());
   };
   return (
-    <div className="flex flex-grow flex-col bg-yellow-50 h-screen items-center justify-start col-span-2">
-      <div className="p-4">
-        <img className="h-20" src={logo} alt="logo" />
-        <h2 className="text-blue-500">Dashboard</h2>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.headerTop}>
+          <div className={styles.logoContainer}>
+            <div className={styles.logoIcon}>
+              <i className={["fa-solid fa-igloo"]}></i>
+            </div>
+            <h1 className={styles.logoText}>PAPI</h1>
+          </div>
+          <i className="fa-solid fa-bars"></i>
+        </div>
+        <div className={styles.userDetail}>
+          <div className={styles.userInfo}>
+            <div className={styles.userImageContainer}>
+              <img className={styles.userImage} src={userImage} alt="logo" />
+            </div>
+            <div className={styles.userMessageContianer}>
+              <p className={styles.userMessageHi}>Hi,</p>
+              <p className={styles.userMessageName}>Habib Payenda</p>
+            </div>
+          </div>
+          <i className="fa-solid fa-ellipsis-vertical"></i>
+        </div>
       </div>
-      <nav className="w-full">
-        <ul className="w-full flex gap-3 flex-col">
-          <NavLink to="/">
-            <li className="bg-blue-500 text-white w-full">Dashboard</li>
-          </NavLink>
-          <NavLink to="/agents" className="bg-blue-500 text-white w-full">
-            <li>Agents</li>
-          </NavLink>
-          <NavLink to="/properties" className="bg-blue-500 text-white w-full">
-            <li>Properties</li>
-          </NavLink>
-          <NavLink
-            to="/users"
-            className="bg-blue-500 transition-all hover:bg-slate-600 text-white w-full"
-            href="/"
-          >
-            <li>Users</li>
-          </NavLink>
-          <NavLink to="/reviews" className="bg-blue-500 text-white w-full">
-            <li>Reviews</li>
-          </NavLink>
-          <NavLink to="/trainings" className="bg-blue-500 text-white w-full">
-            <li>Trainings</li>
-          </NavLink>
-          <NavLink to="/trainers" className="bg-blue-500 text-white w-full">
-            <li>Trainers</li>
-          </NavLink>
-          <NavLink to="/suggestions" className="bg-blue-500 text-white w-full">
-            <li>Suggestions</li>
-          </NavLink>
-          <NavLink
-            to="/property_managers"
-            className="bg-blue-500 text-white w-full"
-          >
-            <li>Property Managers</li>
-          </NavLink>
-          <NavLink to="/offers" className="bg-blue-500 text-white w-full">
-            <li>Offers</li>
-          </NavLink>
-          <NavLink to="/appointments" className="bg-blue-500 text-white w-full">
-            <li>Appointments</li>
-          </NavLink>
-          <NavLink
-            to="/"
-            onClick={handleLogout}
-            className="bg-blue-500 text-white w-full"
-          >
-            <li>Logout</li>
-          </NavLink>
+      <nav className={styles.navbar}>
+        <ul className={styles.sideBarItemsContainer}>
+          <li>
+            <SideBarItem
+              title="Dashboard"
+              icon={<i className="fa-solid fa-table-columns"></i>}
+              link="/"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Agents"
+              icon={<i className="fa-solid fa-user-tie"></i>}
+              link="/agents"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Properties"
+              icon={<i className="fa-solid fa-house-chimney-window"></i>}
+              link="/properties"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Users"
+              icon={<i className="fa-solid fa-users"></i>}
+              link="/users"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Reviews"
+              icon={<i className="fa-solid fa-comments"></i>}
+              link="/reviews"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Trainings"
+              icon={<i className="fa-solid fa-chalkboard"></i>}
+              link="/trainings"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Trainers"
+              icon={<i className="fa-solid fa-chalkboard-user"></i>}
+              link="/trainers"
+            />
+          </li>
+
+          <li>
+            <SideBarItem
+              title="Suggestions"
+              icon={<i className="fa-solid fa-lightbulb"></i>}
+              link="/suggestions"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Managers"
+              icon={<i className="fa-solid fa-people-roof"></i>}
+              link="/property_managers"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Offers"
+              icon={<i className="fa-solid fa-hand-holding-dollar"></i>}
+              link="/offers"
+            />
+          </li>
+          <li>
+            <SideBarItem
+              title="Appointments"
+              icon={<i className="fa-solid fa-handshake"></i>}
+              link="/appointments"
+            />
+          </li>
+          <li>
+            <SideBarItemLink
+              title="LogOut"
+              icon={<i className="fa-solid fa-right-from-bracket"></i>}
+              link="/"
+              onClick={handleLogout}
+            />
+          </li>
         </ul>
       </nav>
     </div>
