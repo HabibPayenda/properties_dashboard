@@ -24,22 +24,39 @@ function Properties() {
     dispatch(getAllCars());
     dispatch(getAllLands());
   }, []);
+
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div style={{ flex: 9, width: "100%", height: "83%" }}>
         <SectionHeader title="Properties" />
         <div className={styles.contentContainer}>
           <Link className={styles.link} to="homes">
-            <PropertyCard title="Homes" count={homes?.length} />
+            <PropertyCard
+              icon={<i className="fa-solid fa-house"></i>}
+              title="Homes"
+              count={homes?.length}
+            />
           </Link>
           <Link className={styles.link} to="cars">
-            <PropertyCard title="Cars" count={cars?.length} />
+            <PropertyCard
+              icon={<i className="fa-solid fa-house"></i>}
+              title="Cars"
+              count={cars?.length}
+            />
           </Link>
           <Link className={styles.link} to="warehouses">
-            <PropertyCard title="Warehouses" count={0} />
+            <PropertyCard
+              icon={<i className="fa-solid fa-house"></i>}
+              title="Warehouses"
+              count={0}
+            />
           </Link>
           <Link className={styles.link} to="lands">
-            <PropertyCard title="Lands" count={lands?.length} />
+            <PropertyCard
+              icon={<i className="fa-solid fa-house"></i>}
+              title="Lands"
+              count={lands?.length}
+            />
           </Link>
         </div>
       </div>
