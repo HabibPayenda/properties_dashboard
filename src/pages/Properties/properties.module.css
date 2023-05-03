@@ -8,6 +8,16 @@
   height: 100%;
 }
 
+.containerClose {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: 11;
+  gap: 10px;
+  height: 100%;
+}
+
 .contentContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -13,6 +13,10 @@ function Properties() {
   const cars = useSelector((state) => state.cars.cars);
   const lands = useSelector((state) => state.lands.lands);
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +25,7 @@ function Properties() {
     dispatch(getAllLands());
   }, []);
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div style={{ flex: 9, width: "100%", height: "83%" }}>
         <SectionHeader title="Properties" />
         <div className={styles.contentContainer}>
