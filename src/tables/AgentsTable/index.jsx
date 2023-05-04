@@ -12,6 +12,7 @@ import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import TableBadge from "../../components/TableBadge";
+import TablePersonBadge from "../../components/TablePersonBadge";
 
 function AgentsTable() {
   const agents = useSelector((state) => state.agents.agents);
@@ -81,7 +82,9 @@ function AgentsTable() {
                 <>
                   <tr {...row.getRowProps()}>
                     {row.cells.map((cell) => {
-                      console.log(cell.value);
+                      if (cell?.column?.id === "name") {
+                        return <TablePersonBadge id={row?.cells[0]?.value} />;
+                      }
                       switch (cell?.value) {
                         case "active":
                           return (
