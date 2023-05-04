@@ -8,6 +8,7 @@
   overflow-y: scroll;
   height: 300px;
   gap: 12px;
+  background-color: white;
 }
 
 .header {

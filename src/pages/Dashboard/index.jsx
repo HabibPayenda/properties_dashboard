@@ -11,6 +11,7 @@ import { getAllAdmins } from "../../data/adminSlice";
 import { getAllHomes } from "../../data/homeSlice";
 import { getAllAgents } from "../../data/agentsSlice";
 import RecentUsers from "../../components/RecentUsers";
+import DashboardSmallCard from "../../components/DashboardSmallCard";
 
 function Dashboard() {
   ChartJS.register(...registerables);
@@ -34,39 +35,42 @@ function Dashboard() {
   );
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
-      <div className={styles.chartsContianer}>
-        <DashBoardCard
-          chart={
-            <LineChart data={agentsData} labels={agentsLabels} label="Agents" />
-          }
-          title="Agents"
-          text="All agents graph"
-          to="agents"
-        />
-        <DashBoardCard
-          chart={
-            <LineChart data={homesData} labels={homesLabels} label="Homes" />
-          }
-          title="Homes"
-          text="All homes graph"
-          to="properties/homes"
-        />
-        <DashBoardCard
-          chart={
-            <LineChart data={agentsData} labels={agentsLabels} label="Agents" />
-          }
-          title="Agents"
-          text="All agents graph"
-          to="agents"
-        />
-        <DashBoardCard
-          chart={
-            <LineChart data={agentsData} labels={agentsLabels} label="Agents" />
-          }
-          title="Agents"
-          text="All agents graph"
-          to="agents"
-        />
+      <div className={styles.dashboardTop}>
+        <div className={styles.dashboardTopLeft}>
+          <DashboardSmallCard
+            to="properties/homes"
+            subTitle="Explore Homes"
+            title="Homes"
+            color1="#1533c8"
+            color2="#4f95e1"
+            icon={<i className="fa-solid fa-house"></i>}
+          />
+          <DashboardSmallCard
+            to="properties/cars"
+            subTitle="Explore Cars"
+            title="Cars"
+            color1="#00b260"
+            color2="#00d673"
+            icon={<i className="fa-solid fa-car"></i>}
+          />
+          <DashboardSmallCard
+            to="properties/warehouses"
+            subTitle="Explore Warehouses"
+            title="Warehouses"
+            color1="#be28cf"
+            color2="#f68ae2"
+            icon={<i className="fa-solid fa-building-columns"></i>}
+          />
+          <DashboardSmallCard
+            to="properties/lands"
+            subTitle="Explore Lands"
+            title="Lands"
+            color1="#149c9e"
+            color2="#1cdadd"
+            icon={<i className="fa-solid fa-mountain-sun"></i>}
+          />
+        </div>
+        <div className={styles.dashboardTopRight}></div>
       </div>
       <div className={styles.calendarContainer}>
         <Calendar />
