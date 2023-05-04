@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./propertyCard.module.css";
 
-import img from "../../assets/logo.jpg";
+import img from "../../assets/user.jpg";
 import { Link } from "react-router-dom";
 
 function PropertyCard({
@@ -16,35 +16,47 @@ function PropertyCard({
       <div className={styles.iconContainer}>{icon}</div>
       <div className={styles.header}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.text}>Total: {totalCount}</p>
-        <p className={styles.text}>Last: {lastAdded}</p>
+        <div className={styles.text}>
+          <i className="fa-solid fa-chart-line"></i>
+          <p>{5}</p>
+        </div>
+        <div className={styles.text}>
+          <i className="fa-regular fa-calendar"></i>
+          <p>2023/4/2</p>
+        </div>
       </div>
       <div className={styles.footer}>
         <div className={styles.footerLeft}>
-          <p className={styles.footerTitle}></p>
           <div className={styles.footerList}>
-            <img
-              className={styles.footerImage}
-              src={img}
-              alt="property_manager"
-            />
-            <img
-              className={styles.footerImage}
-              src={img}
-              alt="property_manager"
-            />
-            <img
-              className={styles.footerImage}
-              src={img}
-              alt="property_manager"
-            />
-            <Link to="property_managers">
-              <i className="fa-solid fa-arrow-right"></i>
-            </Link>
+            <p className={styles.footerTitle}>Managers</p>
+            <div className={styles.footerListItems}>
+              <img
+                className={styles.footerImage}
+                src={img}
+                alt="property_manager"
+              />
+              <img
+                className={styles.footerImage}
+                src={img}
+                alt="property_manager"
+              />
+              <img
+                className={styles.footerImage}
+                src={img}
+                alt="property_manager"
+              />
+              <Link
+                className={styles.footerIconContainer}
+                to="/property_managers"
+              >
+                <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
           </div>
         </div>
         <div className={styles.footerRight}>
-          <p className={styles.text}>Total: {propertyManagers?.length}</p>
+          <p className={styles.footerTitle}>Total</p>
+          <p className={styles.text}>{5}</p>
         </div>
       </div>
     </div>
