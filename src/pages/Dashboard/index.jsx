@@ -10,6 +10,7 @@ import { getAllUsers } from "../../data/usersSlice";
 import { getAllAdmins } from "../../data/adminSlice";
 import { getAllHomes } from "../../data/homeSlice";
 import { getAllAgents } from "../../data/agentsSlice";
+import RecentUsers from "../../components/RecentUsers";
 
 function Dashboard() {
   ChartJS.register(...registerables);
@@ -69,6 +70,7 @@ function Dashboard() {
       </div>
       <div className={styles.calendarContainer}>
         <Calendar />
+        <RecentUsers />
       </div>
     </div>
   );
