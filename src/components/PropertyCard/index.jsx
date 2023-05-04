@@ -10,10 +10,19 @@ function PropertyCard({
   totalCount,
   lastAdded,
   propertyManagers,
+  color,
 }) {
   return (
     <div className={styles.container}>
-      <div className={styles.iconContainer}>{icon}</div>
+      <div
+        className={styles.iconContainer}
+        style={{
+          backgroundColor: color ? color : "blueviolet",
+          boxShadow: `1px 1px 5px ${color ? color : "blueviolet"}`,
+        }}
+      >
+        {icon}
+      </div>
       <div className={styles.header}>
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.text}>

@@ -32,6 +32,7 @@ function Properties() {
         <div className={styles.contentContainer}>
           <Link className={styles.link} to="homes">
             <PropertyCard
+              color="#be28cf"
               icon={<i className="fa-solid fa-house"></i>}
               title="Homes"
               count={homes?.length}
@@ -39,21 +40,24 @@ function Properties() {
           </Link>
           <Link className={styles.link} to="cars">
             <PropertyCard
-              icon={<i className="fa-solid fa-house"></i>}
+              color="#4f95e1"
+              icon={<i className="fa-solid fa-car"></i>}
               title="Cars"
               count={cars?.length}
             />
           </Link>
           <Link className={styles.link} to="warehouses">
             <PropertyCard
-              icon={<i className="fa-solid fa-house"></i>}
+              color="#f68ae2"
+              icon={<i className="fa-solid fa-building-columns"></i>}
               title="Warehouses"
               count={0}
             />
           </Link>
           <Link className={styles.link} to="lands">
             <PropertyCard
-              icon={<i className="fa-solid fa-house"></i>}
+              color="#1533c8"
+              icon={<i className="fa-solid fa-mountain-sun"></i>}
               title="Lands"
               count={lands?.length}
             />
