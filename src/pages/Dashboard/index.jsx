@@ -12,6 +12,7 @@ import { getAllHomes } from "../../data/homeSlice";
 import { getAllAgents } from "../../data/agentsSlice";
 import RecentUsers from "../../components/RecentUsers";
 import DashboardSmallCard from "../../components/DashboardSmallCard";
+import SmallBtn from "../../components/SmallBtn";
 
 function Dashboard() {
   ChartJS.register(...registerables);
@@ -72,8 +73,25 @@ function Dashboard() {
         </div>
         <div className={styles.dashboardTopRight}></div>
       </div>
-      <div className={styles.calendarContainer}>
-        <Calendar />
+      <div className={styles.dashboardBottom}>
+        <div className={styles.dashboardBottomLeft}>
+          <div className={styles.dashboardChartContainer}>
+            <LineChart label="Agents" data={agentsData} labels={agentsLabels} />
+            <LineChart label="Homes" data={homesData} labels={homesLabels} />
+          </div>
+          <div className={styles.dashboardCalendarContainer}>
+            <div className={styles.calendarHeader}>
+              <h3 className={styles.calendarTitle}> Todays Appointments</h3>
+              <p> active: 3</p>
+              <SmallBtn title="View All" to="/appointments" />
+            </div>
+            <div
+              style={{ height: "190px", width: "100%", overflowY: "scroll" }}
+            >
+              <Calendar />
+            </div>
+          </div>
+        </div>
         <RecentUsers />
       </div>
     </div>

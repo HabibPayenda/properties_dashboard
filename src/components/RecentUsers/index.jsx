@@ -19,6 +19,12 @@ function RecentUsers() {
         <RecentUserCard />
         <RecentUserCard />
         <RecentUserCard />
+        <RecentUserCard />
+        <RecentUserCard />
+        <RecentUserCard />
+        <RecentUserCard />
+        <RecentUserCard />
+        <RecentUserCard />
       </div>
     </div>
   );

@@ -26,29 +26,76 @@
   grid-column-start: 3;
   grid-column-end: 11;
   gap: 16px;
-  padding: 10px;
-  flex: 1;
+  padding: 1px;
   width: 100%;
+  flex: 1;
 }
 
 .dashboardTopLeft {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 12px;
   grid-column: 1/6;
+  padding: 6px;
 }
 
 .dashboardTopRight {
   grid-column: 6/8;
 }
 
-.calendarContainer {
+.dashboardBottom {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 2;
   grid-column-start: 1;
   grid-column: 4;
   width: 100%;
+}
+
+.dashboardBottomLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 2.5;
+  gap: 12px;
+}
+
+.dashboardChartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 160px;
+  width: 100%;
+  border-bottom: solid 1px #eee;
+  padding-bottom: 6px;
+}
+
+.dashboardCalendarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  width: 100%;
+  gap: 3px;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 24px;
+  font-size: 12px;
+}
+
+.calendarTitle {
+  color: white;
+  padding: 3px 6px;
+  align-self: flex-start;
+  background-color: blueviolet;
+  border-radius: 3px;
 }

@@ -40,6 +40,7 @@ function Calendar(props) {
       defaultView={"day"}
       events={events}
       components={components}
+      toolbar={false}
     />
   );
 }

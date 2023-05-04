@@ -65,3 +65,18 @@ table th {
   grid-template-columns: repeat(10, 1fr);
 }
 
+.rbc-header {
+  background-color: red !important;
+}
+
+.rbc-time-header {
+  display: none !important;
+}
+
+
+.rbc-timeslot-group {
+  background-color: white !important;
+  font-size: 12px !important;
+  color: #555;
+}
+
