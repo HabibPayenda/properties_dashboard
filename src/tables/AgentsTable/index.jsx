@@ -11,6 +11,7 @@ import { AgentTableComlumns } from "./columns";
 import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
+import TableBadge from "../../components/TableBadge";
 
 function AgentsTable() {
   const agents = useSelector((state) => state.agents.agents);
@@ -76,14 +77,31 @@ function AgentsTable() {
           <tbody {...getTableBodyProps()}>
             {page.map((row) => {
               prepareRow(row);
-              console.log(row.allCells[0].row.original.id);
               return (
                 <>
                   <tr {...row.getRowProps()}>
                     {row.cells.map((cell) => {
-                      return (
-                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
+                      console.log(cell.value);
+                      switch (cell?.value) {
+                        case "active":
+                          return (
+                            <td {...cell.getCellProps()}>
+                              <TableBadge title="Active" color="green" />
+                            </td>
+                          );
+                        case "not_active":
+                          return (
+                            <td {...cell.getCellProps()}>
+                              <TableBadge title="Inactive" color="brown" />
+                            </td>
+                          );
+                        default:
+                          return (
+                            <td {...cell.getCellProps()}>
+                              {cell.render("Cell")}
+                            </td>
+                          );
+                      }
                     })}
                     <Link
                       className="tableViewBtn"
