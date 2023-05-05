@@ -17,7 +17,7 @@ function Homes() {
           text="Embark on a Journey of Discovery: Exploring Homes That Capture the Heart and Mind"
         />
         <div className={styles.contentContainer}>
-          <div style={{ flex: 9, width: "100%" }}>
+          <div style={{ width: "100%" }}>
             <HomesTable />
           </div>
         </div>

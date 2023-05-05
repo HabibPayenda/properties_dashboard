@@ -14,22 +14,25 @@ function Agents() {
   const agents = useSelector((state) => state.agents.agents);
   const dispatch = useDispatch();
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
   useEffect(() => {
     dispatch(getAllAgents());
     dispatch(getAllAdmins());
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.agentsListContainer}>
-        <SectionHeader title="Agents" />
-        {/* <LongList data={agents} /> */}
-        <div style={{ flex: 9, width: "100%" }}>
+        <SectionHeader
+          title="Agents"
+          text="Company Agents: The Backbone of Successful Business Operations"
+        />
+        <div style={{ width: "100%" }}>
           <AgentsTable />
         </div>
-      </div>
-      <div className={styles.addNewAgentContainer}>
-        <AgentCreate />
       </div>
     </div>
   );
