@@ -15,15 +15,22 @@ function Reviews() {
   const propertyManagerReviews = useSelector(
     (state) => state.propertyManagerReviews.propertyManagerReviews
   );
+
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
   useEffect(() => {
     dispatch(getAllUserReviews());
     dispatch(getAllAgentReviews());
     dispatch(getAllPropertyManagerReviews());
   }, []);
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.list}>
-        <SectionHeader title="Reviews" />
+        <SectionHeader
+          title="Reviews"
+          text="Discover the Best Sources: Unleashing the Power of Crowdsourced Reviews!"
+        />
         <div className={styles.contentContainer}>
           <Link style={{ flex: 1, height: "33%", width: "100%" }} to="users">
             <ReviewCard title="User Reviews" count={userReviews?.length} />
@@ -43,11 +50,6 @@ function Reviews() {
             />
           </Link>
         </div>
-      </div>
-      <div className={styles.graphsContainer}>
-        <div className={styles.graph}>UserRevies Graph</div>
-        <div className={styles.graph}>Agent Reviews Graph</div>
-        <div className={styles.graph}>Property Manager Reviews Graph</div>
       </div>
     </div>
   );
