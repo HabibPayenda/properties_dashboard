@@ -15,9 +15,6 @@ function Homes() {
           </div>
         </div>
       </div>
-      <div className={styles.addNewContainer}>
-        <HomeCreate />
-      </div>
     </div>
   );
 }
