@@ -11,10 +11,12 @@
   border-radius: 24px;
   position: relative;
   transition: all 0.2s;
+  border: solid 1px #eee;
 }
 
 .container:hover {
-  box-shadow: 2px 2px 2px 3px  #ddd;
+  box-shadow: 2px 2px  5px  #eee;
+  transform: translateY(-2px);
 }
 
 .iconContainer {
