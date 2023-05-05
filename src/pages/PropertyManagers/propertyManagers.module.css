@@ -1,9 +1,17 @@
 .propertyManagersContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   grid-column-start: 3;
   grid-column-end: 11;
+  gap: 10px;
+}
+
+.propertyManagersContainerClose {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column: 2/11;
   gap: 10px;
 }
 
@@ -13,8 +21,7 @@
   flex: 2.5;
   align-items: center;
   justify-content: flex-start;
-  background-color: #eee;
-  height: 100%;
+  height: 90%;
   width: 100%;
 }
 

@@ -8,7 +8,9 @@ import PropertyManagersTable from "../../tables/PropertyManagersTable";
 
 function PropertyManagers() {
   const dispatch = useDispatch();
-
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
   useEffect(() => {
     dispatch(getAllPropertyManagers());
   }, []);
@@ -17,15 +19,18 @@ function PropertyManagers() {
   );
   console.log(propertyManagers);
   return (
-    <div className={styles.propertyManagersContainer}>
+    <div
+      className={
+        isSidebarShown
+          ? styles.propertyManagersContainer
+          : styles.propertyManagersContainerClose
+      }
+    >
       <div className={styles.propertyManagersList}>
         <SectionHeader title="Property Managers" />
         <div style={{ flex: 9, width: "100%" }}>
           <PropertyManagersTable />
         </div>
-      </div>
-      <div className={styles.propertyManagersAdd}>
-        <PropertyManagerCreate />
       </div>
     </div>
   );
