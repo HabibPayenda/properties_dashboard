@@ -4,7 +4,18 @@
   justify-content: center;
   grid-column-start: 3;
   grid-column-end: 11;
+  width: 100%;
   gap: 10px;
+}
+
+.containerClose {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: 11;
+  gap: 10px;
+  width: 100%;
 }
 
 .listContainer {
@@ -15,15 +26,6 @@
   justify-content: flex-start;
   height: 100%;
   width: 100%;
-}
-
-.addNewContainer {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: #eee;
-  height: 100%;
 }
 
 .contentContainer {
