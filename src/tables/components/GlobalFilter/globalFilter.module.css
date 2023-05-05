@@ -3,23 +3,26 @@
   align-items: center;
   justify-content: flex-start;
   gap: 5px;
+  background-color: #eee;
+  width: 50%;
+  margin: 12px;
+  padding: 3px 12px;
+  border-radius: 6px;
 }
 
 .label {
-  background-color: blueviolet;
-  color: white;
+  color: #999;
   font-weight: bold;
-  padding: 5px 10px;
-  border: solid 1px #eee;
 }
 
 .input {
   width: 85%;
-  border: solid 1px blueviolet;
   padding: 2px 5px;
+  flex: 1;
+  background-color: #eee;
+  color: #999;
 }
 
 .input:focus {
-  border: solid 1px blueviolet;
   outline: none;
 }
