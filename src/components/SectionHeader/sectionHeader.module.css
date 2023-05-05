@@ -12,8 +12,9 @@
   width: 95%;
   height: 100px;
   font-size: 24px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  flex-direction: column;
   position: relative;
   margin: 18px;
   box-shadow: 3px 3px 5px #a8a8a8fd;
@@ -29,7 +30,7 @@
   width: 80px;
   position: absolute;
   left: 30px;
-  box-shadow: 5px 5px 12px #a8a8a8fd;
+  box-shadow: 3px 3px 5px #a8a8a8fd;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
@@ -110,4 +111,12 @@
 .title {
   color: blueviolet;
   font-size: 22px;
+  margin-left: calc(15% + 30px);
+  text-shadow: 1px 1px 1px rgba(137, 43, 226, 0.305);
+}
+
+.text {
+  color: #555;
+  font-size: 14px;
+  margin-left: calc(15% + 30px);
 }

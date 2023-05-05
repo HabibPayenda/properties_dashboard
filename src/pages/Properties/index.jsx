@@ -28,7 +28,10 @@ function Properties() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div style={{ flex: 9, width: "100%", height: "83%" }}>
-        <SectionHeader title="Properties" />
+        <SectionHeader
+          title="Properties"
+          text="Discover the Secrets of Real Estate: Embark on an Exciting Journey of Exploring Properties!"
+        />
         <div className={styles.contentContainer}>
           <Link className={styles.link} to="homes">
             <PropertyCard

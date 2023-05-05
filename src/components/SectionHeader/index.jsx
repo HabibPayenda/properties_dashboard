@@ -17,7 +17,7 @@ function SectionHeader({ title, text }) {
           <div className={styles.tile}></div>
         </div>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.title}>{text}</p>
+        <p className={styles.text}>{text}</p>
       </div>
     </div>
   );
