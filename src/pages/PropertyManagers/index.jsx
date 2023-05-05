@@ -27,7 +27,10 @@ function PropertyManagers() {
       }
     >
       <div className={styles.propertyManagersList}>
-        <SectionHeader title="Property Managers" />
+        <SectionHeader
+          title="Property Managers"
+          text="Streamline Your Property Management with Expert Management Solutions!"
+        />
         <div style={{ flex: 9, width: "100%" }}>
           <PropertyManagersTable />
         </div>
