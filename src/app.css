@@ -24,6 +24,12 @@
   overflow-y: scroll;
 }
 
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .tableViewBtn {
   background-color: blueviolet;
   color: #eee;

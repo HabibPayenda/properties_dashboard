@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   useTable,
@@ -13,10 +13,13 @@ import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import TableBadge from "../../components/TableBadge";
 import TablePersonBadge from "../../components/TablePersonBadge";
+import FormModal from "../../components/FormModal";
+import AgentCreate from "../../Forms/AgentCreate";
 
 function AgentsTable() {
+  const [openModal, setOpenModal] = useState(false);
+
   const agents = useSelector((state) => state.agents.agents);
-  console.log(agents);
 
   const columns = useMemo(() => AgentTableComlumns, []);
   const data = useMemo(() => agents, [agents]);
@@ -50,7 +53,13 @@ function AgentsTable() {
 
   return (
     <>
-      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <FormModal openModal={openModal} setOpenModal={setOpenModal}>
+        <AgentCreate></AgentCreate>
+      </FormModal>
+      <div className="tableHeader">
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <p onClick={() => setOpenModal(true)}>Add</p>
+      </div>
       <div className="tableContainer">
         <table {...getTableProps()}>
           <thead>
