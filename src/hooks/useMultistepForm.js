@@ -28,8 +28,8 @@ function useMultistepForm(pages) {
     nextPage,
     previousPage,
     steps: pages,
-    isFirstStep: currentPageIndex === 0,
-    isFinalStep: currentPageIndex === pages.length - 1,
+    isFirstPage: currentPageIndex === 0,
+    isLastPage: currentPageIndex === pages.length - 1,
   };
 }
 

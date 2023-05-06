@@ -38,3 +38,8 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.btnContainer {
+  display: flex;
+  gap: 12px;
+}

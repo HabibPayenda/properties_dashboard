@@ -11,6 +11,7 @@ import FormBtn from "../../components/FormBtn";
 import AgentDetails from "./AgentDetails";
 import AgentAddress from "./AgentAddress";
 import useMultistepForm from "../../hooks/useMultistepForm";
+import FormPaginationBtn from "../../components/FormPaginationBtn";
 
 function AgentCreate() {
   const admins = useSelector((state) => state.admin.admins);
@@ -41,7 +42,7 @@ function AgentCreate() {
     }
   };
 
-  const { currentPage } = useMultistepForm([
+  const { currentPage, isLastPage, nextPage, previousPage } = useMultistepForm([
     <AgentDetails formik={formik} admins={admins} styles={styles} />,
     <AgentAddress formik={formik} admins={admins} styles={styles} />,
   ]);
@@ -56,7 +57,10 @@ function AgentCreate() {
         <h2 className={styles.title}>Create New Agent</h2>
         <form className={styles.form} onSubmit={formik.handleSubmit}>
           {currentPage}
-          <FormBtn title="Create" onClick={formik.handleSubmit} />
+          <div className={styles.btnContainer}>
+            <FormPaginationBtn title="Next" onClick={() => nextPage()} />
+            <FormBtn title="Create" onClick={formik.handleSubmit} />
+          </div>
         </form>
       </div>
     </div>
