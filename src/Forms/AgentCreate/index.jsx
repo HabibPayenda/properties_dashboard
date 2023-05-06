@@ -10,6 +10,7 @@ import { addAgent } from "../../data/agentsSlice";
 import FormBtn from "../../components/FormBtn";
 import AgentDetails from "./AgentDetails";
 import AgentAddress from "./AgentAddress";
+import useMultistepForm from "../../hooks/useMultistepForm";
 
 function AgentCreate() {
   const admins = useSelector((state) => state.admin.admins);
@@ -40,14 +41,24 @@ function AgentCreate() {
     }
   };
 
+  const { currentPage } = useMultistepForm([
+    <AgentDetails formik={formik} admins={admins} styles={styles} />,
+    <AgentAddress formik={formik} admins={admins} styles={styles} />,
+  ]);
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Create New Agent</h2>
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
-        <AgentDetails formik={formik} styles={styles} admins={admins} />
-        <AgentAddress formik={formik} styles={styles} admins={admins} />
-        <FormBtn title="Create" onClick={formik.handleSubmit} />
-      </form>
+      <div className={styles.sidebar}>
+        <div className={styles.sidbarHeader}>Logo</div>
+        <div className={styles.sidebarStepsContainer}></div>
+      </div>
+      <div className={styles.formContent}>
+        <h2 className={styles.title}>Create New Agent</h2>
+        <form className={styles.form} onSubmit={formik.handleSubmit}>
+          {currentPage}
+          <FormBtn title="Create" onClick={formik.handleSubmit} />
+        </form>
+      </div>
     </div>
   );
 }

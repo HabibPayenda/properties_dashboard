@@ -10,3 +10,11 @@
   left: 0;
   z-index: 100000;
 }
+
+.closeBtn {
+  position: fixed;
+  top: 15vh;
+  right: 12vw;
+  color: blueviolet;
+  cursor: pointer;
+}

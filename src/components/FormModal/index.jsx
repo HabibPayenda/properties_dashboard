@@ -7,7 +7,9 @@ function FormModal({ title, children, openModal, setOpenModal }) {
       <div className={styles.container}>
         <div className={styles.header}>
           {title}
-          <p onClick={() => setOpenModal(false)}>Close</p>
+          <p className={styles.closeBtn} onClick={() => setOpenModal(false)}>
+            <i className="fa-solid fa-xmark"></i>
+          </p>
         </div>
         <div className="content">{children}</div>
         <div className="footer"></div>
