@@ -19,7 +19,10 @@ function Appointments() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
-        <SectionHeader title="Appointments" />
+        <SectionHeader
+          title="Appointments"
+          text="Revolutionize your Schedule: How Appointments are Streamlining Workflow and Boosting Productivity"
+        />
         <div className={styles.contentContainer}>
           <div style={{ flex: 9, width: "100%" }}>
             <AppointmentsTable />
