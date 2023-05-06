@@ -12,6 +12,7 @@ import AgentDetails from "./AgentDetails";
 import AgentAddress from "./AgentAddress";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
+import FormPageInfo from "../../components/FormPageInfo";
 
 function AgentCreate() {
   const admins = useSelector((state) => state.admin.admins);
@@ -42,16 +43,36 @@ function AgentCreate() {
     }
   };
 
-  const { currentPage, isLastPage, nextPage, previousPage } = useMultistepForm([
+  const {
+    currentPage,
+    isLastPage,
+    nextPage,
+    previousPage,
+    currentPageIndex,
+    isPageFinished,
+    pages,
+    finisedPages,
+  } = useMultistepForm([
     <AgentDetails formik={formik} admins={admins} styles={styles} />,
     <AgentAddress formik={formik} admins={admins} styles={styles} />,
   ]);
-  console.log("current Page: ", currentPage);
+
+  console.log("completed", isPageFinished);
+
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <div className={styles.sidbarHeader}>Logo</div>
-        <div className={styles.sidebarStepsContainer}></div>
+        <div className={styles.sidebarStepsContainer}>
+          <FormPageInfo
+            title="Agent Details"
+            completed={finisedPages[currentPageIndex]}
+          />
+          <FormPageInfo
+            title="Agent Address"
+            completed={finisedPages[currentPageIndex]}
+          />
+        </div>
       </div>
       <div className={styles.formContent}>
         <h2 className={styles.title}>Create New Agent</h2>
