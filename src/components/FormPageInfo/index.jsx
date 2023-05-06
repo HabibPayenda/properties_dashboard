@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "./formPageInfo.module.css";
 
-function FormPageInfo({ title, completed }) {
+function FormPageInfo({ title, isCurrentPage }) {
   return (
     <div className={styles.container}>
-      {completed && <p className={styles.completed}>completed: {title}</p>}
-      {!completed && (
+      {isCurrentPage && <p className={styles.completed}>completed: {title}</p>}
+      {!isCurrentPage && (
         <p className={styles.notCompleted}>Not completed: {title}</p>
       )}
     </div>

@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 function useMultistepForm(pages) {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
-  const [lastPageFinished, setLastPageFineshed] = useState(false);
-  const [finisedPages, setFinishedPages] = useState([]);
 
-  const nextPage = () => {
+  const nextPage = (formik) => {
+    if (currentPageIndex == pages.length - 1) {
+      const isEmpty = Object.values(formik.values).some(
+        (value) => value === ""
+      );
+      if (isEmpty) {
+        setCurrentPageIndex(() => -1);
+        toast.error("Some values are empty");
+      } else {
+        formik.submitForm();
+      }
+    }
     setCurrentPageIndex((previousIndex) => {
       if (previousIndex >= pages.length - 1) return previousIndex;
       return previousIndex + 1;
@@ -23,18 +33,6 @@ function useMultistepForm(pages) {
     setCurrentPageIndex(index);
   };
 
-  const isPageFinished = !Object.values(
-    pages[currentPageIndex].props.formik.values
-  ).some((value) => value === "");
-
-  useEffect(() => {
-    setFinishedPages((pages) => {
-      const newPages = [...pages];
-      newPages[currentPageIndex] = isPageFinished;
-      return newPages;
-    });
-  }, [isPageFinished, currentPageIndex]);
-
   return {
     currentPageIndex,
     currentPage: pages[currentPageIndex],
@@ -44,7 +42,6 @@ function useMultistepForm(pages) {
     pages: pages,
     isFirstPage: currentPageIndex === 0,
     isLastPage: currentPageIndex === pages.length - 1,
-    finisedPages,
   };
 }
 

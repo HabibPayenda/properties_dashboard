@@ -2,12 +2,9 @@ import { useFormik } from "formik";
 import React from "react";
 
 import styles from "./agentCreate.module.css";
-import TextInput from "../../components/TextInput";
-import FormSelect from "../../components/FromSelect";
 import { useDispatch, useSelector } from "react-redux";
 import agentCreateSchema from "./agentCreateSchema";
 import { addAgent } from "../../data/agentsSlice";
-import FormBtn from "../../components/FormBtn";
 import AgentDetails from "./AgentDetails";
 import AgentAddress from "./AgentAddress";
 import useMultistepForm from "../../hooks/useMultistepForm";
@@ -35,42 +32,26 @@ function AgentCreate() {
     onSubmit: handleFormSubmit,
   });
 
-  const showErrors = () => {
-    for (let error in formik.errors) {
-      if (formik.touched[error]) {
-        return <p>{formik.errors[error]}</p>;
-      }
-    }
-  };
-
-  const {
-    currentPage,
-    isLastPage,
-    nextPage,
-    previousPage,
-    currentPageIndex,
-    isPageFinished,
-    pages,
-    finisedPages,
-  } = useMultistepForm([
-    <AgentDetails formik={formik} admins={admins} styles={styles} />,
-    <AgentAddress formik={formik} admins={admins} styles={styles} />,
-  ]);
-
-  console.log("completed", isPageFinished);
+  const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
+    useMultistepForm([
+      <AgentDetails formik={formik} admins={admins} styles={styles} />,
+      <AgentAddress formik={formik} admins={admins} styles={styles} />,
+      <AgentAddress formik={formik} admins={admins} styles={styles} />,
+    ]);
 
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <div className={styles.sidbarHeader}>Logo</div>
         <div className={styles.sidebarStepsContainer}>
+          <FormPageInfo title="Agent Details" isCurrentPage={true} />
           <FormPageInfo
-            title="Agent Details"
-            completed={finisedPages[currentPageIndex]}
+            title="Agent Address"
+            isCurrentPage={currentPageIndex >= 1}
           />
           <FormPageInfo
             title="Agent Address"
-            completed={finisedPages[currentPageIndex]}
+            isCurrentPage={currentPageIndex >= 2}
           />
         </div>
       </div>
@@ -85,7 +66,7 @@ function AgentCreate() {
             />
             <FormPaginationBtn
               title={isLastPage ? "Finish" : "Next"}
-              onClick={() => nextPage()}
+              onClick={() => nextPage(formik)}
             />
           </div>
         </form>

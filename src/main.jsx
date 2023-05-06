@@ -14,6 +14,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <App />
     </Provider>
-    <ToastContainer />
+    <ToastContainer style={{ zIndex: 1000000000000 }} />
   </React.StrictMode>
 );
