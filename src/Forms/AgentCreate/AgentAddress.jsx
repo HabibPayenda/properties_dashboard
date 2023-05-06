@@ -9,7 +9,7 @@ function AgentAddress({ formik, styles, admins }) {
         label="Name:"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        placeholder="Agent Name"
+        placeholder="Agent Address"
         className={styles.input}
         value={formik.values.name}
         id="name"

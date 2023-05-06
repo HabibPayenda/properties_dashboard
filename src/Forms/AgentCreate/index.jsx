@@ -46,7 +46,7 @@ function AgentCreate() {
     <AgentDetails formik={formik} admins={admins} styles={styles} />,
     <AgentAddress formik={formik} admins={admins} styles={styles} />,
   ]);
-
+  console.log("current Page: ", currentPage);
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
@@ -58,8 +58,14 @@ function AgentCreate() {
         <form className={styles.form} onSubmit={formik.handleSubmit}>
           {currentPage}
           <div className={styles.btnContainer}>
-            <FormPaginationBtn title="Next" onClick={() => nextPage()} />
-            <FormBtn title="Create" onClick={formik.handleSubmit} />
+            <FormPaginationBtn
+              title="Previous"
+              onClick={() => previousPage()}
+            />
+            <FormPaginationBtn
+              title={isLastPage ? "Finish" : "Next"}
+              onClick={() => nextPage()}
+            />
           </div>
         </form>
       </div>

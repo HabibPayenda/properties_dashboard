@@ -13,7 +13,7 @@ function useMultistepForm(pages) {
   const previousPage = () => {
     setCurrentPageIndex((previousIndex) => {
       if (previousIndex <= 0) return previousIndex;
-      return previousIndex + 1;
+      return previousIndex - 1;
     });
   };
 
