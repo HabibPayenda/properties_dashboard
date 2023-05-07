@@ -5,6 +5,7 @@ import { getAgent } from "../../data/agentsSlice";
 import SectionHeader from "../../components/SectionHeader";
 import styles from "./agent.module.css";
 import ContentHeader from "../../components/ContentHeader";
+import ItemsCard from "../../components/ItemsCard";
 
 function Agent() {
   const { id } = useParams();
@@ -24,15 +25,7 @@ function Agent() {
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <SectionHeader title={`Agent ${agent?.name} details`} />
       <div className={styles.contentContainer}>
-        <div className={styles.column}>
-          <ContentHeader title="Properties" />
-        </div>
-        <div className={styles.column}>
-          <ContentHeader title="Property Managers" />
-        </div>
-        <div className={styles.column}>
-          <ContentHeader title="Trainings" />
-        </div>
+        <ItemsCard />
       </div>
     </div>
   );

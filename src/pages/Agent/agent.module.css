@@ -19,6 +19,8 @@
 
 .contentContainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 9;
   gap: 10px;
   width: 100%;
