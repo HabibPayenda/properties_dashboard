@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./formPageInfo.module.css";
 
-function FormPageInfo({ title, isCurrentPage }) {
+function FormPageInfo({ title, isCurrentPage, pageNumber }) {
   return (
-    <div className={styles.container}>
-      {isCurrentPage && <p className={styles.completed}>completed: {title}</p>}
+    <div className={styles.mainContainer}>
+      {isCurrentPage && (
+        <div className={styles.container}>
+          <i className="fa-solid fa-check"></i>
+          <p className={styles.completed}> {title}</p>
+        </div>
+      )}
       {!isCurrentPage && (
-        <p className={styles.notCompleted}>Not completed: {title}</p>
+        <div className={styles.container}>
+          <i className="fa-solid fa-check"></i>
+          <p className={styles.notCompleted}> {title}</p>
+        </div>
       )}
     </div>
   );

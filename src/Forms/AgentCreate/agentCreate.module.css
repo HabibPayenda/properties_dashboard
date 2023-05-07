@@ -6,15 +6,39 @@
   height: 80vh;
   gap: 12px;
   background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .sidebar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
   flex: 1;
-  background-color: red;
   height: 100%;
+  padding: 24px;
+  gap: 24px;
+}
+
+.sidbarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  width: 100%;
+  flex: 1;
+  color: blueviolet;
+}
+
+.sidebarStepsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 5;
+  width: 100%;
+  gap: 16px;
 }
 
 .formContent {
@@ -23,8 +47,8 @@
   justify-content: center;
   flex-direction: column;
   flex: 2;
-  background-color: yellow;
   height: 100%;
+  background-color: #eee;
 }
 
 .title {

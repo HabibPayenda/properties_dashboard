@@ -42,7 +42,10 @@ function AgentCreate() {
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
-        <div className={styles.sidbarHeader}>Logo</div>
+        <div className={styles.sidbarHeader}>
+          <i className={["fa-solid fa-igloo"]}> </i>
+          <h1 className={styles.logoText}>PAPI</h1>
+        </div>
         <div className={styles.sidebarStepsContainer}>
           <FormPageInfo title="Agent Details" isCurrentPage={true} />
           <FormPageInfo

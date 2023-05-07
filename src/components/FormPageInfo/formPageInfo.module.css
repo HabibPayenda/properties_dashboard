@@ -1,15 +1,22 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 80%;
+  justify-content: flex-start;
+  width: 100%;
   color: blueviolet;
 }
 
 .completed {
-  color: green;
+  color: #555;
 }
 
 .notCompleted {
-  color: yellow;
+  color: #555;
 }
