@@ -75,9 +75,17 @@ export const getAgent = createAsyncThunk("agents/getAgent", async (id) => {
 });
 export const addAgent = createAsyncThunk(
   "agents/addAgent",
-  async ({ name, hire_date, status, admin_id }) => {
-    // Code
-    // console.log("data is ", data)
+  async ({
+    name,
+    hire_date,
+    status,
+    admin_id,
+    province,
+    city,
+    district,
+    phone_number_one,
+    email_one,
+  }) => {
     try {
       const result = await PropertiesApi.post(
         "/agents",
@@ -86,6 +94,11 @@ export const addAgent = createAsyncThunk(
           hire_date: hire_date,
           status: status,
           admin_id: admin_id * 1,
+          province,
+          city,
+          district,
+          phone_number_one,
+          email_one,
         },
         {
           onUploadProgress: (progress) => {
@@ -173,10 +186,11 @@ export const agentsSlice = createSlice({
 
     builder.addCase(addAgent.fulfilled, (state, action) => {
       // Code
-      state.agents = [...state.agents, action.payload.agent];
       toast.success("Agent added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+      console.log(action.payload);
+      state.agents = [...state.agents, action.payload.agent];
     });
   },
 });

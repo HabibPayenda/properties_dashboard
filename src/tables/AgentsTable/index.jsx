@@ -59,7 +59,7 @@ function AgentsTable() {
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <p className="addBtn" onClick={() => setOpenModal(true)}>
-          <i class="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
           Add Agent
         </p>
       </div>

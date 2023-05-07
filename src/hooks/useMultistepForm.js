@@ -6,20 +6,21 @@ function useMultistepForm(pages) {
 
   const nextPage = (formik) => {
     if (currentPageIndex == pages.length - 1) {
-      const isEmpty = Object.values(formik.values).some(
+      const isValuesEmpty = Object.values(formik.values).some(
         (value) => value === ""
       );
-      if (isEmpty) {
-        setCurrentPageIndex(() => -1);
+      if (isValuesEmpty) {
+        setCurrentPageIndex(() => 0);
         toast.error("Some values are empty");
       } else {
         formik.submitForm();
       }
+    } else {
+      setCurrentPageIndex((previousIndex) => {
+        if (previousIndex >= pages.length - 1) return previousIndex;
+        return previousIndex + 1;
+      });
     }
-    setCurrentPageIndex((previousIndex) => {
-      if (previousIndex >= pages.length - 1) return previousIndex;
-      return previousIndex + 1;
-    });
   };
 
   const previousPage = () => {
