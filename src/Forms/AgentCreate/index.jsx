@@ -41,8 +41,20 @@ function AgentCreate() {
         admins={admins}
         styles={styles}
       />,
-      <AgentAddress formik={formik} admins={admins} styles={styles} />,
-      <AgentAddress formik={formik} admins={admins} styles={styles} />,
+      <AgentAddress
+        title="Add Agent Address Info"
+        text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        admins={admins}
+        styles={styles}
+      />,
+      <AgentAddress
+        title="Add Agent Contact Info"
+        text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        admins={admins}
+        styles={styles}
+      />,
     ]);
 
   return (
