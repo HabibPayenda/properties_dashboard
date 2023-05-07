@@ -5,8 +5,8 @@
   position: relative;
   background-color: white;
   border: solid 1px #eee;
-  width: 250px;
-  height: 280px;
+  width: 220px;
+  height: 230px;
   border-radius: 14px;
   box-shadow: 2px 2px 5px #eee;
 }
@@ -42,7 +42,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 56px;
+  margin-top: 54px;
   flex: 4;
 }
 
@@ -75,8 +75,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   background-color: white;
   position: absolute;
   top: -20px;
@@ -89,8 +89,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   background-color: #f5f5f5;
   border-radius: 90px;
   box-shadow: 1px 1px 3px #aaa;
@@ -101,8 +101,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   background: linear-gradient(45deg, #1533c8, #4f95e1);
   border-radius: 80px;
   font-size: 22px;
