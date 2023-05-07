@@ -12,6 +12,13 @@ function ItemsCard({ icon, title, text }) {
               "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus maxime incidunt quo libero animi earum"}
           </p>
         </div>
+        <div className={styles.detailsContainer}>
+          <div className={styles.detailsItem}>
+            <p>
+              <i className="fa-solid fa-chart-line"></i> : 18
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.circlesContainer}>
