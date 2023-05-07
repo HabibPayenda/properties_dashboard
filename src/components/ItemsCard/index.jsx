@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./itemsCard.module.css";
-function ItemsCard({ icon, title, text }) {
+import SmallBtn from "../SmallBtn";
+import { Link } from "react-router-dom";
+function ItemsCard({ icon, title, text, to }) {
   return (
     <div className={styles.container}>
       <div className={styles.triangel}></div>
@@ -17,6 +19,11 @@ function ItemsCard({ icon, title, text }) {
             <p>
               <i className="fa-solid fa-chart-line"></i> : 18
             </p>
+          </div>
+          <div className={styles.detailsItem}>
+            <Link className={styles.btn} to={to}>
+              View All
+            </Link>
           </div>
         </div>
       </div>

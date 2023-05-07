@@ -57,11 +57,19 @@
 .detailsContainer {
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   align-self: flex-end;
   flex: 1;
 }
+
+
+.btn {
+  font-size: 14px;
+  color: #1533c8;
+  cursor: pointer;
+}
+
 
 .circlesContainer {
   display: flex;
