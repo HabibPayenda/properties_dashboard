@@ -58,7 +58,10 @@ function AgentsTable() {
       </FormModal>
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-        <p onClick={() => setOpenModal(true)}>Add</p>
+        <p className="addBtn" onClick={() => setOpenModal(true)}>
+          <i class="fa-solid fa-plus"></i>
+          Add Agent
+        </p>
       </div>
       <div className="tableContainer">
         <table {...getTableProps()}>
