@@ -73,17 +73,14 @@ function AgentCreate() {
       <div className={styles.formContent}>
         <form className={styles.form} onSubmit={formik.handleSubmit}>
           {currentPage}
-          <div className={styles.btnContainer}>
-            <FormPaginationBtn
-              title="Previous"
-              onClick={() => previousPage()}
-            />
-            <FormPaginationBtn
-              title={isLastPage ? "Finish" : "Next"}
-              onClick={() => nextPage(formik)}
-            />
-          </div>
         </form>
+        <div className={styles.btnContainer}>
+          <FormPaginationBtn title="Previous" onClick={() => previousPage()} />
+          <FormPaginationBtn
+            title={isLastPage ? "Finish" : "Next"}
+            onClick={() => nextPage(formik)}
+          />
+        </div>
       </div>
     </div>
   );
