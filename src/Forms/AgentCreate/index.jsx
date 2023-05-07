@@ -34,7 +34,13 @@ function AgentCreate() {
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
-      <AgentDetails formik={formik} admins={admins} styles={styles} />,
+      <AgentDetails
+        title="Add New Agent to the System"
+        text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        admins={admins}
+        styles={styles}
+      />,
       <AgentAddress formik={formik} admins={admins} styles={styles} />,
       <AgentAddress formik={formik} admins={admins} styles={styles} />,
     ]);
@@ -65,7 +71,6 @@ function AgentCreate() {
         </div>
       </div>
       <div className={styles.formContent}>
-        <h2 className={styles.title}>Create New Agent</h2>
         <form className={styles.form} onSubmit={formik.handleSubmit}>
           {currentPage}
           <div className={styles.btnContainer}>

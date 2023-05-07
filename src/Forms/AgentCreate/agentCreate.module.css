@@ -58,9 +58,29 @@
 .form {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   gap: 10px;
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+  padding: 48px;
+}
+
+.formDetails {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-color: orange;
+}
+
+.formDetailsTitle {
+  font-size: 18px;
+}
+
+.formDetailsText {
+  font-size: 14px;
 }
 
 .btnContainer {

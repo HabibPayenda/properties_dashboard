@@ -2,9 +2,13 @@ import React from "react";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
 
-function AgentDetails({ formik, styles, admins }) {
+function AgentDetails({ formik, styles, admins, title, text }) {
   return (
     <>
+      <div className={styles.formDetails}>
+        <h2 className={styles.formDetailsTitle}>{title}</h2>
+        <p className={styles.formDetailsText}>{text}</p>
+      </div>
       <TextInput
         label="Name:"
         onChange={formik.handleChange}
