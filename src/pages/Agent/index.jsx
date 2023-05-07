@@ -6,6 +6,7 @@ import SectionHeader from "../../components/SectionHeader";
 import styles from "./agent.module.css";
 import ContentHeader from "../../components/ContentHeader";
 import ItemsCard from "../../components/ItemsCard";
+import PersonDetailsHeader from "../../components/PersonDetailsHeader";
 
 function Agent() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ function Agent() {
   }, []);
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
-      <SectionHeader title={`Agent ${agent?.name} details`} />
+      <PersonDetailsHeader />
       <div className={styles.contentContainer}>
         <ItemsCard
           title="Agent Homes"

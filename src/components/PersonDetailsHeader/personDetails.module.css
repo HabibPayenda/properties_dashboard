@@ -2,6 +2,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   background-color: red;
+}
+
+.circleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  width: 110px;
+  background-color: white;
+  border-radius: 55px;
+  
+}
+
+.detailsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: yellow;
+  flex: 9;
+  height: 100%;
 }
