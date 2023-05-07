@@ -76,7 +76,6 @@
   flex: 1;
   padding: 12px;
   padding-left: 0;
-  /* background-color: orange; */
 }
 
 .inputsContainer {
@@ -87,7 +86,6 @@
   width: 50%;
   gap: 10px;
   flex: 9;
-  /* background-color: red; */
 }
 
 .formDetailsTitle {

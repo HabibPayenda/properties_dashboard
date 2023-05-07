@@ -11,12 +11,13 @@
 
 .label {
   font-size: 14px;
+  flex-grow: 1;
 }
 
-.select {
+.input {
   outline: none;
+  flex: 9;
 }
-
 .select:focus {
   outline: none;
 }
