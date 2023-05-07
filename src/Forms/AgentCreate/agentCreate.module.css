@@ -83,7 +83,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   gap: 10px;
   flex: 9;
 }
@@ -103,4 +103,5 @@
   width: 80%;
   gap: 12px;
   flex: 0.5;
+  margin-bottom: 24px;
 }
