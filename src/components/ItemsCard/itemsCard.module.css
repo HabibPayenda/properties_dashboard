@@ -45,6 +45,14 @@
   margin-top: 24px;
 }
 
+.title {
+  font-size: 18px;
+}
+
+.text {
+  font-size: 14px;
+}
+
 .circlesContainer {
   display: flex;
   align-items: center;
@@ -79,4 +87,6 @@
   width: 80px;
   background: linear-gradient(45deg, #1533c8, #4f95e1);
   border-radius: 80px;
+  font-size: 22px;
+  color: white;
 }

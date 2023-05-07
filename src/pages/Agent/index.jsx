@@ -25,7 +25,11 @@ function Agent() {
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <SectionHeader title={`Agent ${agent?.name} details`} />
       <div className={styles.contentContainer}>
-        <ItemsCard />
+        <ItemsCard
+          title="Agent Homes"
+          text="These homes belongs to this agent"
+          icon={<i className="fa-solid fa-house"></i>}
+        />
       </div>
     </div>
   );

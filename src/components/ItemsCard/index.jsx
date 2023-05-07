@@ -6,17 +6,17 @@ function ItemsCard({ icon, title, text }) {
       <div className={styles.triangel}></div>
       <div className={styles.contentContainer}>
         <div className={styles.contentTextContainer}>
-          <h3 className={styles.title}>Title</h3>
+          <h3 className={styles.title}>{title || "Title"}</h3>
           <p className={styles.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus
-            maxime incidunt quo libero animi earum
+            {text ||
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus maxime incidunt quo libero animi earum"}
           </p>
         </div>
       </div>
 
       <div className={styles.circlesContainer}>
         <div className={styles.bottomCircle}>
-          <div className={styles.topCircle}></div>
+          <div className={styles.topCircle}>{icon}</div>
         </div>
       </div>
     </div>
