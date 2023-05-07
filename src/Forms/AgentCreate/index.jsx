@@ -10,6 +10,7 @@ import AgentAddress from "./AgentAddress";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
+import AgentContact from "./AgentContact";
 
 function AgentCreate() {
   const admins = useSelector((state) => state.admin.admins);
@@ -53,7 +54,7 @@ function AgentCreate() {
         admins={admins}
         styles={styles}
       />,
-      <AgentAddress
+      <AgentContact
         title="Add Agent Contact Info"
         text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
         formik={formik}
