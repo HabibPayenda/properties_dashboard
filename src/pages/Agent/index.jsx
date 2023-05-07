@@ -9,6 +9,10 @@ import ContentHeader from "../../components/ContentHeader";
 function Agent() {
   const { id } = useParams();
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
   const agent = useSelector((state) => state.agents.showAgent);
   console.log(agent);
 
@@ -17,7 +21,7 @@ function Agent() {
     dispatch(getAgent(id));
   }, []);
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <SectionHeader title={`Agent ${agent?.name} details`} />
       <div className={styles.contentContainer}>
         <div className={styles.column}>
