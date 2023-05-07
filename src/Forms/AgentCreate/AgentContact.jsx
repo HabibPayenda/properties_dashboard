@@ -29,7 +29,7 @@ function AgentContact({ formik, styles, title, text }) {
           className={styles.input}
           value={formik.values.email_one}
           id="email_one"
-          type="date"
+          type="text"
           errors={formik.errors.email_one}
           touched={formik.touched.email_one}
         />

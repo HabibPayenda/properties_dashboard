@@ -1,8 +1,7 @@
 import React from "react";
 import TextInput from "../../components/TextInput";
-import FormSelect from "../../components/FromSelect";
 
-function AgentAddress({ formik, styles, admins, title, text }) {
+function AgentAddress({ formik, styles, title, text }) {
   return (
     <>
       <div className={styles.formDetails}>
@@ -11,57 +10,40 @@ function AgentAddress({ formik, styles, admins, title, text }) {
       </div>
       <div className={styles.inputsContainer}>
         <TextInput
-          label="Name:"
+          label="Province"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Agent Address"
+          placeholder="Agent Province"
           className={styles.input}
-          value={formik.values.name}
-          id="name"
+          value={formik.values.province}
+          id="province"
           type="text"
-          name="name"
-          errors={formik.errors.name}
-          touched={formik.touched.name}
+          errors={formik.errors.province}
+          touched={formik.touched.province}
         />
         <TextInput
-          label="Hire Date:"
+          label="City:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Hire date"
+          placeholder="Agent City"
           className={styles.input}
-          value={formik.values.hire_date}
-          id="hire_date"
-          name="hire_date"
-          type="date"
-          errors={formik.errors.hire_date}
-          touched={formik.touched.hire_date}
+          value={formik.values.city}
+          id="city"
+          type="text"
+          errors={formik.errors.city}
+          touched={formik.touched.city}
         />
-        <FormSelect
-          id="status"
-          value={formik.values.status}
+        <TextInput
+          label="District:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          label="Status:"
-          titles={["Active", "Not Active"]}
-          values={["active", "not_active"]}
-          errors={formik.errors.status}
-          touched={formik.touched.status}
-          setFieldValue={formik.setFieldValue}
-          setFieldTouched={formik.setFieldTouched}
-        />
-
-        <FormSelect
-          value={formik.values.admin_id}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          label="Admin:"
-          titles={admins.map((admin) => admin.name)}
-          values={admins.map((admin) => admin.id)}
-          errors={formik.errors.admin_id}
-          touched={formik.touched.admin_id}
-          id="admin_id"
-          setFieldValue={formik.setFieldValue}
-          setFieldTouched={formik.setFieldTouched}
+          placeholder="Agent District"
+          className={styles.input}
+          value={formik.values.district}
+          id="district"
+          type="text"
+          errors={formik.errors.district}
+          touched={formik.touched.district}
         />
       </div>
     </>
