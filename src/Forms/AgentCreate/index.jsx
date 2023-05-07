@@ -47,14 +47,20 @@ function AgentCreate() {
           <h1 className={styles.logoText}>PAPI</h1>
         </div>
         <div className={styles.sidebarStepsContainer}>
-          <FormPageInfo title="Agent Details" isCurrentPage={true} />
+          <FormPageInfo
+            title="Agent Details"
+            isCurrentPage={true}
+            pageNumber={1}
+          />
           <FormPageInfo
             title="Agent Address"
             isCurrentPage={currentPageIndex >= 1}
+            pageNumber={2}
           />
           <FormPageInfo
             title="Agent Address"
             isCurrentPage={currentPageIndex >= 2}
+            pageNumber={3}
           />
         </div>
       </div>

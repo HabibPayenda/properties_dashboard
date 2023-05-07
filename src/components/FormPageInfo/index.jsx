@@ -6,13 +6,15 @@ function FormPageInfo({ title, isCurrentPage, pageNumber }) {
     <div className={styles.mainContainer}>
       {isCurrentPage && (
         <div className={styles.container}>
-          <i className="fa-solid fa-check"></i>
+          <div className={styles.completedIcon}>
+            <i className="fa-solid fa-check"></i>
+          </div>
           <p className={styles.completed}> {title}</p>
         </div>
       )}
       {!isCurrentPage && (
         <div className={styles.container}>
-          <i className="fa-solid fa-check"></i>
+          <div className={styles.notCompletedIcons}>{pageNumber}</div>
           <p className={styles.notCompleted}> {title}</p>
         </div>
       )}

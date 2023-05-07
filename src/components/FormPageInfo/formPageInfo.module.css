@@ -11,10 +11,33 @@
   justify-content: flex-start;
   width: 100%;
   color: blueviolet;
+  gap: 12px;
+}
+
+.completedIcon {
+  background-color: #00d673;
+  color: white;
+  line-height: 12px;
+  padding: 4px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.notCompletedIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px blueviolet;
+  color: blueviolet;
+  width: 18px;
+  height: 18px;
+  padding: 4px;
+  border-radius: 30px;
+  font-size: 12px;
 }
 
 .completed {
-  color: #555;
+  color: #ccc;
 }
 
 .notCompleted {
