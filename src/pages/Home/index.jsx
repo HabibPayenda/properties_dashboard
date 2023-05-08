@@ -36,9 +36,6 @@ function Home() {
           />
         </div>
       </div>
-      <div className={styles.addNewContainer}>
-        <HomeRoomCreate id={id} />
-      </div>
     </div>
   );
 }
