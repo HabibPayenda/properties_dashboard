@@ -43,6 +43,9 @@ export const addHome = createAsyncThunk(
     property_manager_id,
     agent_id,
     description,
+    province,
+    city,
+    district,
   }) => {
     try {
       const result = await PropertiesApi.post(
@@ -54,6 +57,9 @@ export const addHome = createAsyncThunk(
           property_manager_id: property_manager_id * 1,
           agent_id: agent_id * 1,
           description: description,
+          province: province,
+          city: city,
+          district: district,
         },
         {
           onUploadProgress: (progress) => {
