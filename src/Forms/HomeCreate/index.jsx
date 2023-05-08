@@ -11,6 +11,7 @@ import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
 import HomeDetailsForm from "./homeDetails";
+import HomeAddressForm from "./HomeAddressForm";
 
 function HomeCreate() {
   const agents = useSelector((state) => state.agents.agents);
@@ -46,6 +47,14 @@ function HomeCreate() {
     useMultistepForm([
       <HomeDetailsForm
         title="Add New Home to the System"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        agents={agents}
+        propertyManagers={propertyManagers}
+        styles={styles}
+      />,
+      <HomeAddressForm
+        title="Add Home Address to the System"
         text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         agents={agents}
