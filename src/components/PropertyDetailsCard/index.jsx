@@ -16,10 +16,25 @@ function PropertyDetailsCard() {
           <img className={styles.image} src={homeImage} alt="" />
         </div>
         <div className={styles.detailsContainer}>
-          <h2 className={styles.title}>Home one</h2>
-          <p className={styles.subTitle}>A beutiful home</p>
-          <p className={styles.dealPrice}>12000</p>
-          <p className={styles.dealType}>Rent</p>
+          <div className={styles.propertyDetails}>
+            <div className={styles.propertyDetailsName}>
+              <h2 className={styles.title}>Home one</h2>
+              <p className={styles.subTitle}>A beutiful home</p>
+            </div>
+            <div className={styles.propertyDetailsValues}>
+              <div className={styles.dealPrice}>
+                <i className="fa-solid fa-coins"></i>
+                <p>12000</p>
+              </div>
+              <div className={styles.dealType}>
+                <i className="fa-solid fa-filter"></i>
+                Rent
+              </div>
+            </div>
+          </div>
+          <div className={styles.propertyOptions}>
+            <div className={styles.propertyOptionsHeader}></div>
+          </div>
         </div>
       </div>
     </div>
