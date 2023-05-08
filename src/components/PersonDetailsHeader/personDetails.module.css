@@ -35,14 +35,32 @@
 
 .detailsContainer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-end;
   background-color: yellow;
   flex: 13;
   height: 80%;
   position: relative;
   overflow: hidden;
   align-self: flex-start;
+}
+
+.detailsContentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  align-self: flex-end;
+  background-color: gold;
+  height: 100%;
+  padding: 6px 24px;
+  gap: 12px;
+}
+
+.detailsContent {
+  background-color: blue;
+  flex: 1;
+  height: 100%;
 }
 
 .hiddenCirle {
