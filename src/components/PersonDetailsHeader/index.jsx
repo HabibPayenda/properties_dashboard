@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./personDetails.module.css";
 
+import userImage from "../../assets/user.jpg";
+
 function PersonDetailsHeader() {
   return (
     <div className={styles.container}>
       <div className={styles.circleContainer}>
-        <div className={styles.circle}></div>
+        <div className={styles.circle}>
+          <img className={styles.image} src={userImage} alt="" />
+        </div>
       </div>
       <div className={styles.detailsContainer}>
         <div className={styles.hiddenCirle}></div>

@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-  background-color: red;
+  background: #eee;
   position: relative;
   height: 100px;
   margin-top: 12px;
+  box-shadow: 2px 2px 4px #ddd;
 }
 
 .circleContainer {
@@ -27,40 +28,59 @@
   position: absolute;
   top: -10px;
   left: -30px;
-  border: solid 1px black;
   z-index: 100;
-  box-shadow: 2px 2px 5px #ddd;
-  
+  box-shadow: 1px 1px 3px #555;
+  overflow: hidden;
+}
+
+.image {
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .detailsContainer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  background-color: yellow;
-  flex: 13;
+  background: blueviolet;
+  color: white;
+  flex: 15;
   height: 80%;
   position: relative;
+  right: -10px;
   overflow: hidden;
   align-self: flex-start;
+  width: 100%;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .detailsContentContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 95%;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 93%;
   align-self: flex-end;
-  background-color: gold;
-  height: 100%;
-  padding: 6px 24px;
+  height: 95%;
+  padding: 6px 48px;
   gap: 12px;
 }
 
 .detailsContent {
-  background-color: blue;
-  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
   height: 100%;
+}
+
+.detailsTitle {
+  font-size: 14px;
+}
+
+.detailsItem {
+  font-size: 12px;
 }
 
 .hiddenCirle {
@@ -70,5 +90,5 @@
   position: absolute;
   left: -130px;
   top: 0;
-  background-color: red;
+  background-color: #eee;
 }
