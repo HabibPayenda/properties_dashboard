@@ -8,7 +8,8 @@ function PropertyDetailsCard() {
     <div className={styles.container}>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
-          Back
+          <i className="fa-solid fa-arrow-left"></i>
+          Homes
         </Link>
       </div>
       <div className={styles.contentContainer}>

@@ -153,3 +153,11 @@
   font-size: 14px;
 }
 
+.backLink {
+  color: blueviolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
