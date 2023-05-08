@@ -6,6 +6,7 @@ import { getHome } from "../../data/homeSlice";
 import SectionHeader from "../../components/SectionHeader";
 import HomeHeader from "../../components/HomeHeader";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
+import PropertyDetailsCard from "../../components/PropertyDetailsCard";
 
 function Home() {
   const { id } = useParams();
@@ -24,16 +25,17 @@ function Home() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
-        <SectionHeader title="Home" />
+        {/* <SectionHeader title="Home" /> */}
         <div style={{ flex: 9, width: "100%" }}>
-          <HomeHeader
+          {/* <HomeHeader
             id={home?.id}
             name={home?.property?.name}
             agent_id={home?.property?.agent_id}
             owner={home?.owner_name}
             property_manager_id={home?.property?.property_manager_id}
             rooms={home?.home_rooms?.length}
-          />
+          /> */}
+          <PropertyDetailsCard />
         </div>
       </div>
     </div>
