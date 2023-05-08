@@ -1,15 +1,7 @@
 import React from "react";
 import TextInput from "../../components/TextInput";
-import FormSelect from "../../components/FromSelect";
 
-function HomeAddressForm({
-  formik,
-  styles,
-  agents,
-  propertyManagers,
-  title,
-  text,
-}) {
+function HomeAddressForm({ formik, styles, title, text }) {
   return (
     <>
       <div className={styles.formDetails}>
