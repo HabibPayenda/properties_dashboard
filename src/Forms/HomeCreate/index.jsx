@@ -57,8 +57,6 @@ function HomeCreate() {
         title="Add Home Address to the System"
         text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
         formik={formik}
-        agents={agents}
-        propertyManagers={propertyManagers}
         styles={styles}
       />,
     ]);
