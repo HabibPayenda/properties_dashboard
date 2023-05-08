@@ -33,7 +33,20 @@ function PropertyDetailsCard() {
             </div>
           </div>
           <div className={styles.propertyOptions}>
-            <div className={styles.propertyOptionsHeader}></div>
+            <div className={styles.amenities}>
+              <p className={styles.propertyOptionsTitle}>Amenities</p>
+              <div className={styles.propertyOptionsItem}>
+                <i className="fa-solid fa-check"></i>
+                <p>Parking</p>
+              </div>
+            </div>
+            <div className={styles.restrictions}>
+              <p className={styles.propertyOptionsTitle}>Restrictions</p>
+              <div className={styles.propertyOptionsItem}>
+                <i className="fa-solid fa-xmark"></i>
+                <p>Internet</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

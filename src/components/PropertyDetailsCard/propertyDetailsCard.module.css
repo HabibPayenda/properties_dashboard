@@ -58,6 +58,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  flex: 1;
+  border-bottom: solid 1px #eee;
 }
 
 .propertyDetailsName {
@@ -100,6 +102,46 @@
   align-content: center;
   justify-content: center;
   gap: 12px;
+  font-size: 14px;
+}
+
+.propertyOptions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  flex: 2;
+  gap: 12px;
+  padding: 12px;
+}
+
+.amenities {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.restrictions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 6px;
+}
+
+.propertyOptionsTitle {
+  font-size: 18px;
+}
+
+.propertyOptionsItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: 14px;
 }
 
