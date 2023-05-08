@@ -39,7 +39,7 @@ export const addHome = createAsyncThunk(
   async ({
     owner_name,
     name,
-    status,
+    availability_status,
     property_manager_id,
     agent_id,
     description,
@@ -53,7 +53,7 @@ export const addHome = createAsyncThunk(
         {
           owner_name: owner_name,
           name: name,
-          availability_status: status,
+          availability_status: availability_status,
           property_manager_id: property_manager_id * 1,
           agent_id: agent_id * 1,
           description: description,

@@ -16,15 +16,12 @@ function HomeCreate() {
     (state) => state.propertyManagers.propertyManagers
   );
 
-  console.log(agents);
-  console.log(propertyManagers);
-
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
     dispatch(addHome(formik.values));
-    formik.resetForm();
+    // formik.resetForm();
   };
 
   const formik = useFormik({
@@ -32,7 +29,7 @@ function HomeCreate() {
       owner_name: "",
       name: "",
       description: "",
-      status: "",
+      availability_status: "",
       property_manager_id: "",
       agent_id: "",
       province: "",

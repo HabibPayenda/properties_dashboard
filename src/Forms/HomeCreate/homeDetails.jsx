@@ -57,15 +57,15 @@ function HomeDetailsForm({
         />
 
         <FormSelect
-          id="status"
-          value={formik.values.status}
+          id="availability_status"
+          value={formik.values.availability_status}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           label="Status:"
           titles={["Available", "Not Available"]}
           values={["available", "not_available"]}
-          errors={formik.errors.status}
-          touched={formik.touched.status}
+          errors={formik.errors.availability_status}
+          touched={formik.touched.availability_status}
           setFieldValue={formik.setFieldValue}
           setFieldTouched={formik.setFieldTouched}
         />
