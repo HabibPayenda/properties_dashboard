@@ -22,13 +22,31 @@ function PropertyDetailsCard() {
               <p className={styles.subTitle}>A beutiful home</p>
             </div>
             <div className={styles.propertyDetailsValues}>
-              <div className={styles.dealPrice}>
-                <i className="fa-solid fa-coins"></i>
-                <p>12000</p>
+              <div className={styles.propertyDetailsValuesColumn}>
+                <div className={styles.dealPrice}>
+                  <i class="fa-solid fa-house"></i> <p>5</p>
+                </div>
+                <div className={styles.dealType}>
+                  <i className="fa-solid fa-shower"></i> 2
+                </div>
               </div>
-              <div className={styles.dealType}>
-                <i className="fa-solid fa-filter"></i>
-                Rent
+              <div className={styles.propertyDetailsValuesColumn}>
+                <div className={styles.dealPrice}>
+                  <i className="fa-solid fa-kitchen-set"></i> <p>1</p>
+                </div>
+                <div className={styles.dealType}>
+                  <i className="fa-solid fa-chart-area"></i> 180
+                </div>
+              </div>
+              <div className={styles.propertyDetailsValuesColumn}>
+                <div className={styles.dealPrice}>
+                  <i className="fa-solid fa-coins"></i>
+                  <p>12000</p>
+                </div>
+                <div className={styles.dealType}>
+                  <i className="fa-solid fa-filter"></i>
+                  Rent
+                </div>
               </div>
             </div>
           </div>
