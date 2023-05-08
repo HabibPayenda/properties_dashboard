@@ -2,10 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import homeCreateSchema from "./homeCreateSchema";
 import styles from "./homeCreate.module.css";
-import TextInput from "../../components/TextInput";
-import FormSelect from "../../components/FromSelect";
 import { useDispatch, useSelector } from "react-redux";
-import FormBtn from "../../components/FormBtn";
 import { addHome } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
@@ -38,6 +35,9 @@ function HomeCreate() {
       status: "",
       property_manager_id: "",
       agent_id: "",
+      province: "",
+      city: "",
+      district: "",
     },
     validationSchema: homeCreateSchema,
     onSubmit: handleFormSubmit,
