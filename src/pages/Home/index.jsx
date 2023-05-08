@@ -12,13 +12,17 @@ function Home() {
   const home = useSelector((state) => state.homes.showHome);
   const dispatch = useDispatch();
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
   useEffect(() => {
     dispatch(getHome(id));
   }, []);
 
   console.log("home", home);
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
         <SectionHeader title="Home" />
         <div style={{ flex: 9, width: "100%" }}>
