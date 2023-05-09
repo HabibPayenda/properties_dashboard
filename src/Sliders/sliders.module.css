@@ -31,7 +31,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  font-size: 12px;
+  padding: 4px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 40px;
+  margin: 6px;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 4px #eee;
+  cursor: pointer;
 }
 
 .footer {

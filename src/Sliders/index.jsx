@@ -21,7 +21,7 @@ function MainSlider({
       } else {
         return (
           <div className={styles.footerCircleContainer}>
-            <i className="fa-solid fa-circle"></i>
+            <i className="fa-solid fa-circle" style={{ color: "#777" }}></i>
           </div>
         );
       }
