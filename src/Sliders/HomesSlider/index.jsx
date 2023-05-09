@@ -11,17 +11,14 @@ function HomesSlider() {
   const { currentSlide, currentSlideIndex, nextSlide, previousSlide, slides } =
     useSlider(hoomRooms);
   return (
-    <div className={styles.contianer}>
-      <div className={styles.header}></div>
-      <div className={styles.slider}>
-        <MainSlider
-          currentSlide={currentSlide}
-          currentSlideIndex={currentSlideIndex}
-          slides={slides}
-          nextSlide={nextSlide}
-          previousSlide={previousSlide}
-        ></MainSlider>
-      </div>
+    <div className={styles.container}>
+      <MainSlider
+        currentSlide={currentSlide}
+        currentSlideIndex={currentSlideIndex}
+        slides={slides}
+        nextSlide={nextSlide}
+        previousSlide={previousSlide}
+      />
     </div>
   );
 }
