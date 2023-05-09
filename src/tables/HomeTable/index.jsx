@@ -18,7 +18,6 @@ function HomesTable() {
   const [openModal, setOpenModal] = useState(false);
 
   const homes = useSelector((state) => state.homes.homes);
-  console.log(homes);
 
   const columns = useMemo(() => HomesTableComlumns, []);
   const data = useMemo(() => homes, [homes]);

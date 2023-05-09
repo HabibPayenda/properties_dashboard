@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./homes.module.css";
 import SectionHeader from "../../components/SectionHeader";
-import HomeCreate from "../../Forms/HomeCreate";
 import HomesTable from "../../tables/HomeTable";
 import { useSelector } from "react-redux";
 

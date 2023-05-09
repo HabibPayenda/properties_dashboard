@@ -3,9 +3,6 @@ import styles from "./home.module.css";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getHome } from "../../data/homeSlice";
-import SectionHeader from "../../components/SectionHeader";
-import HomeHeader from "../../components/HomeHeader";
-import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 import PropertyDetailsCard from "../../components/PropertyDetailsCard";
 import HomesSlider from "../../Sliders/HomesSlider";
 
@@ -26,9 +23,9 @@ function Home() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
-        <PropertyDetailsCard />
+        <PropertyDetailsCard home={home} />
 
-        <HomesSlider />
+        <HomesSlider home={home} />
       </div>
     </div>
   );

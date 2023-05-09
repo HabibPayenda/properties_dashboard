@@ -6,7 +6,8 @@ import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 
-function PropertyDetailsCard() {
+function PropertyDetailsCard({ home }) {
+  console.log("home in details card", home);
   const [showRoomModal, setShowRoomModal] = useState(false);
 
   const handleShowRoomModal = () => {
@@ -36,13 +37,14 @@ function PropertyDetailsCard() {
         <div className={styles.detailsContainer}>
           <div className={styles.propertyDetails}>
             <div className={styles.propertyDetailsName}>
-              <h2 className={styles.title}>Home one</h2>
-              <p className={styles.subTitle}>A beutiful home</p>
+              <h2 className={styles.title}>{home?.property?.name}</h2>
+              <p className={styles.subTitle}>{home?.property?.description}</p>
             </div>
             <div className={styles.propertyDetailsValues}>
               <div className={styles.propertyDetailsValuesColumn}>
                 <div className={styles.dealPrice}>
-                  <i class="fa-solid fa-house"></i> <p>5</p>
+                  <i class="fa-solid fa-house"></i>{" "}
+                  <p>{home?.home_rooms?.length}</p>
                 </div>
                 <div className={styles.dealType}>
                   <i className="fa-solid fa-shower"></i> 2
