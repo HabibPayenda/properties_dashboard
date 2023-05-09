@@ -17,7 +17,7 @@ function PropertyDetailsCard({ home }) {
   return (
     <div className={styles.container}>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
-        <HomeRoomCreate />
+        <HomeRoomCreate id={home?.id} />
       </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
@@ -43,7 +43,7 @@ function PropertyDetailsCard({ home }) {
             <div className={styles.propertyDetailsValues}>
               <div className={styles.propertyDetailsValuesColumn}>
                 <div className={styles.dealPrice}>
-                  <i class="fa-solid fa-house"></i>{" "}
+                  <i className="fa-solid fa-house"></i>{" "}
                   <p>{home?.home_rooms?.length}</p>
                 </div>
                 <div className={styles.dealType}>

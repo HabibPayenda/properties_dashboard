@@ -19,12 +19,12 @@ function useSlider(slides) {
 
   return {
     currentSlideIndex: currentSlideIndex,
-    currentSlide: slides[currentSlideIndex],
+    currentSlide: slides?.length > 0 ? slides[currentSlideIndex] : null,
     nextSlide: nextSlide,
     previousSlide: previousSlide,
     slides: slides,
     isFirstSlide: currentSlideIndex === 0,
-    isLastSlide: currentSlideIndex === slides.length - 1,
+    isLastSlide: currentSlideIndex === slides?.length - 1,
   };
 }
 

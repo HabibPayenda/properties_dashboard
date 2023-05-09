@@ -4,7 +4,7 @@ import styles from "./modalLink.module.css";
 function ModalLink({ title, onClick }) {
   return (
     <div onClick={onClick} className={styles.container}>
-      <i class="fa-solid fa-plus"></i> {title}
+      <i className="fa-solid fa-plus"></i> {title}
     </div>
   );
 }

@@ -3,13 +3,14 @@ import styles from "./homesSlider.module.css";
 import MainSlider from "..";
 import useSlider from "../../hooks/useSlider";
 import PropertySlideCard from "../../components/PropertySlideCard";
-function HomesSlider() {
-  const hoomRooms = [
-    <PropertySlideCard title="Slide One" />,
-    <PropertySlideCard title="Slide two" />,
-  ];
+function HomesSlider({ home }) {
+  console.log("homes slider", home);
+  let homeRooms = [];
+  homeRooms = home?.home_rooms?.map((room) => {
+    return <PropertySlideCard room={room} />;
+  });
   const { currentSlide, currentSlideIndex, nextSlide, previousSlide, slides } =
-    useSlider(hoomRooms);
+    useSlider(homeRooms);
   return (
     <div className={styles.container}>
       <MainSlider

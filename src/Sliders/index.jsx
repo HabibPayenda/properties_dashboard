@@ -8,7 +8,8 @@ function MainSlider({
   currentSlideIndex,
 }) {
   const generateFooterContent = () => {
-    let content = slides.map((slide, index) => {
+    console.log(slides);
+    let content = slides?.map((slide, index) => {
       if (index === currentSlideIndex) {
         return (
           <div className={styles.footerCircleContainer}>
