@@ -1,13 +1,13 @@
 import { useFormik } from "formik";
 import React from "react";
-import TextInput from "../../components/TextInput";
-import FormSelect from "../../components/FromSelect";
 import { useDispatch } from "react-redux";
-import FormBtn from "../../components/FormBtn";
-import { addUser } from "../../data/usersSlice";
 import styles from "./homeRoomCreate.module.css";
 import homeRoomCreateSchema from "./hoomRoomCreateSchema";
 import { addHomeRoom } from "../../data/homeSlice";
+import HomeRoomDetailsForm from "./HomeRoomeDetailsForm";
+import useMultistepForm from "../../hooks/useMultistepForm";
+import FormPaginationBtn from "../../components/FormPaginationBtn";
+import FormPageInfo from "../../components/FormPageInfo";
 
 function HomeRoomCreate({ id }) {
   const dispatch = useDispatch();
@@ -31,94 +31,43 @@ function HomeRoomCreate({ id }) {
     onSubmit: handleFormSubmit,
   });
 
-  console.log(formik.values);
+  const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
+    useMultistepForm([
+      <HomeRoomDetailsForm
+        title="Add New Room to this home"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        styles={styles}
+      />,
+    ]);
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Add New Room</h2>
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
-        <TextInput
-          label="Width:"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Room Width in meters."
-          className={styles.input}
-          value={formik.values.width}
-          id="width"
-          type="text"
-          errors={formik.errors.width}
-          touched={formik.touched.width}
-        />
-
-        <TextInput
-          label="Length:"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Room length in meters."
-          className={styles.input}
-          value={formik.values.length}
-          id="length"
-          type="text"
-          errors={formik.errors.length}
-          touched={formik.touched.length}
-        />
-
-        <TextInput
-          label="Windows:"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Room windows count."
-          className={styles.input}
-          value={formik.values.windows}
-          id="windows"
-          type="text"
-          errors={formik.errors.windows}
-          touched={formik.touched.windows}
-        />
-
-        <TextInput
-          label="Color:"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Room color."
-          className={styles.input}
-          value={formik.values.color}
-          id="color"
-          type="color"
-          errors={formik.errors.color}
-          touched={formik.touched.color}
-        />
-
-        <FormSelect
-          id="cup_board"
-          value={formik.values.cup_board}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          label="Cup Board:"
-          titles={["Yes", "No"]}
-          values={[true, false]}
-          errors={formik.errors.cup_board}
-          touched={formik.touched.cup_board}
-          setFieldValue={formik.setFieldValue}
-          setFieldTouched={formik.setFieldTouched}
-        />
-
-        <FormSelect
-          id="to_sun"
-          value={formik.values.to_sun}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          label="To Sun:"
-          titles={["Yes", "No"]}
-          values={[true, false]}
-          errors={formik.errors.to_sun}
-          touched={formik.touched.to_sun}
-          setFieldValue={formik.setFieldValue}
-          setFieldTouched={formik.setFieldTouched}
-        />
-
-        <FormBtn title="Create" onClick={formik.handleSubmit} />
-      </form>
+      <div className={styles.sidebar}>
+        <div className={styles.sidbarHeader}>
+          <i className={["fa-solid fa-igloo"]}> </i>
+          <h1 className={styles.logoText}>PAPI</h1>
+        </div>
+        <div className={styles.sidebarStepsContainer}>
+          <FormPageInfo
+            title="Home Room Details"
+            isCurrentPage={true}
+            pageNumber={1}
+          />
+        </div>
+      </div>
+      <div className={styles.formContent}>
+        <form className={styles.form} onSubmit={formik.handleSubmit}>
+          {currentPage}
+        </form>
+        <div className={styles.btnContainer}>
+          <FormPaginationBtn title="Previous" onClick={() => previousPage()} />
+          <FormPaginationBtn
+            title={isLastPage ? "Finish" : "Next"}
+            onClick={() => nextPage(formik)}
+          />
+        </div>
+      </div>
     </div>
   );
 }
