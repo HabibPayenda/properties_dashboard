@@ -25,18 +25,7 @@ function Home() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
-        {/* <SectionHeader title="Home" /> */}
-        <div style={{ flex: 9, width: "100%" }}>
-          {/* <HomeHeader
-            id={home?.id}
-            name={home?.property?.name}
-            agent_id={home?.property?.agent_id}
-            owner={home?.owner_name}
-            property_manager_id={home?.property?.property_manager_id}
-            rooms={home?.home_rooms?.length}
-          /> */}
-          <PropertyDetailsCard />
-        </div>
+        <PropertyDetailsCard />
       </div>
     </div>
   );
