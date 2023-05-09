@@ -5,14 +5,14 @@ function useSlider(slides) {
 
   const nextSlide = () => {
     setCurrentSlideIndex((previousIndex) => {
-      if (previousIndex >= slides.length - 1) return previousIndex;
+      if (previousIndex >= slides.length - 1) return 0;
       return previousIndex + 1;
     });
   };
 
   const previousSlide = () => {
     setCurrentSlideIndex((previousIndex) => {
-      if (previousIndex <= 0) return previousIndex;
+      if (previousIndex <= 0) return slides.length - 1;
       return previousIndex - 1;
     });
   };
