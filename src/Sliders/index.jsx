@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styles from "./sliders.module.css";
 function MainSlider({
   currentSlide,
@@ -7,8 +7,6 @@ function MainSlider({
   slides,
   currentSlideIndex,
 }) {
-  const footerRef = useRef();
-
   const generateFooterContent = () => {
     let content = slides.map((slide, index) => {
       if (index === currentSlideIndex) {
@@ -35,9 +33,7 @@ function MainSlider({
           next
         </p>
       </div>
-      <div ref={footerRef} className={styles.footer}>
-        {generateFooterContent()}
-      </div>
+      <div className={styles.footer}>{generateFooterContent()}</div>
     </div>
   );
 }

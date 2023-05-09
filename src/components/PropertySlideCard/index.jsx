@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./propertySlideCard.module.css";
-function PropertySlideCard() {
-  return <div className={styles.container}>PropertySlideCard</div>;
+function PropertySlideCard({ title }) {
+  return <div className={styles.container}>{title}</div>;
 }
 
 export default PropertySlideCard;
