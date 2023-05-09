@@ -6,4 +6,80 @@
   width: 100%;
   background-color: yellow;
   flex: 1;
+  gap: 12px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 300px;
+  width: 100%;
+  padding: 12px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  height: 100%;
+  padding: 12px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 4;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  width: 40%;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  background-color: brown;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  background-color: goldenrod;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  width: 50px;
+  cursor: pointer;
 }
