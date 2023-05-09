@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./propertyDetailsCard.module.css";
 import { Link } from "react-router-dom";
 import homeImage from "../../assets/home.jpg";
 import ModalLink from "../ModalLink";
+import FormModal from "../FormModal";
+import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 
 function PropertyDetailsCard() {
+  const [showRoomModal, setShowRoomModal] = useState(false);
+
+  const handleShowRoomModal = () => {
+    setShowRoomModal(true);
+  };
+
   return (
     <div className={styles.container}>
+      <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
+        <HomeRoomCreate />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
           Homes
         </Link>
         <div className={styles.linksContainer}>
-          <ModalLink title="Add Room" />
+          <ModalLink title="Add Room" onClick={handleShowRoomModal} />
+          <ModalLink title="Add Bath" />
+          <ModalLink title="Add Kitchen" />
         </div>
       </div>
       <div className={styles.contentContainer}>

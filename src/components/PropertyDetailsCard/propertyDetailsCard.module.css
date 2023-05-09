@@ -21,6 +21,13 @@
   padding: 0 12px;
 }
 
+.linksContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
 .contentContainer {
   display: flex;
   align-items: center;
