@@ -4,23 +4,25 @@ function MainSlider({
   currentSlide,
   nextSlide,
   previousSlide,
-  totalSlides,
+  slides,
   currentSlideIndex,
 }) {
   const footerRef = useRef();
 
   const generateFooterContent = () => {
-    for (var i = 1; i <= totalSlides; i += 1) {
-      if (i === currentSlideIndex) {
-        footerRef.current.append(<p>a</p>);
+    let content = slides.map((slide, index) => {
+      if (index === currentSlideIndex) {
+        return <p>a</p>;
       } else {
-        footerRef.current.append(<p>n</p>);
+        return <p>n</p>;
       }
-    }
+    });
+    return content;
   };
+
   useEffect(() => {
     generateFooterContent();
-  }, [totalSlides]);
+  }, [slides]);
 
   return (
     <div className={styles.container}>
@@ -33,7 +35,9 @@ function MainSlider({
           next
         </p>
       </div>
-      <div ref={footerRef} className={styles.footer}></div>
+      <div ref={footerRef} className={styles.footer}>
+        {generateFooterContent()}
+      </div>
     </div>
   );
 }

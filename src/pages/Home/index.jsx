@@ -7,6 +7,7 @@ import SectionHeader from "../../components/SectionHeader";
 import HomeHeader from "../../components/HomeHeader";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 import PropertyDetailsCard from "../../components/PropertyDetailsCard";
+import HomesSlider from "../../Sliders/HomesSlider";
 
 function Home() {
   const { id } = useParams();
@@ -26,6 +27,8 @@ function Home() {
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.listContainer}>
         <PropertyDetailsCard />
+
+        <HomesSlider />
       </div>
     </div>
   );
