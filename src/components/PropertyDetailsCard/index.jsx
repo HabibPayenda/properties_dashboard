@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./propertyDetailsCard.module.css";
 import { Link } from "react-router-dom";
 import homeImage from "../../assets/home.jpg";
+import ModalLink from "../ModalLink";
 
 function PropertyDetailsCard() {
   return (
@@ -11,6 +12,9 @@ function PropertyDetailsCard() {
           <i className="fa-solid fa-arrow-left"></i>
           Homes
         </Link>
+        <div className={styles.linksContainer}>
+          <ModalLink title="Add Room" />
+        </div>
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.imageContainer}>
