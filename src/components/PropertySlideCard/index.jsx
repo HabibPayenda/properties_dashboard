@@ -6,6 +6,8 @@ import FormModal from "../FormModal";
 import HomeRoomEdit from "../../Forms/HomeEdit";
 function PropertySlideCard({ room }) {
   const [showRoomEditModal, setShowRoomEditModal] = useState(false);
+  const [showRoomDeleteModel, setShowRoomDeleteModal] = useState(false);
+
   return (
     <div className={styles.container}>
       <FormModal
@@ -14,6 +16,10 @@ function PropertySlideCard({ room }) {
       >
         <HomeRoomEdit room={room} />
       </FormModal>
+      <FormModal
+        openModal={showRoomDeleteModel}
+        setOpenModal={setShowRoomDeleteModal}
+      ></FormModal>
       <div className={styles.imageContainer}>
         <img className={styles.image} src={homeImage} alt="" />
       </div>
@@ -64,7 +70,12 @@ function PropertySlideCard({ room }) {
           >
             Edit
           </p>
-          <p className={styles.deleteBtn}>Delete</p>
+          <p
+            onClick={() => setShowRoomDeleteModal(true)}
+            className={styles.deleteBtn}
+          >
+            Delete
+          </p>
         </div>
       </div>
     </div>
