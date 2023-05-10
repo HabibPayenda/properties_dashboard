@@ -4,6 +4,7 @@ import styles from "./propertySlideCard.module.css";
 import homeImage from "../../assets/home.jpg";
 import FormModal from "../FormModal";
 import HomeRoomEdit from "../../Forms/HomeEdit";
+import DeleteModalContent from "../DeleteModalContent";
 function PropertySlideCard({ room }) {
   const [showRoomEditModal, setShowRoomEditModal] = useState(false);
   const [showRoomDeleteModel, setShowRoomDeleteModal] = useState(false);
@@ -19,7 +20,9 @@ function PropertySlideCard({ room }) {
       <FormModal
         openModal={showRoomDeleteModel}
         setOpenModal={setShowRoomDeleteModal}
-      ></FormModal>
+      >
+        <DeleteModalContent />
+      </FormModal>
       <div className={styles.imageContainer}>
         <img className={styles.image} src={homeImage} alt="" />
       </div>

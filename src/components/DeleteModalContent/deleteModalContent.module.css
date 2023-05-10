@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  height: 80vh;
+  gap: 12px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 12px 24px;
+  width: 50%;
+  box-shadow: 2px 2px 4px #ddd;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+}
+
+.cancelBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  padding: 3px 12px;
+  color: white;
+  border-radius: 3px;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  padding: 3px 12px;
+  color: white;
+  border-radius: 3px;
+}
