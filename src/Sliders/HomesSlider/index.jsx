@@ -4,7 +4,6 @@ import MainSlider from "..";
 import useSlider from "../../hooks/useSlider";
 import PropertySlideCard from "../../components/PropertySlideCard";
 function HomesSlider({ home }) {
-  console.log("homes slider", home);
   let homeRooms = [];
   homeRooms = home?.home_rooms?.map((room) => {
     return <PropertySlideCard room={room} />;

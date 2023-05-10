@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import styles from "./sliders.module.css";
 function MainSlider({
   currentSlide,
@@ -8,7 +8,6 @@ function MainSlider({
   currentSlideIndex,
 }) {
   const generateFooterContent = () => {
-    console.log(slides);
     let content = slides?.map((slide, index) => {
       if (index === currentSlideIndex) {
         return (
@@ -33,6 +32,7 @@ function MainSlider({
   useEffect(() => {
     generateFooterContent();
   }, [slides]);
+  const slideToRender = useMemo(() => currentSlide, [currentSlide]);
 
   return (
     <div className={styles.container}>
@@ -40,7 +40,7 @@ function MainSlider({
         <p className={styles.btn} onClick={() => previousSlide()}>
           <i className="fa-solid fa-arrow-left"></i>
         </p>
-        <div className={styles.content}>{currentSlide}</div>
+        <div className={styles.content}>{slideToRender}</div>
         <p className={styles.btn} onClick={() => nextSlide()}>
           <i className="fa-solid fa-arrow-right"></i>
         </p>

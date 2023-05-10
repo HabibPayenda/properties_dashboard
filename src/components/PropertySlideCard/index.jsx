@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./propertySlideCard.module.css";
 
 import homeImage from "../../assets/home.jpg";
-function PropertySlideCard({ length, width, to_sun, color }) {
+function PropertySlideCard({ room }) {
+  console.log(room);
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -14,21 +15,21 @@ function PropertySlideCard({ length, width, to_sun, color }) {
           <div className={styles.contentColumn}>
             <div className={styles.contentItem}>
               <p>Length:</p>
-              <p>{length ? `${length} m` : "6 m"}</p>
+              <p>{room?.length ? `${room?.length} m` : ""}</p>
             </div>
             <div className={styles.contentItem}>
               <p>Width:</p>
-              <p>{width ? `${width} m` : "4 m"}</p>
+              <p>{room?.width ? `${room?.width} m` : ""}</p>
             </div>
           </div>
           <div className={styles.contentColumn}>
             <div className={styles.contentItem}>
               <p>To sun:</p>
-              <p>{to_sun || "Yes"}</p>
+              <p>{room?.to_sun ? "Yes" : "No"}</p>
             </div>
             <div className={styles.contentItem}>
               <p>Windows:</p>
-              <p>1</p>
+              <p>{room?.windows}</p>
             </div>
           </div>
           <div className={styles.contentColumn}>
@@ -38,13 +39,13 @@ function PropertySlideCard({ length, width, to_sun, color }) {
                 style={{
                   height: "10px",
                   width: "10px",
-                  backgroundColor: color || "black",
+                  backgroundColor: room?.color || "black",
                 }}
               ></div>
             </div>
             <div className={styles.contentItem}>
               <p>Cupboards:</p>
-              <p>Yes</p>
+              <p>{room?.cup_board ? "Yes" : "No"}</p>
             </div>
           </div>
         </div>
