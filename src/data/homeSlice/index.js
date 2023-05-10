@@ -142,6 +142,7 @@ export const editHomeRoom = createAsyncThunk(
       const result = await PropertiesApi.post(
         `/homes/room/${home_id}`,
         {
+          id: id,
           width: width * 1,
           length: length * 1,
           windows: windows * 1,

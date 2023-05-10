@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import styles from "./homeRoomEdit.module.css";
-import { addHomeRoom } from "../../data/homeSlice";
+import { editHomeRoom } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -15,7 +15,7 @@ function HomeRoomEdit({ room }) {
   const handleFormSubmit = () => {
     console.log("clicked");
     dispatch(
-      addHomeRoom({ ...formik.values, home_id: room?.home_id, id: room?.id })
+      editHomeRoom({ ...formik.values, home_id: room?.home_id, id: room?.id })
     );
     // formik.resetForm();
   };
