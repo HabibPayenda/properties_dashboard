@@ -9,6 +9,8 @@ function PropertySlideCard({ room }) {
   const [showRoomEditModal, setShowRoomEditModal] = useState(false);
   const [showRoomDeleteModel, setShowRoomDeleteModal] = useState(false);
 
+  const handleRoomDelete = () => {};
+
   return (
     <div className={styles.container}>
       <FormModal
@@ -21,7 +23,10 @@ function PropertySlideCard({ room }) {
         openModal={showRoomDeleteModel}
         setOpenModal={setShowRoomDeleteModal}
       >
-        <DeleteModalContent />
+        <DeleteModalContent
+          handleDelete={handleRoomDelete}
+          handleClose={setShowRoomDeleteModal}
+        />
       </FormModal>
       <div className={styles.imageContainer}>
         <img className={styles.image} src={homeImage} alt="" />
