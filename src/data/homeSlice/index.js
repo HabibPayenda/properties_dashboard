@@ -139,10 +139,10 @@ export const editHomeRoom = createAsyncThunk(
   "homes/editHomeRoom",
   async ({ id, width, length, windows, cup_board, to_sun, color, home_id }) => {
     try {
-      const result = await PropertiesApi.post(
+      const result = await PropertiesApi.patch(
         `/homes/room/${home_id}`,
         {
-          id: id,
+          room_id: id,
           width: width * 1,
           length: length * 1,
           windows: windows * 1,
@@ -209,6 +209,14 @@ export const homesSlice = createSlice({
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
+      state.showHome = action.payload.home;
+    });
+
+    builder.addCase(editHomeRoom.fulfilled, (state, action) => {
+      // Code
+      toast.success("Room updated successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
       state.showHome = action.payload.home;
     });
     builder.addCase(getHomeProperty.fulfilled, (state, action) => {
