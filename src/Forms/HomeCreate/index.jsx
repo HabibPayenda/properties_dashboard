@@ -21,6 +21,7 @@ function HomeCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
+    console.log(formik.values);
     dispatch(addHome(formik.values));
     // formik.resetForm();
   };

@@ -20,10 +20,10 @@ const homeCreateSchema = yup.object().shape({
   city: yup.string().required("Enter a city"),
   district: yup.string().required("Enter a district"),
   deal_type: yup.string().required("Enter a district"),
-  duration: yup.string().required("Enter deal duration"),
-  price_per_duration: yup.string().required("Enter deal price per duration"),
-  total_price: yup.string().required("Enter deal total price"),
-  total_duration: yup.string().required("Enter deal total duration"),
+  duration: yup.number().required("Enter deal duration"),
+  price_per_duration: yup.number().required("Enter deal price per duration"),
+  total_price: yup.number().required("Enter deal total price"),
+  total_duration: yup.number().required("Enter deal total duration"),
 });
 
 export default homeCreateSchema;
