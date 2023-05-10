@@ -88,7 +88,7 @@ function HomesTable() {
           <tbody {...getTableBodyProps()}>
             {page.map((row) => {
               prepareRow(row);
-              console.log(row.allCells[0].row.original.id);
+              // console.log("table", row.allCells[0].row.original);
               return (
                 <>
                   <tr {...row.getRowProps()}>
@@ -100,6 +100,9 @@ function HomesTable() {
                     <Link
                       className="tableViewBtn"
                       to={`${row.allCells[0].row.original.id}`}
+                      state={{
+                        property_id: row.allCells[0].row.original.property_id,
+                      }}
                     >
                       View
                     </Link>

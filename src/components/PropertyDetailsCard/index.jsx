@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./propertyDetailsCard.module.css";
 import { Link } from "react-router-dom";
 import homeImage from "../../assets/home.jpg";
 import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
+import { useDispatch, useSelector } from "react-redux";
+import { getHomeProperty } from "../../data/homeSlice";
 
-function PropertyDetailsCard({ home }) {
-  console.log("home in details card", home);
+function PropertyDetailsCard({ home, homeProperty }) {
+  console.log(homeProperty);
   const [showRoomModal, setShowRoomModal] = useState(false);
-
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -61,11 +62,17 @@ function PropertyDetailsCard({ home }) {
               <div className={styles.propertyDetailsValuesColumn}>
                 <div className={styles.dealPrice}>
                   <i className="fa-solid fa-coins"></i>
-                  <p>12000</p>
+                  <p>
+                    {homeProperty?.deal_infos?.length > 0
+                      ? homeProperty?.deal_infos[0]?.price_per_duration
+                      : "None"}
+                  </p>
                 </div>
                 <div className={styles.dealType}>
                   <i className="fa-solid fa-filter"></i>
-                  Rent
+                  {homeProperty?.deal_infos?.length > 0
+                    ? homeProperty?.deal_infos[0]?.deal_type
+                    : "None"}
                 </div>
               </div>
             </div>
