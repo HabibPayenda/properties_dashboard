@@ -14,7 +14,9 @@ function HomeRoomEdit({ room }) {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addHomeRoom({ ...formik.values, home_id: id }));
+    dispatch(
+      addHomeRoom({ ...formik.values, home_id: room?.home_id, id: room?.id })
+    );
     // formik.resetForm();
   };
 
@@ -34,7 +36,7 @@ function HomeRoomEdit({ room }) {
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
       <HomeRoomDetailsEditForm
-        title="Add New Room to this home"
+        title="Edit this home room"
         text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         styles={styles}

@@ -135,6 +135,36 @@ export const addHomeRoom = createAsyncThunk(
     }
   }
 );
+export const editHomeRoom = createAsyncThunk(
+  "homes/editHomeRoom",
+  async ({ id, width, length, windows, cup_board, to_sun, color, home_id }) => {
+    try {
+      const result = await PropertiesApi.post(
+        `/homes/room/${home_id}`,
+        {
+          width: width * 1,
+          length: length * 1,
+          windows: windows * 1,
+          cup_board: cup_board,
+          to_sun: to_sun,
+          color: color,
+          home_id: home_id * 1,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   homes: [],

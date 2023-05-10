@@ -6,7 +6,6 @@ import FormModal from "../FormModal";
 import HomeRoomEdit from "../../Forms/HomeEdit";
 function PropertySlideCard({ room }) {
   const [showRoomEditModal, setShowRoomEditModal] = useState(false);
-
   return (
     <div className={styles.container}>
       <FormModal
