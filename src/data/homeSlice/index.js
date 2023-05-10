@@ -166,6 +166,30 @@ export const editHomeRoom = createAsyncThunk(
     }
   }
 );
+export const deleteHomeRoom = createAsyncThunk(
+  "homes/deleteHomeRoom",
+  async ({ id, home_id }) => {
+    try {
+      const result = await PropertiesApi.delete(
+        `/homes/room/${home_id}`,
+        {
+          room_id: id * 1,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   homes: [],
@@ -215,6 +239,13 @@ export const homesSlice = createSlice({
     builder.addCase(editHomeRoom.fulfilled, (state, action) => {
       // Code
       toast.success("Room updated successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+      state.showHome = action.payload.home;
+    });
+    builder.addCase(deleteHomeRoom.fulfilled, (state, action) => {
+      // Code
+      toast.info("Room deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
       state.showHome = action.payload.home;
