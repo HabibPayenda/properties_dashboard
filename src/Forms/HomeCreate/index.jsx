@@ -9,6 +9,7 @@ import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
 import HomeDetailsForm from "./homeDetails";
 import HomeAddressForm from "./HomeAddressForm";
+import HomeDealInfoForm from "./HomeDealInfoForm";
 
 function HomeCreate() {
   const agents = useSelector((state) => state.agents.agents);
@@ -61,6 +62,12 @@ function HomeCreate() {
         formik={formik}
         styles={styles}
       />,
+      <HomeDealInfoForm
+        title="Add Home Deal Info to the System"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        styles={styles}
+      />,
     ]);
 
   return (
@@ -80,6 +87,11 @@ function HomeCreate() {
             title="Home Address"
             isCurrentPage={currentPageIndex >= 1}
             pageNumber={2}
+          />
+          <FormPageInfo
+            title="Home Deal Info"
+            isCurrentPage={currentPageIndex >= 2}
+            pageNumber={3}
           />
         </div>
       </div>
