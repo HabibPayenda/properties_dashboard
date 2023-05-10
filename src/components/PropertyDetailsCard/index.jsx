@@ -9,6 +9,7 @@ import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
   const [showRoomModal, setShowRoomModal] = useState(false);
+  const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -18,6 +19,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
         <HomeRoomCreate id={home?.id} />
       </FormModal>
+      <FormModal
+        openModal={showAmenityAddModal}
+        setOpenModal={setShowAmenityAddModal}
+      ></FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
@@ -27,6 +32,11 @@ function PropertyDetailsCard({ home, homeProperty }) {
           <ModalLink title="Add Room" onClick={handleShowRoomModal} />
           <ModalLink title="Add Bath" />
           <ModalLink title="Add Kitchen" />
+          <ModalLink
+            title="Add Amenity"
+            onClick={() => setShowAmenityAddModal(true)}
+          />
+          <ModalLink title="Add Restriction" />
         </div>
       </div>
       <div className={styles.contentContainer}>
