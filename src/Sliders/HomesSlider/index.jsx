@@ -6,7 +6,7 @@ import PropertySlideCard from "../../components/PropertySlideCard";
 function HomesSlider({ home }) {
   let homeRooms = [];
   homeRooms = home?.home_rooms?.map((room) => {
-    return <PropertySlideCard room={room} />;
+    return <PropertySlideCard home={home} room={room} />;
   });
   const { currentSlide, currentSlideIndex, nextSlide, previousSlide, slides } =
     useSlider(homeRooms);

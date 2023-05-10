@@ -5,11 +5,17 @@ import homeImage from "../../assets/home.jpg";
 import FormModal from "../FormModal";
 import HomeRoomEdit from "../../Forms/HomeEdit";
 import DeleteModalContent from "../DeleteModalContent";
-function PropertySlideCard({ room }) {
+import { useDispatch } from "react-redux";
+import { deleteHomeRoom } from "../../data/homeSlice";
+function PropertySlideCard({ room, home }) {
   const [showRoomEditModal, setShowRoomEditModal] = useState(false);
   const [showRoomDeleteModel, setShowRoomDeleteModal] = useState(false);
 
-  const handleRoomDelete = () => {};
+  const dispatch = useDispatch();
+
+  const handleRoomDelete = () => {
+    dispatch(deleteHomeRoom({ id: room.id, home_id: home.id }));
+  };
 
   return (
     <div className={styles.container}>
