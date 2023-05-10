@@ -15,6 +15,7 @@ function PropertySlideCard({ room, home }) {
 
   const handleRoomDelete = () => {
     dispatch(deleteHomeRoom({ id: room.id, home_id: home.id }));
+    setShowRoomDeleteModal(false);
   };
 
   return (

@@ -171,10 +171,8 @@ export const deleteHomeRoom = createAsyncThunk(
   async ({ id, home_id }) => {
     try {
       const result = await PropertiesApi.delete(
-        `/homes/room/${home_id}`,
-        {
-          room_id: id * 1,
-        },
+        `/homes/room/${id}`,
+
         {
           onUploadProgress: (progress) => {
             if (progress.loaded / progress.total === 1) {
