@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./propertySlideCard.module.css";
 
 import homeImage from "../../assets/home.jpg";
+import FormModal from "../FormModal";
+import HomeRoomEdit from "../../Forms/HomeEdit";
 function PropertySlideCard({ room }) {
-  console.log(room);
+  const [showRoomEditModal, setShowRoomEditModal] = useState(false);
+
   return (
     <div className={styles.container}>
+      <FormModal
+        openModal={showRoomEditModal}
+        setOpenModal={setShowRoomEditModal}
+      >
+        <HomeRoomEdit room={room} />
+      </FormModal>
       <div className={styles.imageContainer}>
         <img className={styles.image} src={homeImage} alt="" />
       </div>
@@ -50,7 +59,12 @@ function PropertySlideCard({ room }) {
           </div>
         </div>
         <div className={styles.footer}>
-          <p className={styles.editBtn}>Edit</p>
+          <p
+            onClick={() => setShowRoomEditModal(true)}
+            className={styles.editBtn}
+          >
+            Edit
+          </p>
           <p className={styles.deleteBtn}>Delete</p>
         </div>
       </div>

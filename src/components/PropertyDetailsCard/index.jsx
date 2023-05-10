@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import styles from "./propertyDetailsCard.module.css";
 import { Link } from "react-router-dom";
 import homeImage from "../../assets/home.jpg";
 import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
-import { useDispatch, useSelector } from "react-redux";
-import { getHomeProperty } from "../../data/homeSlice";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);

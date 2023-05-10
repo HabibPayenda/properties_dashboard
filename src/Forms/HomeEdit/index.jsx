@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
-import styles from "./homeRoomCreate.module.css";
+import styles from "./homeRoomEdit.module.css";
 import { addHomeRoom } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
@@ -9,7 +9,7 @@ import FormPageInfo from "../../components/FormPageInfo";
 import homeRoomEditSchema from "./homeRoomEditSchme";
 import HomeRoomDetailsEditForm from "./HomeRoomDetailsEditForm";
 
-function HomeRoomCreate({ id }) {
+function HomeRoomEdit({ room }) {
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
@@ -20,12 +20,12 @@ function HomeRoomCreate({ id }) {
 
   const formik = useFormik({
     initialValues: {
-      width: "",
-      length: "",
-      windows: "",
-      cup_board: "",
-      to_sun: "",
-      color: "",
+      width: room?.width,
+      length: room?.length,
+      windows: room?.windows,
+      cup_board: room?.cup_board,
+      to_sun: room?.to_sun,
+      color: room?.color,
     },
     validationSchema: homeRoomEditSchema,
     onSubmit: handleFormSubmit,
@@ -72,4 +72,4 @@ function HomeRoomCreate({ id }) {
   );
 }
 
-export default HomeRoomCreate;
+export default HomeRoomEdit;
