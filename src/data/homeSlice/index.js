@@ -46,6 +46,11 @@ export const addHome = createAsyncThunk(
     province,
     city,
     district,
+    deal_type,
+    duration,
+    price_per_duration,
+    total_price,
+    total_duration,
   }) => {
     try {
       const result = await PropertiesApi.post(
@@ -60,6 +65,11 @@ export const addHome = createAsyncThunk(
           province: province,
           city: city,
           district: district,
+          deal_type: deal_type,
+          duration: duration,
+          price_per_duration: price_per_duration,
+          total_price: total_price,
+          total_duration: total_duration,
         },
         {
           onUploadProgress: (progress) => {

@@ -19,6 +19,11 @@ const homeCreateSchema = yup.object().shape({
   province: yup.string().required("A city is required for address"),
   city: yup.string().required("Enter a city"),
   district: yup.string().required("Enter a district"),
+  deal_type: yup.string().required("Enter a district"),
+  duration: yup.string().required("Enter a district"),
+  price_per_duration: yup.string().required("Enter a district"),
+  total_price: yup.string().required("Enter a district"),
+  total_duration: yup.string().required("Enter a district"),
 });
 
 export default homeCreateSchema;
