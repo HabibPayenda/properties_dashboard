@@ -5,6 +5,7 @@ import homeImage from "../../assets/home.jpg";
 import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
+import HomeAmenityCreate from "../../Forms/HomeAmenityCreate";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
@@ -22,7 +23,9 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal
         openModal={showAmenityAddModal}
         setOpenModal={setShowAmenityAddModal}
-      ></FormModal>
+      >
+        <HomeAmenityCreate home={home} />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
