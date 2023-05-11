@@ -8,6 +8,7 @@ import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 import HomeAmenityCreate from "../../Forms/HomeAmenityCreate";
 import PropertyRestrictionCreate from "../../Forms/PropertyRestrictionCreate";
 import AmenitiesList from "../AmenitiesList";
+import RestrictionsList from "../RestrictionsList";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
@@ -15,6 +16,8 @@ function PropertyDetailsCard({ home, homeProperty }) {
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
   const [showAmenityViewModal, setShowAmenityViewModal] = useState(false);
+  const [showRestrictionsViewModal, setShowRestrictionsViewModal] =
+    useState(false);
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -41,6 +44,12 @@ function PropertyDetailsCard({ home, homeProperty }) {
         setOpenModal={setShowAmenityViewModal}
       >
         <AmenitiesList amenities={homeProperty?.amenities} />
+      </FormModal>
+      <FormModal
+        openModal={showRestrictionsViewModal}
+        setOpenModal={setShowRestrictionsViewModal}
+      >
+        <RestrictionsList restrictions={homeProperty?.restrictions} />
       </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
@@ -117,7 +126,12 @@ function PropertyDetailsCard({ home, homeProperty }) {
               </p>
             </div>
             <div className={styles.restrictions}>
-              <p className={styles.propertyOptionsTitle}>Restrictions</p>
+              <p
+                onClick={() => setShowRestrictionsViewModal(true)}
+                className={styles.propertyOptionsTitle}
+              >
+                Restrictions
+              </p>
             </div>
           </div>
           <div className={styles.propertyOptions}>
