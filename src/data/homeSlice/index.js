@@ -109,6 +109,7 @@ export const addHome = createAsyncThunk(
 export const editHome = createAsyncThunk(
   "homes/editHome",
   async ({
+    id,
     owner_name,
     name,
     availability_status,
@@ -126,7 +127,7 @@ export const editHome = createAsyncThunk(
   }) => {
     try {
       const result = await PropertiesApi.patch(
-        "/homes",
+        `/homes/${id}`,
         {
           owner_name: owner_name,
           name: name,

@@ -22,7 +22,7 @@ function HomeEdit({ home, property }) {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(editHome(formik.values));
+    dispatch(editHome({ ...formik.values, id: home.id }));
     // formik.resetForm();
   };
 
