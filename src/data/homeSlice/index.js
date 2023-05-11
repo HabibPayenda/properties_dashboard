@@ -189,6 +189,35 @@ export const deleteHomeRoom = createAsyncThunk(
   }
 );
 
+export const addHomeAmenity = createAsyncThunk(
+  "homes/addHomeRoom",
+  async ({ name, description, fee, fee_duration, property_id }) => {
+    try {
+      const result = await PropertiesApi.post(
+        "/homes/room",
+        {
+          name: name,
+          description: description,
+          fee: fee,
+          fee_duration: fee_duration,
+          property_id: property_id,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   homes: [],
   showHome: {},
@@ -264,6 +293,13 @@ export const homesSlice = createSlice({
       // Code
       state.showHome = action.payload.home;
       toast.success("Room added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+    builder.addCase(addHomeAmenity.fulfilled, (state, action) => {
+      // Code
+      state.showHome = action.payload.home;
+      toast.success("Amenity added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
