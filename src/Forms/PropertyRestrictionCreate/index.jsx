@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import styles from "./propertyRestrictionCreate.module.css";
 import { useDispatch } from "react-redux";
-import { addHome } from "../../data/homeSlice";
+import { addHomeRestriction } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -15,7 +15,9 @@ function PropertyRestrictionCreate({ home }) {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(addHome(formik.values));
+    dispatch(
+      addHomeRestriction({ ...formik.values, property_id: home.property_id })
+    );
     // formik.resetForm();
   };
 

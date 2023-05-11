@@ -217,6 +217,32 @@ export const addHomeAmenity = createAsyncThunk(
     }
   }
 );
+export const addHomeRestriction = createAsyncThunk(
+  "homes/addHomeRestriction",
+  async ({ name, description, property_id }) => {
+    try {
+      const result = await PropertiesApi.post(
+        "/homes/restriction",
+        {
+          name: name,
+          description: description,
+          property_id: property_id,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   homes: [],
@@ -298,9 +324,16 @@ export const homesSlice = createSlice({
     });
     builder.addCase(addHomeAmenity.fulfilled, (state, action) => {
       // Code
-      console.log("property updated:", action.payload);
       state.homeProperty = action.payload.property;
       toast.success("Amenity added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(addHomeRestriction.fulfilled, (state, action) => {
+      // Code
+      state.homeProperty = action.payload.property;
+      toast.success("Restriction added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
