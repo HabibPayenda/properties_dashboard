@@ -298,7 +298,8 @@ export const homesSlice = createSlice({
     });
     builder.addCase(addHomeAmenity.fulfilled, (state, action) => {
       // Code
-      state.showHome = action.payload.home;
+      console.log("property updated:", action.payload);
+      state.homeProperty = action.payload.property;
       toast.success("Amenity added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
