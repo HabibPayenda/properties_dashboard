@@ -28,15 +28,15 @@ function HomeEdit({ home, property }) {
 
   const formik = useFormik({
     initialValues: {
-      owner_name: property?.owner_name,
+      owner_name: home?.owner_name,
       name: property?.name,
       description: property?.description,
       availability_status: property?.availability_status,
       property_manager_id: property?.property_manager_id,
       agent_id: property?.agent_id,
-      province: property?.property_addresses[0]?.province,
-      city: property?.property_addresses[0]?.city,
-      district: property?.property_addresses[0]?.district,
+      province: property?.addresses[0]?.province,
+      city: property?.addresses[0]?.city,
+      district: property?.addresses[0]?.district,
       deal_type: property?.deal_infos[0]?.deal_type,
       duration: property?.deal_infos[0]?.duration,
       price_per_duration: property?.deal_infos[0]?.price_per_duration,
