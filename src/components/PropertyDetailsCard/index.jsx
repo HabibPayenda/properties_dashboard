@@ -9,9 +9,11 @@ import HomeAmenityCreate from "../../Forms/HomeAmenityCreate";
 import PropertyRestrictionCreate from "../../Forms/PropertyRestrictionCreate";
 import AmenitiesList from "../AmenitiesList";
 import RestrictionsList from "../RestrictionsList";
+import HomeEdit from "../../Forms/HomeEdit";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
+  console.log(home);
   const [showRoomModal, setShowRoomModal] = useState(false);
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
@@ -55,7 +57,9 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal
         openModal={showHomeEditModal}
         setOpenModal={setShowHomeEditModal}
-      ></FormModal>
+      >
+        <HomeEdit home={home} property={homeProperty} />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>

@@ -1,42 +1,70 @@
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
-import styles from "./homeRoomEdit.module.css";
-import { editHomeRoom } from "../../data/homeSlice";
+import homeEditSchema from "./homeEditSchema";
+import styles from "./homeEdit.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addHome } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
-import homeRoomEditSchema from "./homeRoomEditSchme";
-import HomeRoomDetailsEditForm from "./HomeRoomDetailsEditForm";
+import HomeDetailsEditForm from "./HomeDetailsEditForm";
+import HomeAddressEditForm from "./HomeAddressEditForm";
+import HomeDealInfoEditForm from "./HomeDealInfoEditForm";
 
-function HomeRoomEdit({ room }) {
+function HomeEdit({ home, property }) {
+  const agents = useSelector((state) => state.agents.agents);
+  const propertyManagers = useSelector(
+    (state) => state.propertyManagers.propertyManagers
+  );
+
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(
-      editHomeRoom({ ...formik.values, home_id: room?.home_id, id: room?.id })
-    );
+    console.log(formik.values);
+    dispatch(addHome(formik.values));
     // formik.resetForm();
   };
 
   const formik = useFormik({
     initialValues: {
-      width: room?.width,
-      length: room?.length,
-      windows: room?.windows,
-      cup_board: room?.cup_board,
-      to_sun: room?.to_sun,
-      color: room?.color,
+      owner_name: property?.owner_name,
+      name: property?.name,
+      description: property?.description,
+      availability_status: property?.availability_status,
+      property_manager_id: property?.property_manager_id,
+      agent_id: property?.agent_id,
+      province: property?.property_addresses[0]?.province,
+      city: property?.property_addresses[0]?.city,
+      district: property?.property_addresses[0]?.district,
+      deal_type: property?.deal_infos[0]?.deal_type,
+      duration: property?.deal_infos[0]?.duration,
+      price_per_duration: property?.deal_infos[0]?.price_per_duration,
+      total_price: property?.deal_infos[0]?.total_price,
+      total_duration: property?.deal_infos[0]?.total_duration,
     },
-    validationSchema: homeRoomEditSchema,
+    validationSchema: homeEditSchema,
     onSubmit: handleFormSubmit,
   });
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
-      <HomeRoomDetailsEditForm
-        title="Edit this home room"
+      <HomeDetailsEditForm
+        title="Edit Home in the System"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        agents={agents}
+        propertyManagers={propertyManagers}
+        styles={styles}
+      />,
+      <HomeAddressEditForm
+        title="Edit Home Address in the System"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        styles={styles}
+      />,
+      <HomeDealInfoEditForm
+        title="Edit Home Deal Info in the System"
         text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         styles={styles}
@@ -52,9 +80,19 @@ function HomeRoomEdit({ room }) {
         </div>
         <div className={styles.sidebarStepsContainer}>
           <FormPageInfo
-            title="Home Room Details"
+            title="Home Details"
             isCurrentPage={true}
             pageNumber={1}
+          />
+          <FormPageInfo
+            title="Home Address"
+            isCurrentPage={currentPageIndex >= 1}
+            pageNumber={2}
+          />
+          <FormPageInfo
+            title="Home Deal Info"
+            isCurrentPage={currentPageIndex >= 2}
+            pageNumber={3}
           />
         </div>
       </div>
@@ -74,4 +112,4 @@ function HomeRoomEdit({ room }) {
   );
 }
 
-export default HomeRoomEdit;
+export default HomeEdit;
