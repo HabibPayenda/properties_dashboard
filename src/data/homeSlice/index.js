@@ -190,11 +190,11 @@ export const deleteHomeRoom = createAsyncThunk(
 );
 
 export const addHomeAmenity = createAsyncThunk(
-  "homes/addHomeRoom",
+  "homes/addHomeAmenity",
   async ({ name, description, fee, fee_duration, property_id }) => {
     try {
       const result = await PropertiesApi.post(
-        "/homes/room",
+        "/homes/amenity",
         {
           name: name,
           description: description,
