@@ -7,6 +7,7 @@ import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 import HomeAmenityCreate from "../../Forms/HomeAmenityCreate";
 import PropertyRestrictionCreate from "../../Forms/PropertyRestrictionCreate";
+import AmenitiesList from "../AmenitiesList";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
@@ -38,7 +39,9 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal
         openModal={showAmenityViewModal}
         setOpenModal={setShowAmenityViewModal}
-      ></FormModal>
+      >
+        <AmenitiesList amenities={homeProperty?.amenities} />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
