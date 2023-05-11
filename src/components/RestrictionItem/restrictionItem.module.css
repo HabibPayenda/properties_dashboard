@@ -1,3 +1,22 @@
 .container {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 95%;
+  height: 100%;
+  border: solid 1px #eee;
+  box-shadow: 2px 2px 6px #eee;
+  padding: 0 12px;
+  flex: 1;
+  gap: 12px;
+}
+
+.name {
+  font-size: 18px;
+  border-right: solid 1px #eee;
+  padding-right: 12px;
+}
+
+.description {
+  font-size: 14px;
 }
