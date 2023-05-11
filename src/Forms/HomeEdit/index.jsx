@@ -3,7 +3,7 @@ import React from "react";
 import homeEditSchema from "./homeEditSchema";
 import styles from "./homeEdit.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addHome } from "../../data/homeSlice";
+import { addHome, editHome } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -22,7 +22,7 @@ function HomeEdit({ home, property }) {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(addHome(formik.values));
+    dispatch(editHome(formik.values));
     // formik.resetForm();
   };
 

@@ -105,6 +105,59 @@ export const addHome = createAsyncThunk(
     }
   }
 );
+
+export const editHome = createAsyncThunk(
+  "homes/addHome",
+  async ({
+    owner_name,
+    name,
+    availability_status,
+    property_manager_id,
+    agent_id,
+    description,
+    province,
+    city,
+    district,
+    deal_type,
+    duration,
+    price_per_duration,
+    total_price,
+    total_duration,
+  }) => {
+    try {
+      const result = await PropertiesApi.patch(
+        "/homes",
+        {
+          owner_name: owner_name,
+          name: name,
+          availability_status: availability_status,
+          property_manager_id: property_manager_id * 1,
+          agent_id: agent_id * 1,
+          description: description,
+          province: province,
+          city: city,
+          district: district,
+          deal_type: deal_type,
+          duration: duration,
+          price_per_duration: price_per_duration,
+          total_price: total_price,
+          total_duration: total_duration,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 export const addHomeRoom = createAsyncThunk(
   "homes/addHomeRoom",
   async ({ width, length, windows, cup_board, to_sun, color, home_id }) => {
@@ -349,6 +402,15 @@ export const homesSlice = createSlice({
       // Code
       state.homes = [...state.homes, action.payload.home];
       toast.success("Home added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(editHome.fulfilled, (state, action) => {
+      // Code
+      state.showHome = action.payload.home;
+      state.homeProperty = action.payload.property;
+      toast.success("Home edited successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
