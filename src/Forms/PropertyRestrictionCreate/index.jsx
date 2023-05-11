@@ -6,8 +6,8 @@ import { addHome } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
-import homeAmenityCreateSchema from "./homeAmenityCreateSchema";
 import PropertyRestrictionDetailsForm from "./PropertyRestrictionDetailsForm";
+import propertyRestrictionCreateSchema from "./propertyRestrictionCreateSchema";
 
 function PropertyRestrictionCreate({ home }) {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function PropertyRestrictionCreate({ home }) {
       name: "",
       description: "",
     },
-    validationSchema: homeAmenityCreateSchema,
+    validationSchema: propertyRestrictionCreateSchema,
     onSubmit: handleFormSubmit,
   });
 
@@ -47,7 +47,7 @@ function PropertyRestrictionCreate({ home }) {
         </div>
         <div className={styles.sidebarStepsContainer}>
           <FormPageInfo
-            title="Home Amenity Details"
+            title="Home Restriction Details"
             isCurrentPage={true}
             pageNumber={1}
           />

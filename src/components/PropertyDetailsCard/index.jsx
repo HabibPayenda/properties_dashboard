@@ -6,11 +6,13 @@ import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
 import HomeRoomCreate from "../../Forms/HomeRoomCreate";
 import HomeAmenityCreate from "../../Forms/HomeAmenityCreate";
+import PropertyRestrictionCreate from "../../Forms/PropertyRestrictionCreate";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
   const [showRoomModal, setShowRoomModal] = useState(false);
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
+  const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -26,6 +28,12 @@ function PropertyDetailsCard({ home, homeProperty }) {
       >
         <HomeAmenityCreate home={home} />
       </FormModal>
+      <FormModal
+        openModal={showRestricionAddModal}
+        setOpenModal={setShowRestrictionAddModal}
+      >
+        <PropertyRestrictionCreate home={home} />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
@@ -39,7 +47,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
             title="Add Amenity"
             onClick={() => setShowAmenityAddModal(true)}
           />
-          <ModalLink title="Add Restriction" />
+          <ModalLink
+            onClick={() => setShowRestrictionAddModal(true)}
+            title="Add Restriction"
+          />
         </div>
       </div>
       <div className={styles.contentContainer}>

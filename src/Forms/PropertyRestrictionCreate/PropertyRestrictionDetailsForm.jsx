@@ -13,7 +13,7 @@ function PropertyRestrictionDetailsForm({ formik, styles, title, text }) {
           label="Name:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Amenity Name"
+          placeholder="Restriction Name"
           className={styles.input}
           value={formik.values.name}
           id="name"
@@ -26,7 +26,7 @@ function PropertyRestrictionDetailsForm({ formik, styles, title, text }) {
           label="Description:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Amenity Description"
+          placeholder="Restriction Description"
           className={styles.input}
           value={formik.values.description}
           id="description"
