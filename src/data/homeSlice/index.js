@@ -107,7 +107,7 @@ export const addHome = createAsyncThunk(
 );
 
 export const editHome = createAsyncThunk(
-  "homes/addHome",
+  "homes/editHome",
   async ({
     owner_name,
     name,

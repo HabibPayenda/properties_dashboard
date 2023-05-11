@@ -3,7 +3,7 @@ import React from "react";
 import homeEditSchema from "./homeEditSchema";
 import styles from "./homeEdit.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addHome, editHome } from "../../data/homeSlice";
+import { editHome } from "../../data/homeSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
