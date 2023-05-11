@@ -18,6 +18,7 @@ function PropertyDetailsCard({ home, homeProperty }) {
   const [showAmenityViewModal, setShowAmenityViewModal] = useState(false);
   const [showRestrictionsViewModal, setShowRestrictionsViewModal] =
     useState(false);
+  const [showHomeEditModal, setShowHomeEditModal] = useState(false);
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -51,6 +52,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
       >
         <RestrictionsList restrictions={homeProperty?.restrictions} />
       </FormModal>
+      <FormModal
+        openModal={showHomeEditModal}
+        setOpenModal={setShowHomeEditModal}
+      ></FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
@@ -135,7 +140,12 @@ function PropertyDetailsCard({ home, homeProperty }) {
             </div>
           </div>
           <div className={styles.propertyOptions}>
-            <p className={styles.editBtn}>Edit</p>
+            <p
+              onClick={() => setShowHomeEditModal(true)}
+              className={styles.editBtn}
+            >
+              Edit
+            </p>
             <p className={styles.deleteBtn}>Delete</p>
           </div>
         </div>
