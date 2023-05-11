@@ -13,6 +13,7 @@ function PropertyDetailsCard({ home, homeProperty }) {
   const [showRoomModal, setShowRoomModal] = useState(false);
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
+  const [showAmenityViewModal, setShowAmenityViewModal] = useState(false);
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -34,6 +35,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
       >
         <PropertyRestrictionCreate home={home} />
       </FormModal>
+      <FormModal
+        openModal={showAmenityViewModal}
+        setOpenModal={setShowAmenityViewModal}
+      ></FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
@@ -101,19 +106,20 @@ function PropertyDetailsCard({ home, homeProperty }) {
           </div>
           <div className={styles.propertyOptions}>
             <div className={styles.amenities}>
-              <p className={styles.propertyOptionsTitle}>Amenities</p>
-              <div className={styles.propertyOptionsItem}>
-                <i className="fa-solid fa-check"></i>
-                <p>Parking</p>
-              </div>
+              <p
+                onClick={() => setShowAmenityViewModal(true)}
+                className={styles.propertyOptionsTitle}
+              >
+                Amenities
+              </p>
             </div>
             <div className={styles.restrictions}>
               <p className={styles.propertyOptionsTitle}>Restrictions</p>
-              <div className={styles.propertyOptionsItem}>
-                <i className="fa-solid fa-xmark"></i>
-                <p>Internet</p>
-              </div>
             </div>
+          </div>
+          <div className={styles.propertyOptions}>
+            <p className={styles.editBtn}>Edit</p>
+            <p className={styles.deleteBtn}>Delete</p>
           </div>
         </div>
       </div>
