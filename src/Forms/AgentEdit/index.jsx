@@ -8,11 +8,11 @@ import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
 import AgentEditDetails from "./AgentEditDetails";
-import AgentEditAddress from "./AgentEditAddress";
 import AgentEditContact from "./AgentEditContact";
 import agentEditSchema from "./agentEditSchema";
+import AgentEditAddress from "./AgentEditAddress";
 
-function AgentEdit() {
+function AgentEdit({ agent }) {
   const admins = useSelector((state) => state.admin.admins);
 
   const dispatch = useDispatch();
@@ -24,15 +24,15 @@ function AgentEdit() {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      hire_date: "",
-      status: "",
-      admin_id: "",
-      province: "",
-      city: "",
-      district: "",
-      phone_number_one: "",
-      email_one: "",
+      name: agent?.name,
+      hire_date: agent?.hire_date,
+      status: agent?.status,
+      admin_id: agent?.admin_id,
+      province: agent?.addresses[0]?.province,
+      city: agent?.addresses[0]?.city,
+      district: agent?.addresses[0]?.district,
+      phone_number_one: agent?.contact?.phone_number_one,
+      email_one: agent?.contact?.email_one,
     },
     validationSchema: agentEditSchema,
     onSubmit: handleFormSubmit,

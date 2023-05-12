@@ -30,10 +30,18 @@ function PersonDetailsHeader({ person }) {
           <div className={styles.detailsContent}>
             <p className={styles.detailsTitle}>Address</p>
             <p className={styles.detailsItem}>
-              {`City: ${person?.addresses[0]?.city || null}`}
+              {`City: ${
+                person?.addresses?.length > 0
+                  ? person?.addresses[0]?.city
+                  : "Null"
+              }`}
             </p>
             <p className={styles.detailsItem}>
-              {`District: ${person?.addresses[0]?.district || null}`}
+              {`District: ${
+                person?.addresses?.length > 0
+                  ? person?.addresses[0]?.district
+                  : "Null"
+              }`}
             </p>
           </div>
         </div>

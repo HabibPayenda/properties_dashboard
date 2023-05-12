@@ -8,6 +8,7 @@ import ContentHeader from "../../components/ContentHeader";
 import ItemsCard from "../../components/ItemsCard";
 import PersonDetailsHeader from "../../components/PersonDetailsHeader";
 import FormModal from "../../components/FormModal";
+import AgentEdit from "../../Forms/AgentEdit";
 
 function Agent() {
   const { id } = useParams();
@@ -30,7 +31,9 @@ function Agent() {
       <FormModal
         openModal={showAgentEditModal}
         setOpenModal={setShowAgentEditModal}
-      ></FormModal>
+      >
+        <AgentEdit agent={agent} />
+      </FormModal>
       <PersonDetailsHeader person={agent} />
       <div className={styles.btnsContainer}>
         <p
