@@ -157,6 +157,25 @@ export const editAgent = createAsyncThunk(
   }
 );
 
+export const getProperties = createAsyncThunk(
+  "agents/getProperties",
+  async (id) => {
+    // Code
+    try {
+      const result = await PropertiesApi.get(`agents/properties/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   agents: [],
   showAgent: {},
@@ -166,6 +185,7 @@ const initialState = {
   role: null,
   chartMonths: [],
   chartData: [],
+  agentProperties: [],
 };
 
 export const agentsSlice = createSlice({
@@ -247,6 +267,11 @@ export const agentsSlice = createSlice({
       });
       console.log(action.payload);
       state.agents = [...state.agents, action.payload.agent];
+    });
+
+    builder.addCase(getProperties.fulfilled, (state, action) => {
+      // Code
+      state.agentProperties = action.payload;
     });
   },
 });
