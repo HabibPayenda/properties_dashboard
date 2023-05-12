@@ -1,18 +1,18 @@
 import { useFormik } from "formik";
 import React from "react";
 
-import styles from "./agentCreate.module.css";
+import styles from "./agentEdit.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import agentCreateSchema from "./agentCreateSchema";
 import { addAgent } from "../../data/agentsSlice";
-import AgentDetails from "./AgentDetails";
-import AgentAddress from "./AgentAddress";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
-import AgentContact from "./AgentContact";
+import AgentEditDetails from "./AgentEditDetails";
+import AgentEditAddress from "./AgentEditAddress";
+import AgentEditContact from "./AgentEditContact";
+import agentEditSchema from "./agentEditSchema";
 
-function AgentCreate() {
+function AgentEdit() {
   const admins = useSelector((state) => state.admin.admins);
 
   const dispatch = useDispatch();
@@ -34,28 +34,28 @@ function AgentCreate() {
       phone_number_one: "",
       email_one: "",
     },
-    validationSchema: agentCreateSchema,
+    validationSchema: agentEditSchema,
     onSubmit: handleFormSubmit,
   });
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
-      <AgentDetails
-        title="Add New Agent to the System"
+      <AgentEditDetails
+        title="Edit Agent in the System"
         text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         admins={admins}
         styles={styles}
       />,
-      <AgentAddress
-        title="Add Agent Address Info"
+      <AgentEditAddress
+        title="Edit Agent Address Info"
         text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         admins={admins}
         styles={styles}
       />,
-      <AgentContact
-        title="Add Agent Contact Info"
+      <AgentEditContact
+        title="Edit Agent Contact Info"
         text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
         formik={formik}
         admins={admins}
@@ -82,7 +82,7 @@ function AgentCreate() {
             pageNumber={2}
           />
           <FormPageInfo
-            title="Agent Contact"
+            title="Agent Contacts"
             isCurrentPage={currentPageIndex >= 2}
             pageNumber={3}
           />
@@ -104,4 +104,4 @@ function AgentCreate() {
   );
 }
 
-export default AgentCreate;
+export default AgentEdit;
