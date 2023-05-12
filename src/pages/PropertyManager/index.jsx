@@ -13,14 +13,15 @@ function PropertyManager() {
   const propertyManager = useSelector(
     (state) => state.propertyManagers.showPropertyManager
   );
-  console.log(propertyManager);
-
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPropertyManager(id));
   }, []);
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <SectionHeader
         title={`Property Manager ${propertyManager?.name} details`}
       />
