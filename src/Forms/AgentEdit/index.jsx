@@ -3,7 +3,7 @@ import React from "react";
 
 import styles from "./agentEdit.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addAgent } from "../../data/agentsSlice";
+import { addAgent, editAgent } from "../../data/agentsSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -19,7 +19,7 @@ function AgentEdit({ agent }) {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAgent(formik.values));
+    dispatch(editAgent({ ...formik.values, id: agent.id }));
   };
 
   const formik = useFormik({

@@ -114,6 +114,48 @@ export const addAgent = createAsyncThunk(
     }
   }
 );
+export const editAgent = createAsyncThunk(
+  "agents/editAgent",
+  async ({
+    id,
+    name,
+    hire_date,
+    status,
+    admin_id,
+    province,
+    city,
+    district,
+    phone_number_one,
+    email_one,
+  }) => {
+    try {
+      const result = await PropertiesApi.patch(
+        `/agents/${id}`,
+        {
+          name: name,
+          hire_date: hire_date,
+          status: status,
+          admin_id: admin_id * 1,
+          province,
+          city,
+          district,
+          phone_number_one,
+          email_one,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   agents: [],
@@ -175,6 +217,20 @@ export const agentsSlice = createSlice({
     builder.addCase(getAgent.fulfilled, (state, action) => {
       // Code
       state.showAgent = action.payload.agent;
+    });
+
+    builder.addCase(editAgent.fulfilled, (state, action) => {
+      // Code
+      state.showAgent = action.payload.agent;
+      state.agents = state.agents.map((agent) => {
+        if (agent.id === action.payload.agent.id) {
+          return action.payload.agent;
+        }
+        return agent;
+      });
+      toast.success("Agent updated successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     });
 
     builder.addCase(addAgent.rejected, (state, action) => {
