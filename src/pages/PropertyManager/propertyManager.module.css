@@ -18,17 +18,14 @@
 }
 
 .contentContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+  justify-content: center;
   flex: 9;
   gap: 10px;
   width: 100%;
-}
-
-.column {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #eee;
-  flex-direction: column;
-  flex: 1;
+  gap: 6px;
+  padding: 24px;
 }
