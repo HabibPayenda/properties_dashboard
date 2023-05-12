@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./personHomes.module.css";
 import { useSelector } from "react-redux";
 import SectionHeader from "../../components/SectionHeader";
+import PersonHomeCard from "../../components/PersonHomeCard";
 
 function PersonHomes() {
   const isSidebarShown = useSelector(
@@ -11,7 +12,7 @@ function PersonHomes() {
   const { homes } = agentProperties;
 
   const renderHomes = homes?.map((home) => {
-    return <h1>{home?.owner_name}</h1>;
+    return <PersonHomeCard home={home} />;
   });
 
   return (

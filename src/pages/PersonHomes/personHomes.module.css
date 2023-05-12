@@ -19,7 +19,7 @@
 
 .contentContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(auto-fill, 250px);
   align-content: center;
   justify-content: center;

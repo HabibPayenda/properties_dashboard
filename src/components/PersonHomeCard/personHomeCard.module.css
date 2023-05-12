@@ -2,4 +2,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  position: relative;
+  box-shadow: 3px 3px 6px #eee;
+  background-color: white;
+}
+
+.imageContainer {
+  height: 150px;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image {
+  height: 150px;
+}
+
+.contentContainer {
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 6px;
+  flex-direction: column;
+  background-color: blueviolet;
+  flex: 1;
+  width: 110%;
+  height: 180px;
+  bottom: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  clip-path: polygon(0 36%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.name {
+  font-size: 22px;
+  color: white;
+}
+
+.rooms {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.btn {
+  background-color: white;
+  padding: 0 6px;
+  align-self: flex-end;
+  color: blueviolet;
+  border-radius: 3px;
+  font-size: 12px;
 }
