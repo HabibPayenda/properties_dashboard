@@ -24,7 +24,7 @@ function PersonHomes() {
         {homes.length > 0 ? (
           renderHomes
         ) : (
-          <h1>This Agent doesn't have any homes regestered.</h1>
+          <h1>This Agent doesn't have any homes rigestered.</h1>
         )}
       </div>
     </div>
