@@ -57,21 +57,21 @@ function Agent() {
           to="/properties/homes"
         />
         <ItemsCard
-          title="Agent Homes"
-          text="These homes belongs to this agent"
-          icon={<i className="fa-solid fa-house"></i>}
+          title="Agent Cars"
+          text="These cars belongs to this agent"
+          icon={<i className="fa-solid fa-car"></i>}
           to="/properties/homes"
         />
         <ItemsCard
-          title="Agent Homes"
-          text="These homes belongs to this agent"
-          icon={<i className="fa-solid fa-house"></i>}
+          title="Agent Warehouses"
+          text="These warehouses belongs to this agent"
+          icon={<i className="fa-solid fa-building-columns"></i>}
           to="/properties/homes"
         />
         <ItemsCard
-          title="Agent Homes"
-          text="These homes belongs to this agent"
-          icon={<i className="fa-solid fa-house"></i>}
+          title="Agent Lands"
+          text="These lands belongs to this agent"
+          icon={<i className="fa-solid fa-mountain-sun"></i>}
           to="/properties/homes"
         />
       </div>
