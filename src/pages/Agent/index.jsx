@@ -25,6 +25,20 @@ function Agent() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <PersonDetailsHeader person={agent} />
+      <div className={styles.btnsContainer}>
+        <p
+          onClick={() => setShowHomeEditModal(true)}
+          className={styles.editBtn}
+        >
+          Edit
+        </p>
+        <p
+          onClick={() => setShowHomeDeleteModal(true)}
+          className={styles.deleteBtn}
+        >
+          Delete
+        </p>
+      </div>
       <div className={styles.contentContainer}>
         <ItemsCard
           title="Agent Homes"

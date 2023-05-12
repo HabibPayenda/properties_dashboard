@@ -10,42 +10,6 @@
   box-shadow: 2px 2px 4px #ddd;
 }
 
-.btnsContainer {
-  position: absolute;
-  bottom: 0;
-  right: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-
-.deleteBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  background-color: brown;
-  color: white;
-  font-size: 12px;
-  border-radius: 3px;
-  width: 50px;
-  cursor: pointer;
-}
-
-.editBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  background-color: goldenrod;
-  color: white;
-  font-size: 12px;
-  border-radius: 3px;
-  width: 50px;
-  cursor: pointer;
-}
-
 .circleContainer {
   display: flex;
   align-items: center;
