@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAgent } from "../../data/agentsSlice";
@@ -7,9 +7,12 @@ import styles from "./agent.module.css";
 import ContentHeader from "../../components/ContentHeader";
 import ItemsCard from "../../components/ItemsCard";
 import PersonDetailsHeader from "../../components/PersonDetailsHeader";
+import FormModal from "../../components/FormModal";
 
 function Agent() {
   const { id } = useParams();
+
+  const [showAgentEditModal, setShowAgentEditModal] = useState(false);
 
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
@@ -24,10 +27,14 @@ function Agent() {
   }, []);
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
+      <FormModal
+        openModal={showAgentEditModal}
+        setOpenModal={setShowAgentEditModal}
+      ></FormModal>
       <PersonDetailsHeader person={agent} />
       <div className={styles.btnsContainer}>
         <p
-          onClick={() => setShowHomeEditModal(true)}
+          onClick={() => setShowAgentEditModal(true)}
           className={styles.editBtn}
         >
           Edit
