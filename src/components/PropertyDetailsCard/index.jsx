@@ -10,6 +10,7 @@ import PropertyRestrictionCreate from "../../Forms/PropertyRestrictionCreate";
 import AmenitiesList from "../AmenitiesList";
 import RestrictionsList from "../RestrictionsList";
 import HomeEdit from "../../Forms/HomeEdit";
+import DeleteModalContent from "../DeleteModalContent";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
@@ -25,6 +26,8 @@ function PropertyDetailsCard({ home, homeProperty }) {
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
+
+  const handleHomeDelete = () => {};
 
   return (
     <div className={styles.container}>
@@ -64,7 +67,12 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal
         openModal={showHomeDeleteModal}
         setOpenModal={setShowHomeDeleteModal}
-      ></FormModal>
+      >
+        <DeleteModalContent
+          handleDelete={handleHomeDelete}
+          handleClose={setShowHomeDeleteModal}
+        />
+      </FormModal>
       <div className={styles.header}>
         <Link className={styles.backLink} to="..">
           <i className="fa-solid fa-arrow-left"></i>
