@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAgent } from "../../data/agentsSlice";
-import SectionHeader from "../../components/SectionHeader";
+import { getAgent, getProperties } from "../../data/agentsSlice";
 import styles from "./agent.module.css";
-import ContentHeader from "../../components/ContentHeader";
 import ItemsCard from "../../components/ItemsCard";
 import PersonDetailsHeader from "../../components/PersonDetailsHeader";
 import FormModal from "../../components/FormModal";
@@ -20,11 +18,12 @@ function Agent() {
   );
 
   const agent = useSelector((state) => state.agents.showAgent);
-  console.log(agent);
+  const agentProperties = useSelector((state) => state.agents.agentProperties);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAgent(id));
+    dispatch(getProperties(id));
   }, []);
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
@@ -55,12 +54,14 @@ function Agent() {
           text="These homes belongs to this agent"
           icon={<i className="fa-solid fa-house"></i>}
           to="/properties/homes"
+          total={agentProperties?.homes?.length}
         />
         <ItemsCard
           title="Agent Cars"
           text="These cars belongs to this agent"
           icon={<i className="fa-solid fa-car"></i>}
           to="/properties/homes"
+          total={agentProperties?.cars?.length}
         />
         <ItemsCard
           title="Agent Warehouses"
