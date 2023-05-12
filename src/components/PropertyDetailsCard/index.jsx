@@ -11,10 +11,14 @@ import AmenitiesList from "../AmenitiesList";
 import RestrictionsList from "../RestrictionsList";
 import HomeEdit from "../../Forms/HomeEdit";
 import DeleteModalContent from "../DeleteModalContent";
+import { useDispatch } from "react-redux";
+import { deleteHome } from "../../data/homeSlice";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
   console.log(home);
+
+  const dispatch = useDispatch();
   const [showRoomModal, setShowRoomModal] = useState(false);
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
@@ -27,7 +31,9 @@ function PropertyDetailsCard({ home, homeProperty }) {
     setShowRoomModal(true);
   };
 
-  const handleHomeDelete = () => {};
+  const handleHomeDelete = () => {
+    dispatch(deleteHome(home.id));
+  };
 
   return (
     <div className={styles.container}>
