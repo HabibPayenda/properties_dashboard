@@ -24,7 +24,7 @@ function Agent() {
   }, []);
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
-      <PersonDetailsHeader />
+      <PersonDetailsHeader person={agent} />
       <div className={styles.contentContainer}>
         <ItemsCard
           title="Agent Homes"
