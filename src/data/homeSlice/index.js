@@ -435,7 +435,9 @@ export const homesSlice = createSlice({
       // Code
       state.showHome = {};
       state.homeProperty = {};
-      state.homes = state.homes.filter((home) => home.id !== action.payload.id);
+      state.homes = state.homes.filter(
+        (home) => home.id !== action.payload.home.id
+      );
       toast.info("Home deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });

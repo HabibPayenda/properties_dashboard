@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./propertyDetailsCard.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import homeImage from "../../assets/home.jpg";
 import ModalLink from "../ModalLink";
 import FormModal from "../FormModal";
@@ -19,6 +19,7 @@ function PropertyDetailsCard({ home, homeProperty }) {
   console.log(home);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showRoomModal, setShowRoomModal] = useState(false);
   const [showAmenityAddModal, setShowAmenityAddModal] = useState(false);
   const [showRestricionAddModal, setShowRestrictionAddModal] = useState(false);
@@ -33,6 +34,8 @@ function PropertyDetailsCard({ home, homeProperty }) {
 
   const handleHomeDelete = () => {
     dispatch(deleteHome(home.id));
+    setShowHomeDeleteModal(false);
+    navigate("/properties/homes");
   };
 
   return (
