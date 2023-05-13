@@ -3,8 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  grid-column-start: 3;
-  grid-column-end: 11;
+  grid-column:3/11;
   gap: 10px;
 }
 
@@ -18,15 +17,13 @@
 }
 
 .contentContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(auto-fill, 250px);
-  align-content: center;
-  justify-content: center;
-  flex: 9;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
   width: 100%;
-  gap: 6px;
+  gap: 24px;
   padding: 24px;
+  height: 500px !important;
   overflow-y: scroll;
 }

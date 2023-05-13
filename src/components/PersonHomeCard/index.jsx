@@ -8,7 +8,11 @@ function PersonHomeCard({ home }) {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={homeImage} alt="" />
+        <img
+          className={styles.image}
+          src={home?.property?.image_url || homeImage}
+          alt=""
+        />
       </div>
       <div className={styles.contentContainer}>
         <p className={styles.name}>{home?.property?.name}</p>
