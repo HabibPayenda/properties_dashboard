@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import SectionHeader from "../../components/SectionHeader";
 import styles from "./propertyManager.module.css";
-import ContentHeader from "../../components/ContentHeader";
-import { getPropertyManager } from "../../data/propertyManagersSlice";
-import PropertiesSummary from "../../components/PropertiesSummary";
+import {
+  getPropertyManager,
+  getPropertyManagerProperties,
+} from "../../data/propertyManagersSlice";
 import ItemsCard from "../../components/ItemsCard";
 
 function PropertyManager() {
@@ -14,12 +15,21 @@ function PropertyManager() {
   const propertyManager = useSelector(
     (state) => state.propertyManagers.showPropertyManager
   );
+
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
   );
+
+  const properties = useSelector(
+    (state) => state.propertyManagers.propertyManagerProperties
+  );
+
+  const { cars, homes } = properties;
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPropertyManager(id));
+    dispatch(getPropertyManagerProperties(id));
   }, []);
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
@@ -32,14 +42,14 @@ function PropertyManager() {
           text="These homes belongs to this manager"
           icon={<i className="fa-solid fa-house"></i>}
           to="homes"
-          total={0}
+          total={homes?.length > 0 ? homes?.length : 0}
         />
         <ItemsCard
           title="Cars"
           text="These cars belongs to this manager"
           icon={<i className="fa-solid fa-car"></i>}
           to="/properties/homes"
-          total={0}
+          total={cars?.length > 0 ? cars?.length : 0}
         />
         <ItemsCard
           title="Warehouses"
