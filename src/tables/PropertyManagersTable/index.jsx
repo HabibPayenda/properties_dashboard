@@ -12,6 +12,7 @@ import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import FormModal from "../../components/FormModal";
+import PropertyManagerCreate from "../../Forms/PropertyManagerCreate";
 
 function PropertyManagersTable() {
   const [openModal, setOpenModal] = useState(false);
@@ -52,7 +53,9 @@ function PropertyManagersTable() {
 
   return (
     <>
-      <FormModal openModal={openModal} setOpenModal={setOpenModal}></FormModal>
+      <FormModal openModal={openModal} setOpenModal={setOpenModal}>
+        <PropertyManagerCreate></PropertyManagerCreate>
+      </FormModal>
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <p className="addBtn" onClick={() => setOpenModal(true)}>
