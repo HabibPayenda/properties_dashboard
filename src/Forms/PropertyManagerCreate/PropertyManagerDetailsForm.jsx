@@ -58,8 +58,8 @@ function PropertyManagerDetailsForm({ formik, styles, agents, title, text }) {
           label="Agent:"
           titles={agents.map((agent) => agent.name)}
           values={agents.map((agent) => agent.id)}
-          errors={formik.errors.admin_id}
-          touched={formik.touched.admin_id}
+          errors={formik.errors.agent_id}
+          touched={formik.touched.agent_id}
           id="agent_id"
           setFieldValue={formik.setFieldValue}
           setFieldTouched={formik.setFieldTouched}

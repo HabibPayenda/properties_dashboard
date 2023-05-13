@@ -24,9 +24,9 @@ function PropertyManagerCreate() {
   const formik = useFormik({
     initialValues: {
       name: "",
-      hire_date: "",
+      company_name: "",
       status: "",
-      admin_id: "",
+      agent_id: "",
       province: "",
       city: "",
       district: "",

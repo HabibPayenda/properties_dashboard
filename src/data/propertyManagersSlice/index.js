@@ -88,9 +88,17 @@ export const getPropertyManager = createAsyncThunk(
 );
 export const addPropertyManager = createAsyncThunk(
   "propertyManagers/addPropertyManager",
-  async ({ name, company_name, status, agent_id }) => {
-    // Code
-    // console.log("data is ", data)
+  async ({
+    name,
+    company_name,
+    status,
+    agent_id,
+    province,
+    city,
+    district,
+    phone_number_one,
+    email_one,
+  }) => {
     try {
       const result = await PropertiesApi.post(
         "/property_managers",
@@ -99,6 +107,11 @@ export const addPropertyManager = createAsyncThunk(
           company_name: company_name,
           status: status,
           agent_id: agent_id * 1,
+          province: province,
+          city: city,
+          district: district,
+          phone_number_one: phone_number_one,
+          email_one: email_one,
         },
         {
           onUploadProgress: (progress) => {
