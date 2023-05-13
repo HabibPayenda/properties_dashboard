@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
 
@@ -12,8 +12,24 @@ function HomeDetailsForm({
   imageRef,
   setImage,
 }) {
+  const [imageUrl, setImageUrl] = useState(null);
+
   const handleImageChange = () => {
+    const file = imageRef.current.files[0];
     setImage(imageRef.current.files[0]);
+    const reader = new FileReader();
+
+    reader.addEventListener(
+      "load",
+      () => {
+        setImageUrl(reader.result);
+      },
+      false
+    );
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
   return (
     <>
@@ -22,7 +38,11 @@ function HomeDetailsForm({
         <p className={styles.formDetailsText}>{text}</p>
       </div>
       <div className={styles.inputsContainer}>
-        <img src={imageRef?.current?.files[0] || null} alt="" />
+        <img
+          style={{ height: "100px", width: "100px" }}
+          src={imageUrl || null}
+          alt=""
+        />
         <input
           onChange={handleImageChange}
           type="file"

@@ -28,6 +28,8 @@ function HomeCreate() {
     // formik.resetForm();
   };
 
+  console.log(image);
+
   const formik = useFormik({
     initialValues: {
       owner_name: "",
