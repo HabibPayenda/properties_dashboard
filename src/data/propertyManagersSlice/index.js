@@ -87,7 +87,7 @@ export const getPropertyManager = createAsyncThunk(
   }
 );
 export const addPropertyManager = createAsyncThunk(
-  "propertyManagers/addAgent",
+  "propertyManagers/addPropertyManager",
   async ({ name, company_name, status, agent_id }) => {
     // Code
     // console.log("data is ", data)
@@ -114,6 +114,26 @@ export const addPropertyManager = createAsyncThunk(
     }
   }
 );
+export const getPropertyManagerProperties = createAsyncThunk(
+  "propertyManagers/getPropertyManagerProperties",
+  async (id) => {
+    try {
+      const result = await PropertiesApi.get(
+        `/property_managers/properties/${id}`,
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   propertyManagers: [],
@@ -122,6 +142,7 @@ const initialState = {
   noToken: null,
   loading: "idle",
   role: null,
+  propertyManagerProperties: [],
 };
 
 export const propertyManagersSlice = createSlice({
@@ -172,6 +193,11 @@ export const propertyManagersSlice = createSlice({
       toast.success("Property Manager added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+    });
+
+    builder.addCase(getPropertyManagerProperties.fulfilled, (state, action) => {
+      // Code
+      state.propertyManagerProperties = action.payload;
     });
   },
 });
