@@ -2,7 +2,6 @@ import { useFormik } from "formik";
 import React from "react";
 import styles from "./propertyManagerCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addAgent } from "../../data/agentsSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -10,6 +9,7 @@ import PropertyManagerDetailsForm from "./PropertyManagerDetailsForm";
 import PropertyManagerAddressForm from "./PropertyMagagerAddressForm";
 import PropertyManagerContact from "./PropertyMangerContactForm";
 import propertyManagerCreateSchema from "./propertyManagerCreateSchema";
+import { addPropertyManager } from "../../data/propertyManagersSlice";
 
 function PropertyManagerCreate() {
   const agents = useSelector((state) => state.agents.agents);
@@ -18,7 +18,7 @@ function PropertyManagerCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAgent(formik.values));
+    dispatch(addPropertyManager(formik.values));
   };
 
   const formik = useFormik({

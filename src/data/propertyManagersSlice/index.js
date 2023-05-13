@@ -199,8 +199,9 @@ export const propertyManagersSlice = createSlice({
 
     builder.addCase(addPropertyManager.fulfilled, (state, action) => {
       // Code
+      console.log(action.payload);
       state.propertyManagers = [
-        ...state.agents,
+        ...state.propertyManagers,
         action.payload.property_manager,
       ];
       toast.success("Property Manager added successfully.", {
