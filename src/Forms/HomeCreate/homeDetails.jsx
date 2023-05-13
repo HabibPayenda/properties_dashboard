@@ -9,7 +9,12 @@ function HomeDetailsForm({
   propertyManagers,
   title,
   text,
+  imageRef,
+  setImage,
 }) {
+  const handleImageChange = () => {
+    setImage(imageRef.current.files[0]);
+  };
   return (
     <>
       <div className={styles.formDetails}>
@@ -17,6 +22,14 @@ function HomeDetailsForm({
         <p className={styles.formDetailsText}>{text}</p>
       </div>
       <div className={styles.inputsContainer}>
+        <img src={imageRef?.current?.files[0] || null} alt="" />
+        <input
+          onChange={handleImageChange}
+          type="file"
+          placeholder="Image"
+          ref={imageRef}
+        />
+
         <TextInput
           label="Owner:"
           onChange={formik.handleChange}

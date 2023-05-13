@@ -70,33 +70,36 @@ export const addHome = createAsyncThunk(
     price_per_duration,
     total_price,
     total_duration,
+    image,
   }) => {
+    console.log("image is: ", image);
+    const data = new FormData();
+    console.log(image, "image");
+    data.append("image", image);
+    data.append("owner_name", owner_name);
+    data.append("name", name);
+    data.append("availability_status", availability_status);
+    data.append("agent_id", agent_id);
+    data.append("property_manager_id", property_manager_id);
+    data.append("description", description);
+    data.append("province", province);
+    data.append("city", city);
+    data.append("district", district);
+    data.append("deal_type", deal_type);
+    data.append("duration", duration);
+    data.append("total_price", total_price);
+    data.append("price_per_duration", price_per_duration);
+    data.append("total_duration", total_duration);
+
+    console.log("dataImage is ", data);
     try {
-      const result = await PropertiesApi.post(
-        "/homes",
-        {
-          owner_name: owner_name,
-          name: name,
-          availability_status: availability_status,
-          property_manager_id: property_manager_id * 1,
-          agent_id: agent_id * 1,
-          description: description,
-          province: province,
-          city: city,
-          district: district,
-          deal_type: deal_type,
-          duration: duration,
-          price_per_duration: price_per_duration,
-          total_price: total_price,
-          total_duration: total_duration,
+      const result = await PropertiesApi.post("/homes", data, {
+        headers: { "Content-Type": data.type },
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
         },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+      });
       console.log(result.data);
       return result.data;
     } catch (error) {
@@ -124,33 +127,32 @@ export const editHome = createAsyncThunk(
     price_per_duration,
     total_price,
     total_duration,
+    image,
   }) => {
+    const data = new FormData();
+    console.log(image, "image");
+    data.append("image", image);
+    data.append("home[owner_name]", owner_name);
+    data.append("property[name]", name);
+    data.append("property[availability_status]", availability_status);
+    data.append("property[agent_id]", agent_id);
+    data.append("property[property_manager_id]", property_manager_id);
+    data.append("property[description]", description);
+    data.append("property[province]", province);
+    data.append("property[city]", city);
+    data.append("property[district]", district);
+    data.append("property[deal_type]", deal_type);
+    data.append("property[duration]", duration);
+    data.append("property[total_price]", total_price);
+    data.append("property[price_per_duration]", price_per_duration);
+    data.append("property[total_duration]", total_duration);
     try {
-      const result = await PropertiesApi.patch(
-        `/homes/${id}`,
-        {
-          owner_name: owner_name,
-          name: name,
-          availability_status: availability_status,
-          property_manager_id: property_manager_id * 1,
-          agent_id: agent_id * 1,
-          description: description,
-          province: province,
-          city: city,
-          district: district,
-          deal_type: deal_type,
-          duration: duration,
-          price_per_duration: price_per_duration,
-          total_price: total_price,
-          total_duration: total_duration,
+      const result = await PropertiesApi.patch(`/homes/${id}`, data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
         },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+      });
       console.log(result.data);
       return result.data;
     } catch (error) {

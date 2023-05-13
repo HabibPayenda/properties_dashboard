@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useRef, useState } from "react";
 import homeCreateSchema from "./homeCreateSchema";
 import styles from "./homeCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,8 @@ import HomeAddressForm from "./HomeAddressForm";
 import HomeDealInfoForm from "./HomeDealInfoForm";
 
 function HomeCreate() {
+  const [image, setImage] = useState(null);
+  const imageRef = useRef(null);
   const agents = useSelector((state) => state.agents.agents);
   const propertyManagers = useSelector(
     (state) => state.propertyManagers.propertyManagers
@@ -22,7 +24,7 @@ function HomeCreate() {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(addHome(formik.values));
+    dispatch(addHome({ ...formik.values, image: image }));
     // formik.resetForm();
   };
 
@@ -56,6 +58,8 @@ function HomeCreate() {
         agents={agents}
         propertyManagers={propertyManagers}
         styles={styles}
+        imageRef={imageRef}
+        setImage={setImage}
       />,
       <HomeAddressForm
         title="Add Home Address to the System"
