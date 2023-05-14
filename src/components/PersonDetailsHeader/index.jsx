@@ -8,7 +8,11 @@ function PersonDetailsHeader({ person }) {
     <div className={styles.container}>
       <div className={styles.circleContainer}>
         <div className={styles.circle}>
-          <img className={styles.image} src={userImage} alt="" />
+          <img
+            className={styles.image}
+            src={person?.image_url || userImage}
+            alt=""
+          />
         </div>
       </div>
       <div className={styles.detailsContainer}>
