@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./formImageSelect.module.css";
 import useSelectImage from "../../hooks/useSelectImage";
-function FormImageSelect({ title, setImage }) {
+function FormImageSelect({ setImage }) {
   const imageRef = useRef(null);
 
   const { handleImageChange, imageUrl, setImageUrl } = useSelectImage(
