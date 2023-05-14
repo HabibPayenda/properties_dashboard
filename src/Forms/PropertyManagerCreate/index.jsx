@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./propertyManagerCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import useMultistepForm from "../../hooks/useMultistepForm";
@@ -10,9 +10,11 @@ import PropertyManagerAddressForm from "./PropertyMagagerAddressForm";
 import PropertyManagerContact from "./PropertyMangerContactForm";
 import propertyManagerCreateSchema from "./propertyManagerCreateSchema";
 import { addPropertyManager } from "../../data/propertyManagersSlice";
+import PropertyManagerImageForm from "./PropertyManagerImageForm";
 
 function PropertyManagerCreate() {
   const agents = useSelector((state) => state.agents.agents);
+  const [image, setImage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -39,6 +41,14 @@ function PropertyManagerCreate() {
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
+      <PropertyManagerImageForm
+        title="Add Property Manager Image to the System"
+        text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        agents={agents}
+        styles={styles}
+        setImage={setImage}
+      />,
       <PropertyManagerDetailsForm
         title="Add New Property Manager to the System"
         text="Effortlessly Manage Agent Information: Perfecting Your Team's Efficiency!"
@@ -69,19 +79,24 @@ function PropertyManagerCreate() {
         </div>
         <div className={styles.sidebarStepsContainer}>
           <FormPageInfo
-            title="Manager Details"
+            title="Manager Image"
             isCurrentPage={true}
             pageNumber={1}
           />
           <FormPageInfo
-            title="Manager Address"
+            title="Manager Details"
             isCurrentPage={currentPageIndex >= 1}
             pageNumber={2}
           />
           <FormPageInfo
-            title="Manager Contact"
+            title="Manager Address"
             isCurrentPage={currentPageIndex >= 2}
             pageNumber={3}
+          />
+          <FormPageInfo
+            title="Manager Contact"
+            isCurrentPage={currentPageIndex >= 3}
+            pageNumber={4}
           />
         </div>
       </div>

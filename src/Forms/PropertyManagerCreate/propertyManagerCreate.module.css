@@ -88,6 +88,16 @@
   flex: 9;
 }
 
+.inputsContainerImage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  flex: 9;
+}
+
 .formDetailsTitle {
   font-size: 18px;
 }
