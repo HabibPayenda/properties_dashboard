@@ -98,28 +98,29 @@ export const addPropertyManager = createAsyncThunk(
     district,
     phone_number_one,
     email_one,
+    image,
   }) => {
     try {
-      const result = await PropertiesApi.post(
-        "/property_managers",
-        {
-          name: name,
-          company_name: company_name,
-          status: status,
-          agent_id: agent_id * 1,
-          province: province,
-          city: city,
-          district: district,
-          phone_number_one: phone_number_one,
-          email_one: email_one,
+      const data = new FormData();
+      data.append("name", name);
+      data.append("company_name", company_name);
+      data.append("status", status);
+      data.append("agent_id", agent_id);
+      data.append("province", province);
+      data.append("district", district);
+      data.append("phone_number_one", phone_number_one);
+      data.append("email_one", email_one);
+      data.append("image", image);
+
+      const result = await PropertiesApi.post("/property_managers", data, {
+        headers: {
+          "Content-Type": data.type,
         },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
       return result.data;
     } catch (error) {
       console.log(error);

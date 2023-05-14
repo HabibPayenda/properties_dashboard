@@ -20,7 +20,7 @@ function PropertyManagerCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addPropertyManager(formik.values));
+    dispatch(addPropertyManager({ ...formik.values, image: image }));
   };
 
   const formik = useFormik({
