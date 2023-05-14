@@ -3,7 +3,15 @@ import styles from './suggestionShowCard.module.css'
 
 function SuggestionShowCard() {
   return (
-    <div className={styles.container}>SuggestionShowCard</div>
+    <div className={styles.container}>
+        <div>
+            <div className='img'></div>
+            <div>
+                <h4>Susan Wong</h4>
+                <span>Developer</span>
+            </div>
+        </div>
+    </div>
   )
 }
 
