@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  align-self: flex-end;
+}
+
+.btn {
+  background-color: blueviolet;
+  color: white;
+  width: 60px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.btn:disabled {
+  background-color: #eee;
+  color: #999;
+  border: solid 1px blueviolet;
+  cursor: not-allowed;
+}
+
+.pageNumbers {
+  background-color: blueviolet;
+  padding: 4px 8px;
+  color: #eee;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}

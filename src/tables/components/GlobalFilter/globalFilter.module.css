@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 50%;
+  margin: 12px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #555;
+  border: solid 1px #eee;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  width: 85%;
+  padding: 2px 5px;
+  flex: 1;
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: #555;
+}
+
+.input:focus {
+  outline: none;
+}

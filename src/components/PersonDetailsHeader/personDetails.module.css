@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background: #eee;
+  position: relative;
+  height: 100px;
+  margin-top: 12px;
+  box-shadow: 2px 2px 4px #ddd;
+}
+
+.circleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  border-radius: 130px;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  z-index: 100;
+  box-shadow: 1px 1px 3px #555;
+  overflow: hidden;
+}
+
+.image {
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detailsContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: blueviolet;
+  color: white;
+  flex: 15;
+  height: 80%;
+  position: relative;
+  right: -10px;
+  overflow: hidden;
+  align-self: flex-start;
+  width: 100%;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.detailsContentContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 93%;
+  align-self: flex-end;
+  height: 95%;
+  padding: 6px 48px;
+  gap: 12px;
+}
+
+.detailsContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+
+.detailsTitle {
+  font-size: 14px;
+}
+
+.detailsItem {
+  font-size: 12px;
+}
+
+.hiddenCirle {
+  width: 200px;
+  height: 200px;
+  border-radius: 300px;
+  position: absolute;
+  left: -130px;
+  top: 0;
+  background-color: #eee;
+}

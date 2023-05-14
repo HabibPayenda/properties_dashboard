@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.headerContainer {
+  display: flex;
+  background-color: white;
+  width: 95%;
+  height: 100px;
+  font-size: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin: 18px;
+  box-shadow: 3px 3px 5px #a8a8a8fd;
+  border-radius: 5px;
+}
+
+.badgeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  height: 120px;
+  width: 80px;
+  position: absolute;
+  left: 30px;
+  box-shadow: 3px 3px 5px #a8a8a8fd;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.badgeCorner {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(100, 30, 166);
+  position: absolute;
+  left: 110px;
+  top: -10px;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.leftBackground {
+  height: 80%;
+  width: 50px;
+  background-color: blueviolet;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.rightBackground {
+  height: 70px;
+  width: 60px;
+  background-color: blueviolet  !important;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.rightBadge {
+  height: 20px;
+  width: 30px;
+  background-color: blueviolet;
+  position: absolute;
+  right: -5px;
+  top: 5px;
+  box-shadow: 3px 3x 6px #a8a8a8fd;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.rightBadgeCorner {
+  height: 5px;
+  width: 5px;
+  background-color: rgb(100, 30, 166);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  position: absolute;
+  top: 25px;
+  right: -5px;
+}
+
+.tilesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.tile {
+  height: 6px;
+  width: 6px;
+  background-color: blueviolet;
+  border-radius: 5px;
+}
+
+.title {
+  color: blueviolet;
+  font-size: 22px;
+  margin-left: calc(15% + 30px);
+  text-shadow: 1px 1px 1px rgba(137, 43, 226, 0.305);
+}
+
+.text {
+  color: #555;
+  font-size: 14px;
+  margin-left: calc(15% + 30px);
+}

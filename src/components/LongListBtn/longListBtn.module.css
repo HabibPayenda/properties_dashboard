@@ -1,0 +1,13 @@
+.container {
+  background-color: blueviolet !important;
+  padding: 3px 5px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: #eee;
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  background-color: transparent;
+  min-width: 40px;
+  padding: 3px 24px;
+  padding-left: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+}
+
+.containerClose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  min-width: 40px;
+  padding: 3px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  font-size: 12px;
+  border: solid 1px #eee;
+}
+
+
+.iconContainer {
+  color: #555;
+  padding: 0 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.title {
+  color: #555;
+  transition: all 0.3s;
+}
+
+.container:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.container:hover .title {
+  color: blueviolet;
+}
+
+.container:hover .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.containerClose:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.containerClose:hover .title {
+  color: blueviolet;
+}
+
+.containerClose:hover .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.active {
+  background-color: rgba(138, 43, 226, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  min-width: 40px;
+  padding: 3px 24px;
+  padding-left: 16px;
+  border-radius: 16px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.activeClose {
+  background-color: rgba(138, 43, 226, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 40px;
+  padding: 3px;
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  position: relative;
+  font-size: 12px;
+  border: solid 1px blueviolet;
+}
+
+.active .title  {
+  color: blueviolet;
+}
+
+.active .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.activeClose .title  {
+  color: blueviolet;
+}
+
+.activeClose .iconContainer {
+  background-color: blueviolet;
+  color: #eee;
+}
+
+.activeClose::after {
+  background-color: blueviolet;
+  content: '';
+  height: 50%;
+  width: 5px;
+  position: absolute;
+  top: 25%;
+  right: 6px;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.active::after {
+  background-color: blueviolet;
+  content: '';
+  height: 50%;
+  width: 5px;
+  position: absolute;
+  top: 25%;
+  right: 6px;
+  border-radius: 6px;
+  z-index: 1000;
+}
