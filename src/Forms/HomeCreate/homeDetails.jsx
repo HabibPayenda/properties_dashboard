@@ -1,7 +1,6 @@
 import React from "react";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
-import useSelectImage from "../../hooks/useSelectImage";
 
 function HomeDetailsForm({
   formik,
@@ -10,11 +9,7 @@ function HomeDetailsForm({
   propertyManagers,
   title,
   text,
-  imageRef,
-  setImage,
 }) {
-  const { handleImageChange, imageUrl } = useSelectImage(imageRef, setImage);
-
   return (
     <>
       <div className={styles.formDetails}>
@@ -22,18 +17,6 @@ function HomeDetailsForm({
         <p className={styles.formDetailsText}>{text}</p>
       </div>
       <div className={styles.inputsContainer}>
-        <img
-          style={{ height: "100px", width: "100px" }}
-          src={imageUrl || null}
-          alt=""
-        />
-        <input
-          onChange={handleImageChange}
-          type="file"
-          placeholder="Image"
-          ref={imageRef}
-        />
-
         <TextInput
           label="Owner:"
           onChange={formik.handleChange}

@@ -10,6 +10,7 @@ import FormPageInfo from "../../components/FormPageInfo";
 import HomeDetailsForm from "./homeDetails";
 import HomeAddressForm from "./HomeAddressForm";
 import HomeDealInfoForm from "./HomeDealInfoForm";
+import HomeImageForm from "./HomeImageForm";
 
 function HomeCreate() {
   const [image, setImage] = useState(null);
@@ -53,6 +54,13 @@ function HomeCreate() {
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
+      <HomeImageForm
+        title="Add a Home Image to the System"
+        text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
+        formik={formik}
+        styles={styles}
+        setImage={setImage}
+      />,
       <HomeDetailsForm
         title="Add New Home to the System"
         text="Effortlessly Manage Home Information: Perfecting Your Team's Efficiency!"
@@ -86,19 +94,24 @@ function HomeCreate() {
         </div>
         <div className={styles.sidebarStepsContainer}>
           <FormPageInfo
-            title="Home Details"
+            title="Home Image"
             isCurrentPage={true}
             pageNumber={1}
           />
           <FormPageInfo
-            title="Home Address"
+            title="Home Details"
             isCurrentPage={currentPageIndex >= 1}
             pageNumber={2}
           />
           <FormPageInfo
-            title="Home Deal Info"
+            title="Home Address"
             isCurrentPage={currentPageIndex >= 2}
             pageNumber={3}
+          />
+          <FormPageInfo
+            title="Home Deal Info"
+            isCurrentPage={currentPageIndex >= 3}
+            pageNumber={4}
           />
         </div>
       </div>
