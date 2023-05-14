@@ -6,6 +6,7 @@ function Suggestions() {
     <>
     <div>Suggestions</div>
     <SuggestionShowCard />
+    <SuggestionShowCard />
     </>
     
   )

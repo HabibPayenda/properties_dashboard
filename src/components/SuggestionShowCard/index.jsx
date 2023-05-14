@@ -5,7 +5,7 @@ function SuggestionShowCard() {
   return (
     <div className={styles.container}>
         <div className={styles.cardContainer}>
-            <div className={styles.divTop}>
+            <div className={styles.header}>
                 <div className={styles.img}></div>
                 <div>
                     <h4>Susan Wong</h4>

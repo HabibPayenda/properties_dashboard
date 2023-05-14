@@ -1,6 +1,7 @@
 .container {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
+   box-sizing: border-box;
 }
 
 .cardContainer {
@@ -18,7 +19,7 @@
     padding: 5px;
 }
 
-.divTop {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +30,7 @@
     padding-bottom: 5px;
 }
 
-.divTop span {
+.header span {
     color: #b5b5b5;
 } 
 
@@ -40,6 +41,6 @@
     background-color: #b86cff
 }
 
-.divTop i {
+.header i {
     color: rgb(245, 245, 83);
 }
