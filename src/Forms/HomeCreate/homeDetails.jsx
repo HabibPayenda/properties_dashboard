@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import TextInput from "../../components/TextInput";
 import FormSelect from "../../components/FromSelect";
+import useSelectImage from "../../hooks/useSelectImage";
 
 function HomeDetailsForm({
   formik,
@@ -12,25 +13,8 @@ function HomeDetailsForm({
   imageRef,
   setImage,
 }) {
-  const [imageUrl, setImageUrl] = useState(null);
+  const { handleImageChange, imageUrl } = useSelectImage(imageRef, setImage);
 
-  const handleImageChange = () => {
-    const file = imageRef.current.files[0];
-    setImage(imageRef.current.files[0]);
-    const reader = new FileReader();
-
-    reader.addEventListener(
-      "load",
-      () => {
-        setImageUrl(reader.result);
-      },
-      false
-    );
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
   return (
     <>
       <div className={styles.formDetails}>
