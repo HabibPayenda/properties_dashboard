@@ -85,28 +85,26 @@ export const addAgent = createAsyncThunk(
     district,
     phone_number_one,
     email_one,
+    image,
   }) => {
     try {
-      const result = await PropertiesApi.post(
-        "/agents",
-        {
-          name: name,
-          hire_date: hire_date,
-          status: status,
-          admin_id: admin_id * 1,
-          province,
-          city,
-          district,
-          phone_number_one,
-          email_one,
+      const data = new FormData();
+      data.append("name", name);
+      data.append("hire_data", hire_date);
+      data.append("status", status);
+      data.append("admin_id", admin_id);
+      data.append("province", province);
+      data.append("city", city);
+      data.append("district", district);
+      data.append("phone_number_one", phone_number_one);
+      data.append("email_one", email_one);
+      data.append("image", image);
+      const result = await PropertiesApi.post("/agents", data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
         },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+      });
       return result.data;
     } catch (error) {
       console.log(error);

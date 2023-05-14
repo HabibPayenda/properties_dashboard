@@ -21,7 +21,7 @@ function AgentCreate() {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAgent(formik.values));
+    dispatch(addAgent({ ...formik.values, image: image }));
   };
 
   const formik = useFormik({
