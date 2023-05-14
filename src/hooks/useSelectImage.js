@@ -23,6 +23,7 @@ function useSelectImage(imageRef, setImage) {
 
   return {
     imageUrl,
+    setImageUrl,
     handleImageChange,
   };
 }
