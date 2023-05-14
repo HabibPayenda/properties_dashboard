@@ -10,7 +10,11 @@ function TablePersonBadge({ id }) {
   return (
     <span className={styles.details}>
       <span className={styles.imageContainer}>
-        <img src={userImage} className={styles.image} alt="user_image" />
+        <img
+          src={agent[0]?.image_url || userImage}
+          className={styles.image}
+          alt="user_image"
+        />
       </span>
       <span className={styles.detailsInfo}>
         <h4 className={styles.title}>{agent[0]?.name}</h4>
