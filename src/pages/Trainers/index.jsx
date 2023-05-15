@@ -1,14 +1,23 @@
-import { PDFViewer, BlobProvider, usePDF } from "@react-pdf/renderer";
-import React from "react";
-import PropertyManagerContractPdf from "../../Pdfs/PropertyManagerContractPdf";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./trainers.module.css";
+import SectionHeader from "../../components/SectionHeader";
 
 function Trainers() {
-  const [instance] = usePDF({ document: PropertyManagerContractPdf });
-  console.log(instance);
+  const dispatch = useDispatch();
+
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
+  useEffect(() => {}, []);
+
   return (
-    <div className={styles.container}>
-      <PropertyManagerContractPdf />
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
+      <div className={styles.contentContainer}>
+        <SectionHeader title="Trainers" text="All trainers list" />
+        <div style={{ width: "100%" }}></div>
+      </div>
     </div>
   );
 }
