@@ -33,12 +33,7 @@ function Reviews() {
           text="Discover the Best Sources: Unleashing the Power of Crowdsourced Reviews!"
         />
         <div className={styles.contentContainer}>
-          <ItemsCard
-            title="Agent Reviews"
-            icon={"hello"}
-            text="All agents reviews"
-            total={0}
-          />
+          <ReviewCard />
         </div>
       </div>
     </div>

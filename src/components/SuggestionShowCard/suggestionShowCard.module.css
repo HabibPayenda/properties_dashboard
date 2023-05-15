@@ -57,7 +57,7 @@
     border-top: 1px solid #cecece;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 5px;
 }
