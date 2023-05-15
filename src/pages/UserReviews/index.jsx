@@ -14,7 +14,7 @@ function UserReviews() {
       <div className={styles.list}>
         <SectionHeader title="User Reviews" />
         <div style={{ flex: 9, width: "100%" }}>
-          {user?.user_reviews?.length < 1 && (
+          {user?.reviews?.length < 1 && (
             <p>This user has not reviewed anything yet</p>
           )}
           <UserReviewsTable />
