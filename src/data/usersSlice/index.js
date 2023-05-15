@@ -77,6 +77,9 @@ export const addUser = createAsyncThunk(
       data.append("email_one", email_one);
       data.append("image", image);
       const result = await PropertiesApi.post("/users", data, {
+        headers: {
+          "Content-Type": data.type,
+        },
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
