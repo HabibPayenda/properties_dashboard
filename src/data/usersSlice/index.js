@@ -61,6 +61,7 @@ export const addUser = createAsyncThunk(
     gender,
     province,
     city,
+    district,
     phone_number_one,
     email_one,
     image,
@@ -73,6 +74,7 @@ export const addUser = createAsyncThunk(
       data.append("gender", gender);
       data.append("province", province);
       data.append("city", city);
+      data.append("district", district);
       data.append("phone_number_one", phone_number_one);
       data.append("email_one", email_one);
       data.append("image", image);
