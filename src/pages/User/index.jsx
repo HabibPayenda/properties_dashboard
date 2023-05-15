@@ -36,21 +36,21 @@ function User() {
           title="Views"
           text="user views"
           icon={<i className="fa-solid fa-eye"></i>}
-          total={user?.user_searches?.length}
+          total={user?.user_views?.length}
         />
         <ItemsCard
           to="favorites"
           title="Favorites"
           text="user favorites"
           icon={<i className="fa-solid fa-heart"></i>}
-          total={user?.user_searches?.length}
+          total={user?.user_favorites?.length}
         />
         <ItemsCard
           to="reviews"
           title="Reviews"
           text="user reviews"
           icon={<i className="fa-solid fa-star"></i>}
-          total={user?.user_searches?.length}
+          total={user?.reviews?.length}
         />
       </div>
     </div>
