@@ -20,7 +20,10 @@ function SuggestionShowCard({ suggestion }) {
         </p>
       </div>
 
-      <div className={styles.footer}> 2023 - 5 - 15 </div>
+      <div className={styles.footer}>
+        {" "}
+        <span>Date</span> 2023 - 5 - 15{" "}
+      </div>
     </div>
   );
 }
