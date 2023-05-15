@@ -1,7 +1,7 @@
 import React from "react";
 import FormImageSelect from "../../components/FormImageSelect";
 
-function UserImageEditForm({ styles, title, text, setImage }) {
+function UserImageEditForm({ styles, title, text, setImage, image_url }) {
   return (
     <>
       <div className={styles.formDetails}>
@@ -9,7 +9,7 @@ function UserImageEditForm({ styles, title, text, setImage }) {
         <p className={styles.formDetailsText}>{text}</p>
       </div>
       <div className={styles.inputsContainerImage}>
-        <FormImageSelect setImage={setImage} />
+        <FormImageSelect setImage={setImage} image_url={image_url} />
       </div>
     </>
   );

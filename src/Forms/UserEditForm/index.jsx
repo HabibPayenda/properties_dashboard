@@ -1,8 +1,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import styles from "userEditForm.module.css";
+import styles from "./userEditForm.module.css";
 import { useDispatch } from "react-redux";
-import userCreateSchema from "./userCreateSchema";
 import { addUser } from "../../data/usersSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -11,6 +10,7 @@ import UserImageEditForm from "./UserImageEditForm";
 import UserDetailsEditForm from "./UserDetailsEditForm";
 import UserAddressEditForm from "./UserAddressEditForm";
 import UserContactEditForm from "./UserContactEditForm";
+import userEditSchema from "./userEditSchema";
 
 function UserEditForm({ user }) {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function UserEditForm({ user }) {
       phone_number_one: user?.contact?.phone_number_one,
       email_one: user?.contact?.email_one,
     },
-    validationSchema: userCreateSchema,
+    validationSchema: userEditSchema,
     onSubmit: handleFormSubmit,
   });
 
@@ -46,6 +46,7 @@ function UserEditForm({ user }) {
         formik={formik}
         styles={styles}
         setImage={setImage}
+        image_url={user?.image_url}
       />,
       <UserDetailsEditForm
         title="Edit User Details to the System"

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./formImageSelect.module.css";
 import useSelectImage from "../../hooks/useSelectImage";
-function FormImageSelect({ setImage }) {
+function FormImageSelect({ setImage, image_url }) {
   const imageRef = useRef(null);
 
   const { handleImageChange, imageUrl, setImageUrl } = useSelectImage(
@@ -21,7 +21,7 @@ function FormImageSelect({ setImage }) {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={imageUrl || null} alt="" />
+        <img className={styles.image} src={imageUrl || image_url} alt="" />
       </div>
       <div className={styles.btnsContainer}>
         <p className={styles.btn} onClick={handleImageCancel}>

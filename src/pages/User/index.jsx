@@ -6,6 +6,7 @@ import styles from "./user.module.css";
 import ItemsCard from "../../components/ItemsCard";
 import PersonDetailsHeader from "../../components/PersonDetailsHeader";
 import FormModal from "../../components/FormModal";
+import UserEditForm from "../../Forms/UserEditForm";
 
 function User() {
   const { id } = useParams();
@@ -26,7 +27,9 @@ function User() {
       <FormModal
         openModal={showUserEditModal}
         setOpenModal={setShowUserEditModal}
-      ></FormModal>
+      >
+        <UserEditForm user={user} />
+      </FormModal>
       <PersonDetailsHeader person={user} />
       <div className={styles.btnsContainer}>
         <p
