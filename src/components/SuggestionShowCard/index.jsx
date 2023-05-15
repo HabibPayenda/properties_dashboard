@@ -11,11 +11,14 @@ function SuggestionShowCard({ suggestion }) {
           <span>Developer</span>
         </div>
       </div>
-      <p className={styles.title}>{suggestion?.title || "Title"}</p>
-      <p>
-        {suggestion?.description ||
-          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero iusto qui reprehenderit temporibus corrupti iure ratione debitis! Consectetur quaerat quo facilis odio, quos, deleniti similique quam nisi cumque"}
-      </p>
+
+      <div className={styles.content}>
+        <p className={styles.title}>{suggestion?.title || "Title"}</p>
+        <p>
+          {suggestion?.description ||
+            " Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero iusto qui reprehenderit temporibus corrupti iure ratione debitis! Consectetur quaerat quo facilis odio, quos, deleniti similique quam nisi cumque"}
+        </p>
+      </div>
     </div>
   );
 }
