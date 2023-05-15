@@ -12,6 +12,7 @@ import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import FormModal from "../../components/FormModal";
+import UserCreate from "../../Forms/UserCreate";
 
 function UsersTable() {
   const users = useSelector((state) => state.users.users);
@@ -49,7 +50,9 @@ function UsersTable() {
 
   return (
     <>
-      <FormModal openModal={openModal} setOpenModal={setOpenModal}></FormModal>
+      <FormModal openModal={openModal} setOpenModal={setOpenModal}>
+        <UserCreate />
+      </FormModal>
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <p className="addBtn" onClick={() => setOpenModal(true)}>
