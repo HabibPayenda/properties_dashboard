@@ -54,23 +54,34 @@ export const getUser = createAsyncThunk("users/getUser", async (id) => {
 
 export const addUser = createAsyncThunk(
   "users/addUser",
-  async ({ name, password, date_of_birth, gender }) => {
+  async ({
+    name,
+    password,
+    date_of_birth,
+    gender,
+    province,
+    city,
+    phone_number_one,
+    email_one,
+    image,
+  }) => {
     try {
-      const result = await PropertiesApi.post(
-        "/users",
-        {
-          name: name,
-          password: password,
-          date_of_birth: date_of_birth,
-          gender: gender,
+      const data = new FormData();
+      data.append("name", name);
+      data.append("password", password);
+      data.append("date_of_birth", date_of_birth);
+      data.append("gender", gender);
+      data.append("province", province);
+      data.append("city", city);
+      data.append("phone_number_one", phone_number_one);
+      data.append("email_one", email_one);
+      data.append("image", image);
+      const result = await PropertiesApi.post("/users", data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
         },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+      });
 
       return result.data;
     } catch (error) {
