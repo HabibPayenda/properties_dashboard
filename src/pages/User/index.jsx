@@ -22,6 +22,20 @@ function User() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <PersonDetailsHeader person={user} />
+      <div className={styles.btnsContainer}>
+        <p
+          onClick={() => setShowAgentEditModal(true)}
+          className={styles.editBtn}
+        >
+          Edit
+        </p>
+        <p
+          onClick={() => setShowHomeDeleteModal(true)}
+          className={styles.deleteBtn}
+        >
+          Delete
+        </p>
+      </div>
       <div className={styles.userDetails}>
         <ItemsCard
           to="searches"
