@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getUser } from "../../data/usersSlice";
 import styles from "./user.module.css";
 import ItemsCard from "../../components/ItemsCard";
 import PersonDetailsHeader from "../../components/PersonDetailsHeader";
+import FormModal from "../../components/FormModal";
 
 function User() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.showUser);
+  const [showUserEditModal, setShowUserEditModal] = useState(false);
 
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
@@ -21,10 +23,14 @@ function User() {
 
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
+      <FormModal
+        openModal={showUserEditModal}
+        setOpenModal={setShowUserEditModal}
+      ></FormModal>
       <PersonDetailsHeader person={user} />
       <div className={styles.btnsContainer}>
         <p
-          onClick={() => setShowAgentEditModal(true)}
+          onClick={() => setShowUserEditModal(true)}
           className={styles.editBtn}
         >
           Edit
