@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import styles from "./userEditForm.module.css";
 import { useDispatch } from "react-redux";
-import { addUser } from "../../data/usersSlice";
+import { addUser, updateUser } from "../../data/usersSlice";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPageInfo from "../../components/FormPageInfo";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
@@ -18,7 +18,7 @@ function UserEditForm({ user }) {
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addUser({ ...formik.values, image: image }));
+    dispatch(updateUser({ ...formik.values, image: image, user_id: user?.id }));
     // formik.resetForm();
   };
 

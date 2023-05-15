@@ -96,6 +96,51 @@ export const addUser = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  "users/updateUser",
+  async ({
+    user_id,
+    name,
+    password,
+    date_of_birth,
+    gender,
+    province,
+    city,
+    district,
+    phone_number_one,
+    email_one,
+    image,
+  }) => {
+    try {
+      const data = new FormData();
+      data.append("name", name);
+      data.append("password", password);
+      data.append("date_of_birth", date_of_birth);
+      data.append("gender", gender);
+      data.append("province", province);
+      data.append("city", city);
+      data.append("district", district);
+      data.append("phone_number_one", phone_number_one);
+      data.append("email_one", email_one);
+      data.append("image", image);
+      const result = await PropertiesApi.patch(`/users/${user_id}`, data, {
+        headers: {
+          "Content-Type": data.type,
+        },
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   user: {},
   users: [],
@@ -149,6 +194,14 @@ export const usersSlice = createSlice({
       // Code
 
       state.users = [...state.users, action.payload.user];
+      toast.success("User added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+    builder.addCase(updateUser.fulfilled, (state, action) => {
+      // Code
+
+      state.showUser = action.payload.user;
       toast.success("User added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
