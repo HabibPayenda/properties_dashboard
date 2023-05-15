@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getUser } from "../../data/usersSlice";
 import styles from "./user.module.css";
-import UserDetailCard from "../../components/UserDetailCard";
 import ItemsCard from "../../components/ItemsCard";
+import PersonDetailsHeader from "../../components/PersonDetailsHeader";
 
 function User() {
   const { id } = useParams();
@@ -21,11 +21,7 @@ function User() {
 
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
-      <div className={styles.userInfo}>
-        <p>{user?.name}</p>
-        <p>{user?.date_of_birth}</p>
-        <p>{user?.gender}</p>
-      </div>
+      <PersonDetailsHeader person={user} />
       <div className={styles.userDetails}>
         <ItemsCard
           to="searches"
