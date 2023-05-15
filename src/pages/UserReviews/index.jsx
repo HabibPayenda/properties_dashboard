@@ -6,8 +6,11 @@ import UserReviewsTable from "../../tables/UserReviewsTable";
 
 function UserReviews() {
   const user = useSelector((state) => state.users.showUser);
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.list}>
         <SectionHeader title="User Reviews" />
         <div style={{ flex: 9, width: "100%" }}>
@@ -17,7 +20,6 @@ function UserReviews() {
           <UserReviewsTable />
         </div>
       </div>
-      <div className={styles.addNew}>Graph</div>
     </div>
   );
 }
