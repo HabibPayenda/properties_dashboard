@@ -10,12 +10,16 @@ function User() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.showUser);
 
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
+
   useEffect(() => {
     dispatch(getUser(id));
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.userInfo}>
         <p>{user?.name}</p>
         <p>{user?.date_of_birth}</p>

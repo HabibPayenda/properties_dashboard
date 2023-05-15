@@ -3,8 +3,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  grid-column-start: 3;
-  grid-column-end: 11;
+  grid-column: 3/11;
+  gap: 12px;
+}
+
+.containerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 2/11;
   gap: 12px;
 }
 
