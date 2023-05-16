@@ -30,26 +30,28 @@ function Offers() {
           text="Unbeatable Homes Offers"
           icon={<i className="fa-solid fa-house"></i>}
           to="homes"
-          total={0}
+          total={offers?.home_offers?.length}
         />
         <ItemsCard
           title="Cars Offers"
           text="Unbeatable Cars Offers"
           icon={<i className="fa-solid fa-car"></i>}
           to="/properties/homes"
-          total={0}
+          total={offers?.car_offers?.length}
         />
         <ItemsCard
           title="Warehouses Offers"
           text="Unbeatable Warehouses Offers"
           icon={<i className="fa-solid fa-building-columns"></i>}
           to="/properties/homes"
+          total={offers?.warehouse_offers?.length}
         />
         <ItemsCard
           title="Lands Offers"
           text="Unbeatable Lands Offers"
           icon={<i className="fa-solid fa-mountain-sun"></i>}
           to="/properties/homes"
+          total={offers?.land_offers?.length}
         />
       </div>
     </div>
