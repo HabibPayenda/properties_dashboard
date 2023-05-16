@@ -50,6 +50,9 @@ import PropertyManagersReviews from "./pages/PropertyManagersReviews";
 import Appointment from "./pages/Appointment";
 import PersonHomes from "./pages/PersonHomes";
 import PropertyManagerHomes from "./pages/PropertyManagerHomes";
+import HomeOffers from "./pages/HomeOffers";
+import CarOffers from "./pages/CarOffers";
+import LandOffers from "./pages/LandOffers";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -126,6 +129,10 @@ function App() {
             </Route>
             <Route path="offers" element={<OffersSharedLayout />}>
               <Route index element={<Offers />} />
+              <Route path="homes" element={<HomeOffers />} />
+              <Route path="cars" element={<CarOffers />} />
+              <Route path="lands" element={<LandOffers />} />
+              <Route path="warehouses" element={<HomeOffers />} />
             </Route>
             <Route path="appointments" element={<AppointmentsSharedLayout />}>
               <Route index element={<Appointments />} />
