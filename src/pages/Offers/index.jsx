@@ -15,7 +15,10 @@ function Offers() {
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
       <div className={styles.contentContainer}>
-        <SectionHeader title="Offers" text="All offers list" />
+        <SectionHeader
+          title="Offers"
+          text="Unbeatable Property Offers: Your Guide to Finding Your Dream Home at a Great Price"
+        />
         <div style={{ width: "100%" }}></div>
       </div>
     </div>

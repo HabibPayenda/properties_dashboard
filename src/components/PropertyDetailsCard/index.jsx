@@ -13,6 +13,7 @@ import HomeEdit from "../../Forms/HomeEdit";
 import DeleteModalContent from "../DeleteModalContent";
 import { useDispatch } from "react-redux";
 import { deleteHome } from "../../data/homeSlice";
+import OfferCreate from "../../Forms/OfferCreate";
 
 function PropertyDetailsCard({ home, homeProperty }) {
   console.log(homeProperty);
@@ -45,7 +46,9 @@ function PropertyDetailsCard({ home, homeProperty }) {
       <FormModal
         openModal={showCreateOfferModal}
         setOpenModal={setShowCreateOfferModal}
-      ></FormModal>
+      >
+        <OfferCreate />
+      </FormModal>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
         <HomeRoomCreate id={home?.id} />
       </FormModal>
