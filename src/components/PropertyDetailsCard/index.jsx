@@ -16,9 +16,6 @@ import { deleteHome } from "../../data/homeSlice";
 import OfferCreate from "../../Forms/OfferCreate";
 
 function PropertyDetailsCard({ home, homeProperty }) {
-  console.log(homeProperty);
-  console.log(home);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showRoomModal, setShowRoomModal] = useState(false);
@@ -54,6 +51,7 @@ function PropertyDetailsCard({ home, homeProperty }) {
               : null
           }
           property_id={homeProperty?.id}
+          home_id={home?.id}
         />
       </FormModal>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>

@@ -36,15 +36,16 @@ export const getHome = createAsyncThunk("homes/getHome", async (id) => {
 
 export const createHomeOffer = createAsyncThunk(
   "homes/createHomeOffer",
-  async (
+  async ({
     property_id,
     start_date,
     end_date,
     title,
     description,
     deal_info_id,
-    offer_price
-  ) => {
+    offer_price,
+    home_id,
+  }) => {
     // Code
     try {
       const data = {
@@ -55,9 +56,10 @@ export const createHomeOffer = createAsyncThunk(
         description,
         deal_info_id,
         offer_price,
+        home_id,
       };
       const result = await PropertiesApi.post(
-        `homes/add_offer${property_id}`,
+        `homes/add_offer/${property_id}`,
         data,
         {
           onUploadProgress: (progress) => {
@@ -397,6 +399,7 @@ export const homesSlice = createSlice({
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
+      console.log(action.payload);
       state.showHome = action.payload.home;
     });
 
@@ -469,6 +472,14 @@ export const homesSlice = createSlice({
       state.showHome = action.payload.home;
       state.homeProperty = action.payload.property;
       toast.success("Home edited successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+    builder.addCase(createHomeOffer.fulfilled, (state, action) => {
+      // Code
+      state.showHome = action.payload.home;
+      state.homeProperty = action.payload.property;
+      toast.success("Offer added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });

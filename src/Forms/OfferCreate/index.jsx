@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import styles from "./offerCreate.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
@@ -9,12 +9,14 @@ import offerCreateSchema from "./offerCreateSchema";
 import OfferCreateDeatailsForm from "./OfferCreateDetailsForm";
 import { createHomeOffer } from "../../data/homeSlice";
 
-function OfferCreate({ deal_info_id, property_id }) {
+function OfferCreate() {
   const dispatch = useDispatch();
+  const homeProperty = useSelector((state) => state.homes.homeProperty);
+  const home = useSelector((state) => state.homes.showHome);
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(createHomeOffer(formik.values));
+    dispatch(createHomeOffer({ ...formik.values, home_id: home?.id }));
   };
 
   const formik = useFormik({
@@ -24,8 +26,8 @@ function OfferCreate({ deal_info_id, property_id }) {
       title: "",
       description: "",
       offer_price: "",
-      deal_info_id: deal_info_id,
-      property_id: property_id,
+      deal_info_id: homeProperty?.deal_infos[0]?.id,
+      property_id: homeProperty?.id,
     },
     validationSchema: offerCreateSchema,
     onSubmit: handleFormSubmit,
@@ -37,7 +39,6 @@ function OfferCreate({ deal_info_id, property_id }) {
         title="Add Property Offer Info"
         text="Unbeatable Property Offers: Your Guide to Finding Your Dream Home at a Great Price"
         formik={formik}
-        admins={admins}
         styles={styles}
       />,
     ]);
