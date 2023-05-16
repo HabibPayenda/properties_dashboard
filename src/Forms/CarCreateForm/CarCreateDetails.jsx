@@ -18,23 +18,10 @@ function CarCreateDetailsForm({
       </div>
       <div className={styles.inputsContainer}>
         <TextInput
-          label="Owner:"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="Owner Name"
-          className={styles.input}
-          value={formik.values.owner_name}
-          id="owner_name"
-          type="text"
-          errors={formik.errors.owner_name}
-          touched={formik.touched.owner_name}
-        />
-
-        <TextInput
           label="Name:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Home Name"
+          placeholder="Car Name"
           className={styles.input}
           value={formik.values.name}
           id="name"
@@ -47,13 +34,38 @@ function CarCreateDetailsForm({
           label="Description:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Home Description"
+          placeholder="Car Description"
           className={styles.input}
           value={formik.values.description}
           id="description"
           type="text"
           errors={formik.errors.description}
           touched={formik.touched.description}
+        />
+
+        <TextInput
+          label="Body Style:"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="Car body style"
+          className={styles.input}
+          value={formik.values.body_style}
+          id="body_style"
+          type="text"
+          errors={formik.errors.body_style}
+          touched={formik.touched.body_style}
+        />
+        <TextInput
+          label="Identity Number:"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="Car identity number"
+          className={styles.input}
+          value={formik.values.identity_number}
+          id="body_style"
+          type="text"
+          errors={formik.errors.identity_number}
+          touched={formik.touched.identity_number}
         />
 
         <FormSelect

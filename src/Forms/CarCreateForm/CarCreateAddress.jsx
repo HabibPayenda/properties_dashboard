@@ -13,7 +13,7 @@ function CarCreateAddressForm({ formik, styles, title, text }) {
           label="Province"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Home Province"
+          placeholder="Car Province"
           className={styles.input}
           value={formik.values.province}
           id="province"
@@ -25,7 +25,7 @@ function CarCreateAddressForm({ formik, styles, title, text }) {
           label="City:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Home City"
+          placeholder="Car City"
           className={styles.input}
           value={formik.values.city}
           id="city"
@@ -37,7 +37,7 @@ function CarCreateAddressForm({ formik, styles, title, text }) {
           label="District:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Home District"
+          placeholder="Car District"
           className={styles.input}
           value={formik.values.district}
           id="district"
