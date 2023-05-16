@@ -13,6 +13,7 @@ import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import FormModal from "../../components/FormModal";
 import HomeCreate from "../../Forms/HomeCreate";
+import CarCreateForm from "../../Forms/CarCreateForm";
 
 function CarsTable() {
   const [openModal, setOpenModal] = useState(false);
@@ -52,7 +53,7 @@ function CarsTable() {
   return (
     <>
       <FormModal openModal={openModal} setOpenModal={setOpenModal}>
-        <HomeCreate></HomeCreate>
+        <CarCreateForm />
       </FormModal>
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
