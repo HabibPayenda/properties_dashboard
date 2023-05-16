@@ -48,7 +48,11 @@ function PropertyDetailsCard({ home, homeProperty }) {
         setOpenModal={setShowCreateOfferModal}
       >
         <OfferCreate
-          deal_info_id={homeProperty?.deal_infos[0]?.id}
+          deal_info_id={
+            homeProperty?.deal_infos?.length > 0
+              ? homeProperty?.deal_infos[0].id
+              : null
+          }
           property_id={homeProperty?.id}
         />
       </FormModal>

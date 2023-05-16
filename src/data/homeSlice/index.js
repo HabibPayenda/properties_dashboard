@@ -34,6 +34,46 @@ export const getHome = createAsyncThunk("homes/getHome", async (id) => {
   }
 });
 
+export const createHomeOffer = createAsyncThunk(
+  "homes/createHomeOffer",
+  async (
+    property_id,
+    start_date,
+    end_date,
+    title,
+    description,
+    deal_info_id,
+    offer_price
+  ) => {
+    // Code
+    try {
+      const data = {
+        property_id,
+        start_date,
+        end_date,
+        title,
+        description,
+        deal_info_id,
+        offer_price,
+      };
+      const result = await PropertiesApi.post(
+        `homes/add_offer${property_id}`,
+        data,
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 export const getHomeProperty = createAsyncThunk(
   "homes/getHomeProperty",
   async (id) => {

@@ -1,22 +1,20 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import styles from "./offerCreate.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addAgent } from "../../data/agentsSlice";
+import { useDispatch } from "react-redux";
 import useMultistepForm from "../../hooks/useMultistepForm";
 import FormPaginationBtn from "../../components/FormPaginationBtn";
 import FormPageInfo from "../../components/FormPageInfo";
 import offerCreateSchema from "./offerCreateSchema";
 import OfferCreateDeatailsForm from "./OfferCreateDetailsForm";
+import { createHomeOffer } from "../../data/homeSlice";
 
 function OfferCreate({ deal_info_id, property_id }) {
-  const admins = useSelector((state) => state.admin.admins);
-
   const dispatch = useDispatch();
 
   const handleFormSubmit = () => {
     console.log("clicked");
-    dispatch(addAgent(formik.values));
+    dispatch(createHomeOffer(formik.values));
   };
 
   const formik = useFormik({
@@ -32,14 +30,6 @@ function OfferCreate({ deal_info_id, property_id }) {
     validationSchema: offerCreateSchema,
     onSubmit: handleFormSubmit,
   });
-
-  // t.date "start_date"
-  //     t.date "end_date"
-  //     t.string "title"
-  //     t.text "description"
-  //     t.bigint "deal_info_id", null: false
-  //     t.integer "offer_price"
-  //     t.bigint "property_id", null: false
 
   const { currentPage, isLastPage, nextPage, previousPage, currentPageIndex } =
     useMultistepForm([
