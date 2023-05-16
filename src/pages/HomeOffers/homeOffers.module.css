@@ -18,15 +18,12 @@
 }
 
 .contentContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  align-content: center;
-  justify-content: center;
-  justify-items: center;
-  flex: 9;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 2.5;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  height: 90%;
   width: 100%;
-  gap: 6px;
-  padding: 24px;
 }
