@@ -73,7 +73,7 @@ export const offersSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getAllOffers.fulfilled, (state, action) => {
       // Code
-      state.offers = action.payload.offers;
+      state.offers = action.payload;
     });
     builder.addCase(getOffer.fulfilled, (state, action) => {
       // Code
