@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./homeOffers.module.css";
+import styles from "./landOffers.module.css";
 import SectionHeader from "../../components/SectionHeader";
 
-function HomeOffers() {
+function LandOffers() {
   const dispatch = useDispatch();
+  const offers = useSelector((state) => state.offers.offers);
+  console.log(offers);
 
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
@@ -21,4 +23,4 @@ function HomeOffers() {
   );
 }
 
-export default HomeOffers;
+export default LandOffers;
