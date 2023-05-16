@@ -28,6 +28,8 @@ function PropertyDetailsCard({ home, homeProperty }) {
     useState(false);
   let [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomeEditModal, setShowHomeEditModal] = useState(false);
+  const [showCreateOfferModal, setShowCreateOfferModal] = useState(false);
+
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -40,6 +42,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
 
   return (
     <div className={styles.container}>
+      <FormModal
+        openModal={showCreateOfferModal}
+        setOpenModal={setShowCreateOfferModal}
+      ></FormModal>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
         <HomeRoomCreate id={home?.id} />
       </FormModal>
@@ -88,6 +94,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
           Homes
         </Link>
         <div className={styles.linksContainer}>
+          <ModalLink
+            title="Create Offer"
+            onClick={() => setShowCreateOfferModal(true)}
+          />
           <ModalLink title="Add Room" onClick={handleShowRoomModal} />
           <ModalLink title="Add Bath" />
           <ModalLink title="Add Kitchen" />
