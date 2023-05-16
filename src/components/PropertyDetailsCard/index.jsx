@@ -47,7 +47,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
         openModal={showCreateOfferModal}
         setOpenModal={setShowCreateOfferModal}
       >
-        <OfferCreate />
+        <OfferCreate
+          deal_info_id={homeProperty?.deal_infos[0]?.id}
+          property_id={homeProperty?.id}
+        />
       </FormModal>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
         <HomeRoomCreate id={home?.id} />

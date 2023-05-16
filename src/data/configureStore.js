@@ -11,6 +11,7 @@ import agentReviewsSlice from "./agentReviewsSlice";
 import propertyManagerReviewsSlice from "./propertyManagerReviewsSlice";
 import appointmentSlice from "./appointmentSlice";
 import appManagement from "./appManagement";
+import PropertiesSlice from "./PropertiesSlice";
 const store = configureStore({
   reducer: {
     admin: adminSlice,
@@ -25,6 +26,7 @@ const store = configureStore({
     propertyManagerReviews: propertyManagerReviewsSlice,
     appointments: appointmentSlice,
     appManagement: appManagement,
+    properties: PropertiesSlice,
   },
 });
 
