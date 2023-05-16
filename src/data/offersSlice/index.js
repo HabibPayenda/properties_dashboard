@@ -2,22 +2,25 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import PropertiesApi from "../../utils/api/propertiesApi";
 import { toast } from "react-toastify";
 
-export const getAllOffers = createAsyncThunk("offers/getAllLands", async () => {
-  // Code
-  try {
-    const result = await PropertiesApi.get("/offers", {
-      onUploadProgress: (progress) => {
-        if (progress.loaded / progress.total === 1) {
-        }
-      },
-    });
-    return result.data;
-  } catch (error) {
-    console.log(error);
-    return error;
+export const getAllOffers = createAsyncThunk(
+  "offers/getAllOffers",
+  async () => {
+    // Code
+    try {
+      const result = await PropertiesApi.get("/offers", {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   }
-});
-export const getLand = createAsyncThunk("offers/getLand", async (id) => {
+);
+export const getOffer = createAsyncThunk("offers/getOffer", async (id) => {
   // Code
   console.log(id);
   try {
@@ -33,8 +36,8 @@ export const getLand = createAsyncThunk("offers/getLand", async (id) => {
     return error;
   }
 });
-export const addLand = createAsyncThunk(
-  "offers/addLand",
+export const createOffer = createAsyncThunk(
+  "offers/createOffer",
   async ({ owner_name, property_id }) => {
     try {
       const result = await PropertiesApi.post(
@@ -64,7 +67,7 @@ const initialState = {
   role: null,
 };
 
-export const LandsSlice = createSlice({
+export const offersSlice = createSlice({
   name: "offers",
   initialState,
   extraReducers: (builder) => {
@@ -72,19 +75,19 @@ export const LandsSlice = createSlice({
       // Code
       state.offers = action.payload.offers;
     });
-    builder.addCase(getLand.fulfilled, (state, action) => {
+    builder.addCase(getOffer.fulfilled, (state, action) => {
       // Code
       state.showOffer = action.payload.offer;
     });
 
-    builder.addCase(addLand.rejected, (state, action) => {
+    builder.addCase(createOffer.rejected, (state, action) => {
       // Code
       toast.error("Try again.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
 
-    builder.addCase(addLand.fulfilled, (state, action) => {
+    builder.addCase(createOffer.fulfilled, (state, action) => {
       // Code
       state.offers = [...state.offers, action.payload.offer];
       toast.success("Land added successfully.", {
@@ -94,4 +97,4 @@ export const LandsSlice = createSlice({
   },
 });
 
-export default LandsSlice.reducer;
+export default offersSlice.reducer;

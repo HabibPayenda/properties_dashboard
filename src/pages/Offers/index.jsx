@@ -3,15 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./offers.module.css";
 import SectionHeader from "../../components/SectionHeader";
 import ItemsCard from "../../components/ItemsCard";
+import { getAllOffers } from "../../data/offersSlice";
 
 function Offers() {
   const dispatch = useDispatch();
+  const offers = useSelector((state) => state.offers.offers);
+  console.log(offers);
 
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
   );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(getAllOffers());
+  }, []);
 
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>
