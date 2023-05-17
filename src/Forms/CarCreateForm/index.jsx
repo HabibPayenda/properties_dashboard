@@ -12,6 +12,7 @@ import CarCreateAddressForm from "./CarCreateAddress";
 import CarCreateInfoForm from "./CarCreateInfoForm";
 import CarCreateDealInfoForm from "./CarCreateDealInfoForm";
 import carCreateSchema from "./carCreateFormSchma";
+import { addCar } from "../../data/CarsSlice";
 
 function CarCreateForm() {
   const [image, setImage] = useState(null);
@@ -26,7 +27,7 @@ function CarCreateForm() {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(addHome({ ...formik.values, image: image }));
+    dispatch(addCar({ ...formik.values, image: image }));
     // formik.resetForm();
   };
 

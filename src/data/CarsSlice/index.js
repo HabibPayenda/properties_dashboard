@@ -33,27 +33,20 @@ export const getCar = createAsyncThunk("cars/getCar", async (id) => {
     return error;
   }
 });
-export const addCar = createAsyncThunk(
-  "cars/addCar",
-  async ({ owner_name, property_id }) => {
-    try {
-      const result = await PropertiesApi.post(
-        "/cars",
-        { owner_name: owner_name, property_id: property_id * 1 },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
+export const addCar = createAsyncThunk("cars/addCar", async (data) => {
+  try {
+    const result = await PropertiesApi.post("/cars", data, {
+      onUploadProgress: (progress) => {
+        if (progress.loaded / progress.total === 1) {
         }
-      );
-      return result.data;
-    } catch (error) {
-      console.log(error);
-      return error;
-    }
+      },
+    });
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
   }
-);
+});
 
 const initialState = {
   cars: [],
