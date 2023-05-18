@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./lands.module.css";
 import SectionHeader from "../../components/SectionHeader";
 import LandsTable from "../../tables/LandsTable";
+import { getAllLands } from "../../data/LandsSlice";
 
 function Lands() {
   const dispatch = useDispatch();
@@ -11,7 +12,9 @@ function Lands() {
     (state) => state.appManagement.isSidebarShown
   );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(getAllLands());
+  }, []);
 
   return (
     <div className={isSidebarShown ? styles.container : styles.containerClose}>

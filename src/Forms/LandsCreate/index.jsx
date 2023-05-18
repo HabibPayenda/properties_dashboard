@@ -11,6 +11,7 @@ import LandCreateImageForm from "./LandImageForm";
 import LandCreateDetailsForm from "./LandDetailsForm";
 import LandCreateAddressForm from "./LandsAddressForm";
 import LandCreateDealInfoForm from "./LandDealInfoForm";
+import { addLand } from "../../data/LandsSlice";
 
 function LandCreateForm() {
   const [image, setImage] = useState(null);
@@ -25,7 +26,7 @@ function LandCreateForm() {
   const handleFormSubmit = () => {
     console.log("clicked");
     console.log(formik.values);
-    dispatch(addHome({ ...formik.values, image: image }));
+    dispatch(addLand({ ...formik.values, image: image }));
     // formik.resetForm();
   };
 
