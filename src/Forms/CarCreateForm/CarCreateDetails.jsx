@@ -62,7 +62,7 @@ function CarCreateDetailsForm({
           placeholder="Car identity number"
           className={styles.input}
           value={formik.values.identity_number}
-          id="body_style"
+          id="identity_number"
           type="text"
           errors={formik.errors.identity_number}
           touched={formik.touched.identity_number}

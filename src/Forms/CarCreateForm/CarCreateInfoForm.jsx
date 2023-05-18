@@ -78,8 +78,8 @@ function CarCreateInfoForm({ formik, styles, title, text }) {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           label="Fuel Type:"
-          titles={["Automatic", "Gear"]}
-          values={["automatic", "gear"]}
+          titles={["Petrol", "Deasl"]}
+          values={["petrol", "deasl"]}
           errors={formik.errors.fuel_type}
           touched={formik.touched.fuel_type}
           setFieldValue={formik.setFieldValue}
