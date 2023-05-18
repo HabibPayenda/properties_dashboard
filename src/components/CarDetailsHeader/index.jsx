@@ -14,8 +14,9 @@ import DeleteModalContent from "../DeleteModalContent";
 import { useDispatch } from "react-redux";
 import { deleteHome } from "../../data/homeSlice";
 import OfferCreate from "../../Forms/OfferCreate";
+import PropertyDetailsHeader from "../PropertyDetailsHeader";
 
-function CarDetailsCard({ home, homeProperty }) {
+function CarDetailsCard({ car }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showRoomModal, setShowRoomModal] = useState(false);
@@ -40,100 +41,25 @@ function CarDetailsCard({ home, homeProperty }) {
 
   return (
     <div className={styles.container}>
-      <FormModal
-        openModal={showCreateOfferModal}
-        setOpenModal={setShowCreateOfferModal}
-      >
-        <OfferCreate
-          deal_info_id={
-            homeProperty?.deal_infos?.length > 0
-              ? homeProperty?.deal_infos[0].id
-              : null
-          }
-          property_id={homeProperty?.id}
-          home_id={home?.id}
-        />
-      </FormModal>
-      <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
-        <HomeRoomCreate id={home?.id} />
-      </FormModal>
-      <FormModal
-        openModal={showAmenityAddModal}
-        setOpenModal={setShowAmenityAddModal}
-      >
-        <HomeAmenityCreate home={home} />
-      </FormModal>
-      <FormModal
-        openModal={showRestricionAddModal}
-        setOpenModal={setShowRestrictionAddModal}
-      >
-        <PropertyRestrictionCreate home={home} />
-      </FormModal>
-      <FormModal
-        openModal={showAmenityViewModal}
-        setOpenModal={setShowAmenityViewModal}
-      >
-        <AmenitiesList amenities={homeProperty?.amenities} />
-      </FormModal>
-      <FormModal
-        openModal={showRestrictionsViewModal}
-        setOpenModal={setShowRestrictionsViewModal}
-      >
-        <RestrictionsList restrictions={homeProperty?.restrictions} />
-      </FormModal>
-      <FormModal
-        openModal={showHomeEditModal}
-        setOpenModal={setShowHomeEditModal}
-      >
-        <HomeEdit home={home} property={homeProperty} />
-      </FormModal>
-      <FormModal
-        openModal={showHomeDeleteModal}
-        setOpenModal={setShowHomeDeleteModal}
-      >
-        <DeleteModalContent
-          handleDelete={handleHomeDelete}
-          handleClose={setShowHomeDeleteModal}
-        />
-      </FormModal>
-      <div className={styles.header}>
-        <Link className={styles.backLink} to="..">
-          <i className="fa-solid fa-arrow-left"></i>
-          Homes
-        </Link>
-        <div className={styles.linksContainer}>
-          <ModalLink
-            title="Create Offer"
-            onClick={() => setShowCreateOfferModal(true)}
-          />
-          <ModalLink title="Add Room" onClick={handleShowRoomModal} />
-          <ModalLink title="Add Bath" />
-          <ModalLink title="Add Kitchen" />
-          <ModalLink
-            title="Add Amenity"
-            onClick={() => setShowAmenityAddModal(true)}
-          />
-          <ModalLink
-            onClick={() => setShowRestrictionAddModal(true)}
-            title="Add Restriction"
-          />
-        </div>
-      </div>
+      <PropertyDetailsHeader />
       <div className={styles.contentContainer}>
         <div className={styles.imageContainer}>
-          <img className={styles.image} src={homeImage} alt="" />
+          <img
+            className={styles.image}
+            src={car?.image_url || homeImage}
+            alt=""
+          />
         </div>
         <div className={styles.detailsContainer}>
           <div className={styles.propertyDetails}>
             <div className={styles.propertyDetailsName}>
-              <h2 className={styles.title}>{home?.property?.name}</h2>
-              <p className={styles.subTitle}>{home?.property?.description}</p>
+              <h2 className={styles.title}>{car?.property?.name}</h2>
+              <p className={styles.subTitle}>{car?.property?.description}</p>
             </div>
             <div className={styles.propertyDetailsValues}>
               <div className={styles.propertyDetailsValuesColumn}>
                 <div className={styles.dealPrice}>
-                  <i className="fa-solid fa-house"></i>{" "}
-                  <p>{home?.home_rooms?.length}</p>
+                  <i className="fa-solid fa-house"></i> <p>{car?.model}</p>
                 </div>
                 <div className={styles.dealType}>
                   <i className="fa-solid fa-shower"></i> 2
@@ -150,17 +76,17 @@ function CarDetailsCard({ home, homeProperty }) {
               <div className={styles.propertyDetailsValuesColumn}>
                 <div className={styles.dealPrice}>
                   <i className="fa-solid fa-coins"></i>
-                  <p>
+                  {/* <p>
                     {homeProperty?.deal_infos?.length > 0
                       ? homeProperty?.deal_infos[0]?.price_per_duration
                       : "None"}
-                  </p>
+                  </p> */}
                 </div>
                 <div className={styles.dealType}>
                   <i className="fa-solid fa-filter"></i>
-                  {homeProperty?.deal_infos?.length > 0
+                  {/* {homeProperty?.deal_infos?.length > 0
                     ? homeProperty?.deal_infos[0]?.deal_type
-                    : "None"}
+                    : "None"} */}
                 </div>
               </div>
             </div>
