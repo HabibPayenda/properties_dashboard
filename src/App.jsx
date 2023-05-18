@@ -105,7 +105,7 @@ function App() {
               <Route path="users" element={<UsersReviews />} />
               <Route path="agents" element={<AgentsReviews />} />
               <Route
-                path="property_managers_reviews"
+                path="property_managers"
                 element={<PropertyManagersReviews />}
               />
             </Route>

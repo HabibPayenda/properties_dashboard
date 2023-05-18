@@ -37,21 +37,21 @@ function Reviews() {
             title="Users Reviews"
             text="These reviews belongs to users"
             icon={<i className="fa-solid fa-house"></i>}
-            to="homes"
+            to="users"
             total={0}
           />
           <ItemsCard
             title="Agents Reviews"
             text="These reviews belongs to agents"
             icon={<i className="fa-solid fa-house"></i>}
-            to="homes"
+            to="agents"
             total={0}
           />
           <ItemsCard
             title="Managers Reviews"
             text="These reviews belongs to managers"
             icon={<i className="fa-solid fa-house"></i>}
-            to="homes"
+            to="property_managers"
             total={0}
           />
         </div>
