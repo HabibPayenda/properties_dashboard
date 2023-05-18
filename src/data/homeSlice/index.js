@@ -114,7 +114,6 @@ export const addHome = createAsyncThunk(
     total_duration,
     image,
   }) => {
-    console.log("image is: ", image);
     const data = new FormData();
     console.log(image, "image");
     data.append("image", image);
@@ -133,7 +132,6 @@ export const addHome = createAsyncThunk(
     data.append("price_per_duration", price_per_duration);
     data.append("total_duration", total_duration);
 
-    console.log("dataImage is ", data);
     try {
       const result = await PropertiesApi.post("/homes", data, {
         headers: { "Content-Type": data.type },
