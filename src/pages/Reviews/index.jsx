@@ -7,6 +7,7 @@ import { getAllUserReviews } from "../../data/userReviewsSlice";
 import { getAllAgentReviews } from "../../data/agentReviewsSlice";
 import { getAllPropertyManagerReviews } from "../../data/propertyManagerReviewsSlice";
 import { Link } from "react-router-dom";
+import ItemsCard from "../../components/ItemsCard";
 
 function Reviews() {
   const dispatch = useDispatch();
@@ -32,23 +33,7 @@ function Reviews() {
           text="Discover the Best Sources: Unleashing the Power of Crowdsourced Reviews!"
         />
         <div className={styles.contentContainer}>
-          <Link style={{ flex: 1, height: "33%", width: "100%" }} to="users">
-            <ReviewCard title="User Reviews" count={userReviews?.length} />
-          </Link>
-
-          <Link style={{ flex: 1, height: "33%", width: "100%" }} to="agents">
-            <ReviewCard title="Agent Reviews" count={agentReviews?.length} />
-          </Link>
-
-          <Link
-            style={{ flex: 1, height: "33%", width: "100%" }}
-            to="property_managers_reviews"
-          >
-            <ReviewCard
-              title="Property Manager Reviews"
-              count={propertyManagerReviews?.length}
-            />
-          </Link>
+          <ReviewCard />
         </div>
       </div>
     </div>
