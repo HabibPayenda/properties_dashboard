@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  gap: 10px;
+}
+
+.containerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2/11;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex: 2.5;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.addNew {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  height: 100%;
+}
