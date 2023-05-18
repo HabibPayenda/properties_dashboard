@@ -18,16 +18,40 @@ function LandCreateDetailsForm({
       </div>
       <div className={styles.inputsContainer}>
         <TextInput
-          label="Owner:"
+          label="Area:"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          placeholder="Owner Name"
+          placeholder="Area in square meters"
           className={styles.input}
-          value={formik.values.owner_name}
-          id="owner_name"
+          value={formik.values.area}
+          id="area"
           type="text"
-          errors={formik.errors.owner_name}
-          touched={formik.touched.owner_name}
+          errors={formik.errors.area}
+          touched={formik.touched.area}
+        />
+        <TextInput
+          label="Zone:"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="Enter land zone"
+          className={styles.input}
+          value={formik.values.zone}
+          id="zone"
+          type="text"
+          errors={formik.errors.zone}
+          touched={formik.touched.zone}
+        />
+        <TextInput
+          label="Current use:"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="Enter land current use"
+          className={styles.input}
+          value={formik.values.current_use}
+          id="current_use"
+          type="text"
+          errors={formik.errors.current_use}
+          touched={formik.touched.current_use}
         />
 
         <TextInput
