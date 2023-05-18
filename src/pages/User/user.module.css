@@ -3,8 +3,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  grid-column-start: 3;
-  grid-column-end: 11;
+  grid-column: 3/11;
+  gap: 12px;
+}
+
+.containerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 2/11;
   gap: 12px;
 }
 
@@ -21,12 +29,49 @@
 }
 
 .userDetails {
+  margin-top: 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr;
+  justify-items: center;
   gap: 6px;
   flex: 3;
   background-color: white;
   width: 100%;
   padding: 6px;
+}
+
+.btnsContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 48px;
+  gap: 24px;
+  width: 100%;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  background-color: brown;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  background-color: goldenrod;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  width: 50px;
+  cursor: pointer;
 }

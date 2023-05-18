@@ -1,50 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getUser } from "../../data/usersSlice";
 import styles from "./user.module.css";
-import UserDetailCard from "../../components/UserDetailCard";
+import ItemsCard from "../../components/ItemsCard";
+import PersonDetailsHeader from "../../components/PersonDetailsHeader";
+import FormModal from "../../components/FormModal";
+import UserEditForm from "../../Forms/UserEditForm";
 
 function User() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.showUser);
+  const [showUserEditModal, setShowUserEditModal] = useState(false);
+
+  const isSidebarShown = useSelector(
+    (state) => state.appManagement.isSidebarShown
+  );
 
   useEffect(() => {
     dispatch(getUser(id));
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.userInfo}>
-        <p>{user?.name}</p>
-        <p>{user?.date_of_birth}</p>
-        <p>{user?.gender}</p>
+    <div className={isSidebarShown ? styles.container : styles.containerClose}>
+      <FormModal
+        openModal={showUserEditModal}
+        setOpenModal={setShowUserEditModal}
+      >
+        <UserEditForm user={user} />
+      </FormModal>
+      <PersonDetailsHeader person={user} />
+      <div className={styles.btnsContainer}>
+        <p
+          onClick={() => setShowUserEditModal(true)}
+          className={styles.editBtn}
+        >
+          Edit
+        </p>
+        <p
+          onClick={() => setShowHomeDeleteModal(true)}
+          className={styles.deleteBtn}
+        >
+          Delete
+        </p>
       </div>
       <div className={styles.userDetails}>
-        <Link to="searches">
-          <UserDetailCard
-            title="Searches"
-            count={user?.user_searches?.length}
-          />
-        </Link>
-        <Link to="views">
-          <UserDetailCard title="Views" count={user?.user_views?.length} />
-        </Link>
-        <Link to="favorites">
-          <UserDetailCard
-            title="Favorites"
-            count={user?.user_favorites?.length}
-          />
-        </Link>
-        <Link to="reviews">
-          <UserDetailCard title="Reviews" count={user?.user_reviews?.length} />
-        </Link>
-        <UserDetailCard
-          title="Addresses"
-          count={user?.user_addresses?.length}
+        <ItemsCard
+          to="searches"
+          title="Searches"
+          text="user searches"
+          icon={<i className="fa-solid fa-magnifying-glass"></i>}
+          total={user?.user_searches?.length}
         />
-        <UserDetailCard title="Contacts" count={user?.user_contact?.length} />
+
+        <ItemsCard
+          to="views"
+          title="Views"
+          text="user views"
+          icon={<i className="fa-solid fa-eye"></i>}
+          total={user?.user_views?.length}
+        />
+        <ItemsCard
+          to="favorites"
+          title="Favorites"
+          text="user favorites"
+          icon={<i className="fa-solid fa-heart"></i>}
+          total={user?.user_favorites?.length}
+        />
+        <ItemsCard
+          to="reviews"
+          title="Reviews"
+          text="user reviews"
+          icon={<i className="fa-solid fa-star"></i>}
+          total={user?.reviews?.length}
+        />
       </div>
     </div>
   );

@@ -35,18 +35,52 @@ export const getLand = createAsyncThunk("lands/getLand", async (id) => {
 });
 export const addLand = createAsyncThunk(
   "lands/addLand",
-  async ({ owner_name, property_id }) => {
+  async ({
+    name,
+    availability_status,
+    property_manager_id,
+    agent_id,
+    description,
+    province,
+    city,
+    district,
+    deal_type,
+    duration,
+    price_per_duration,
+    total_price,
+    total_duration,
+    image,
+    zone,
+    current_use,
+    area,
+  }) => {
     try {
-      const result = await PropertiesApi.post(
-        "/lands",
-        { owner_name: owner_name, property_id: property_id * 1 },
-        {
-          onUploadProgress: (progress) => {
-            if (progress.loaded / progress.total === 1) {
-            }
-          },
-        }
-      );
+      const data = new FormData();
+      console.log(image, "image");
+      data.append("image", image);
+      data.append("name", name);
+      data.append("availability_status", availability_status);
+      data.append("agent_id", agent_id);
+      data.append("property_manager_id", property_manager_id);
+      data.append("description", description);
+      data.append("province", province);
+      data.append("city", city);
+      data.append("district", district);
+      data.append("deal_type", deal_type);
+      data.append("duration", duration);
+      data.append("total_price", total_price);
+      data.append("price_per_duration", price_per_duration);
+      data.append("total_duration", total_duration);
+      data.append("zone", zone);
+      data.append("current_use", current_use);
+      data.append("area", area);
+      const result = await PropertiesApi.post("/lands", data, {
+        headers: { "Content-Type": data.type },
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
       return result.data;
     } catch (error) {
       console.log(error);

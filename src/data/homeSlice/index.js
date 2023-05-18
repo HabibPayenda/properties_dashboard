@@ -34,6 +34,48 @@ export const getHome = createAsyncThunk("homes/getHome", async (id) => {
   }
 });
 
+export const createHomeOffer = createAsyncThunk(
+  "homes/createHomeOffer",
+  async ({
+    property_id,
+    start_date,
+    end_date,
+    title,
+    description,
+    deal_info_id,
+    offer_price,
+    home_id,
+  }) => {
+    // Code
+    try {
+      const data = {
+        property_id,
+        start_date,
+        end_date,
+        title,
+        description,
+        deal_info_id,
+        offer_price,
+        home_id,
+      };
+      const result = await PropertiesApi.post(
+        `homes/add_offer/${property_id}`,
+        data,
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 export const getHomeProperty = createAsyncThunk(
   "homes/getHomeProperty",
   async (id) => {
@@ -72,7 +114,6 @@ export const addHome = createAsyncThunk(
     total_duration,
     image,
   }) => {
-    console.log("image is: ", image);
     const data = new FormData();
     console.log(image, "image");
     data.append("image", image);
@@ -91,7 +132,6 @@ export const addHome = createAsyncThunk(
     data.append("price_per_duration", price_per_duration);
     data.append("total_duration", total_duration);
 
-    console.log("dataImage is ", data);
     try {
       const result = await PropertiesApi.post("/homes", data, {
         headers: { "Content-Type": data.type },
@@ -357,6 +397,7 @@ export const homesSlice = createSlice({
     });
     builder.addCase(getHome.fulfilled, (state, action) => {
       // Code
+      console.log(action.payload);
       state.showHome = action.payload.home;
     });
 
@@ -429,6 +470,14 @@ export const homesSlice = createSlice({
       state.showHome = action.payload.home;
       state.homeProperty = action.payload.property;
       toast.success("Home edited successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+    builder.addCase(createHomeOffer.fulfilled, (state, action) => {
+      // Code
+      state.showHome = action.payload.home;
+      state.homeProperty = action.payload.property;
+      toast.success("Offer added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });

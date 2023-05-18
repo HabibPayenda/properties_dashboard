@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   useTable,
@@ -11,9 +11,12 @@ import { UserTableComlumns } from "./columns";
 import GlobalFilter from "../components/GlobalFilter";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
+import FormModal from "../../components/FormModal";
+import UserCreate from "../../Forms/UserCreate";
 
 function UsersTable() {
   const users = useSelector((state) => state.users.users);
+  const [openModal, setOpenModal] = useState(false);
 
   const columns = useMemo(() => UserTableComlumns, []);
   const data = useMemo(() => users, [users]);
@@ -47,7 +50,16 @@ function UsersTable() {
 
   return (
     <>
-      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <FormModal openModal={openModal} setOpenModal={setOpenModal}>
+        <UserCreate />
+      </FormModal>
+      <div className="tableHeader">
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <p className="addBtn" onClick={() => setOpenModal(true)}>
+          <i className="fa-solid fa-plus"></i>
+          Add User
+        </p>
+      </div>
       <div className="tableContainer">
         <table {...getTableProps()}>
           <thead>

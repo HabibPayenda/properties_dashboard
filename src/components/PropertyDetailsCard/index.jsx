@@ -13,11 +13,9 @@ import HomeEdit from "../../Forms/HomeEdit";
 import DeleteModalContent from "../DeleteModalContent";
 import { useDispatch } from "react-redux";
 import { deleteHome } from "../../data/homeSlice";
+import OfferCreate from "../../Forms/OfferCreate";
 
 function PropertyDetailsCard({ home, homeProperty }) {
-  console.log(homeProperty);
-  console.log(home);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showRoomModal, setShowRoomModal] = useState(false);
@@ -28,6 +26,8 @@ function PropertyDetailsCard({ home, homeProperty }) {
     useState(false);
   let [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomeEditModal, setShowHomeEditModal] = useState(false);
+  const [showCreateOfferModal, setShowCreateOfferModal] = useState(false);
+
   const handleShowRoomModal = () => {
     setShowRoomModal(true);
   };
@@ -40,6 +40,20 @@ function PropertyDetailsCard({ home, homeProperty }) {
 
   return (
     <div className={styles.container}>
+      <FormModal
+        openModal={showCreateOfferModal}
+        setOpenModal={setShowCreateOfferModal}
+      >
+        <OfferCreate
+          deal_info_id={
+            homeProperty?.deal_infos?.length > 0
+              ? homeProperty?.deal_infos[0].id
+              : null
+          }
+          property_id={homeProperty?.id}
+          home_id={home?.id}
+        />
+      </FormModal>
       <FormModal openModal={showRoomModal} setOpenModal={setShowRoomModal}>
         <HomeRoomCreate id={home?.id} />
       </FormModal>
@@ -88,6 +102,10 @@ function PropertyDetailsCard({ home, homeProperty }) {
           Homes
         </Link>
         <div className={styles.linksContainer}>
+          <ModalLink
+            title="Create Offer"
+            onClick={() => setShowCreateOfferModal(true)}
+          />
           <ModalLink title="Add Room" onClick={handleShowRoomModal} />
           <ModalLink title="Add Bath" />
           <ModalLink title="Add Kitchen" />

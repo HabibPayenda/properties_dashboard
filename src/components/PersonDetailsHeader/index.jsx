@@ -8,7 +8,11 @@ function PersonDetailsHeader({ person }) {
     <div className={styles.container}>
       <div className={styles.circleContainer}>
         <div className={styles.circle}>
-          <img className={styles.image} src={userImage} alt="" />
+          <img
+            className={styles.image}
+            src={person?.image_url || userImage}
+            alt=""
+          />
         </div>
       </div>
       <div className={styles.detailsContainer}>
@@ -30,18 +34,10 @@ function PersonDetailsHeader({ person }) {
           <div className={styles.detailsContent}>
             <p className={styles.detailsTitle}>Address</p>
             <p className={styles.detailsItem}>
-              {`City: ${
-                person?.addresses?.length > 0
-                  ? person?.addresses[0]?.city
-                  : "Null"
-              }`}
+              {`City: ${person?.address?.city || "Null"}`}
             </p>
             <p className={styles.detailsItem}>
-              {`District: ${
-                person?.addresses?.length > 0
-                  ? person?.addresses[0]?.district
-                  : "Null"
-              }`}
+              {`District: ${person?.address?.district || "Null"}`}
             </p>
           </div>
         </div>

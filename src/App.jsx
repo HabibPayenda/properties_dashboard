@@ -50,6 +50,11 @@ import PropertyManagersReviews from "./pages/PropertyManagersReviews";
 import Appointment from "./pages/Appointment";
 import PersonHomes from "./pages/PersonHomes";
 import PropertyManagerHomes from "./pages/PropertyManagerHomes";
+import HomeOffers from "./pages/HomeOffers";
+import CarOffers from "./pages/CarOffers";
+import LandOffers from "./pages/LandOffers";
+import CarsSharedLayout from "./pages/Layouts/CarsSharedLayout";
+import Car from "./pages/Car";
 
 function App() {
   const token = useSelector((state) => state.admin.token);
@@ -73,7 +78,10 @@ function App() {
                 <Route index element={<Homes />} />
                 <Route path=":id" element={<Home />} />
               </Route>
-              <Route path="cars" element={<Cars />} />
+              <Route path="cars" element={<CarsSharedLayout />}>
+                <Route index element={<Cars />} />
+                <Route path=":id" element={<Car />} />
+              </Route>
               <Route path="warehouses" element={<WareHouses />} />
               <Route path="lands" element={<Lands />} />
             </Route>
@@ -126,6 +134,10 @@ function App() {
             </Route>
             <Route path="offers" element={<OffersSharedLayout />}>
               <Route index element={<Offers />} />
+              <Route path="homes" element={<HomeOffers />} />
+              <Route path="cars" element={<CarOffers />} />
+              <Route path="lands" element={<LandOffers />} />
+              <Route path="warehouses" element={<HomeOffers />} />
             </Route>
             <Route path="appointments" element={<AppointmentsSharedLayout />}>
               <Route index element={<Appointments />} />
