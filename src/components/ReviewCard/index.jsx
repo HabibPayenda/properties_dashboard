@@ -11,6 +11,9 @@ function ReviewCard({ title, count }) {
           <h2 className={styles.title}>Title</h2>
           <p className={styles.subTitle}>subTitle</p>
         </div>
+        <span>
+          <i class="fa-solid fa-star"></i> 4.4 / 5
+        </span>
       </div>
 
       <div className={styles.content}>
