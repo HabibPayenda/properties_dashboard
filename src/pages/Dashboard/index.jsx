@@ -13,6 +13,9 @@ import { getAllAgents } from "../../data/agentsSlice";
 import RecentUsers from "../../components/RecentUsers";
 import DashboardSmallCard from "../../components/DashboardSmallCard";
 import SmallBtn from "../../components/SmallBtn";
+import { getAllPropertyManagers } from "../../data/propertyManagersSlice";
+import { getAllCars } from "../../data/CarsSlice";
+import { getAllLands } from "../../data/LandsSlice";
 
 function Dashboard() {
   ChartJS.register(...registerables);
@@ -21,7 +24,10 @@ function Dashboard() {
   const agentsData = useSelector((state) => state.agents.chartData);
   const homesLabels = useSelector((state) => state.homes.chartMonths);
   const homesData = useSelector((state) => state.homes.chartData);
-  const appointments = useSelector((state) => state.appointments.appointments);
+  const homes = useSelector((state) => state.homes.homes);
+  const cars = useSelector((state) => state.cars.cars);
+  const lands = useSelector((state) => state.lands.lands);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllAppointments());
@@ -29,6 +35,9 @@ function Dashboard() {
     dispatch(getAllAdmins());
     dispatch(getAllHomes());
     dispatch(getAllAgents());
+    dispatch(getAllPropertyManagers());
+    dispatch(getAllCars());
+    dispatch(getAllLands());
   }, []);
 
   const isSidebarShown = useSelector(
@@ -45,6 +54,7 @@ function Dashboard() {
             color1="#1533c8"
             color2="#4f95e1"
             icon={<i className="fa-solid fa-house"></i>}
+            total={homes?.length}
           />
           <DashboardSmallCard
             to="properties/cars"
@@ -53,6 +63,7 @@ function Dashboard() {
             color1="#00b260"
             color2="#00d673"
             icon={<i className="fa-solid fa-car"></i>}
+            total={cars?.length}
           />
           <DashboardSmallCard
             to="properties/warehouses"
@@ -61,6 +72,7 @@ function Dashboard() {
             color1="#be28cf"
             color2="#f68ae2"
             icon={<i className="fa-solid fa-building-columns"></i>}
+            total={0}
           />
           <DashboardSmallCard
             to="properties/lands"
@@ -69,6 +81,7 @@ function Dashboard() {
             color1="#149c9e"
             color2="#1cdadd"
             icon={<i className="fa-solid fa-mountain-sun"></i>}
+            total={lands?.length}
           />
         </div>
         <div className={styles.dashboardTopRight}></div>

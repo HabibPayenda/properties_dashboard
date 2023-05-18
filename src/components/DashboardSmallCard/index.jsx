@@ -2,7 +2,15 @@ import React from "react";
 import styles from "./dashboardSmallCard.module.css";
 import { Link } from "react-router-dom";
 
-function DashboardSmallCard({ title, subTitle, icon, to, color1, color2 }) {
+function DashboardSmallCard({
+  title,
+  subTitle,
+  icon,
+  to,
+  color1,
+  color2,
+  total,
+}) {
   return (
     <Link
       to={to}
@@ -20,7 +28,7 @@ function DashboardSmallCard({ title, subTitle, icon, to, color1, color2 }) {
         <h3 className={styles.title}>{title}</h3>
       </div>
       <div className={styles.iconContainer}>{icon}</div>
-      <p className={styles.text}>12 total.</p>
+      <p className={styles.text}>{total} total.</p>
     </Link>
   );
 }
