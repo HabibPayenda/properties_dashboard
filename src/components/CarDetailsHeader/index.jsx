@@ -41,7 +41,6 @@ function CarDetailsCard({ car }) {
 
   return (
     <div className={styles.container}>
-      <PropertyDetailsHeader />
       <div className={styles.contentContainer}>
         <div className={styles.imageContainer}>
           <img

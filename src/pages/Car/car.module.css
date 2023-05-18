@@ -1,18 +1,20 @@
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   grid-column-start: 3;
   grid-column-end: 11;
   gap: 10px;
+  flex-direction: column;
 }
 
 .containerClose {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   grid-column: 2/11;
   gap: 10px;
+  flex-direction: column;
 }
 
 .listContainer {
