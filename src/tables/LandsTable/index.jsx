@@ -13,6 +13,7 @@ import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import FormModal from "../../components/FormModal";
 import HomeCreate from "../../Forms/HomeCreate";
+import LandCreateForm from "../../Forms/LandsCreate";
 
 function LandsTable() {
   const [openModal, setOpenModal] = useState(false);
@@ -52,7 +53,7 @@ function LandsTable() {
   return (
     <>
       <FormModal openModal={openModal} setOpenModal={setOpenModal}>
-        <HomeCreate></HomeCreate>
+        <LandCreateForm />
       </FormModal>
       <div className="tableHeader">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
