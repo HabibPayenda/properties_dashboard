@@ -45,6 +45,15 @@ export const getAllUsers = createAsyncThunk("users/getAllUsers", async () => {
   return result.data;
 });
 
+export const getRecentUsers = createAsyncThunk(
+  "users/getRecentUsers",
+  async () => {
+    // Code
+    const result = await PropertiesApi.get("/users/recent/users");
+    return result.data;
+  }
+);
+
 export const getUser = createAsyncThunk("users/getUser", async (id) => {
   // Code
   const result = await PropertiesApi.get(`/users/${id}`);
@@ -145,6 +154,7 @@ const initialState = {
   user: {},
   users: [],
   showUser: {},
+  recentUsers: [],
   token: null,
   noToken: null,
   loading: "idle",
@@ -176,6 +186,12 @@ export const usersSlice = createSlice({
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
       // Code
       state.users = action.payload.users;
+    });
+
+    builder.addCase(getRecentUsers.fulfilled, (state, action) => {
+      // Code
+      console.log("In recent users ", action.payload);
+      state.recentUsers = action.payload.users;
     });
 
     builder.addCase(getUser.fulfilled, (state, action) => {

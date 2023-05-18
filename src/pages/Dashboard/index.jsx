@@ -6,7 +6,7 @@ import styles from "./dashboard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Calendar from "../../components/Calendar";
 import { getAllAppointments } from "../../data/appointmentSlice";
-import { getAllUsers } from "../../data/usersSlice";
+import { getAllUsers, getRecentUsers } from "../../data/usersSlice";
 import { getAllAdmins } from "../../data/adminSlice";
 import { getAllHomes } from "../../data/homeSlice";
 import { getAllAgents } from "../../data/agentsSlice";
@@ -27,9 +27,12 @@ function Dashboard() {
   const homes = useSelector((state) => state.homes.homes);
   const cars = useSelector((state) => state.cars.cars);
   const lands = useSelector((state) => state.lands.lands);
+  const recentUsers = useSelector((state) => state.users.recentUsers);
+  const users = useSelector((state) => state.users.users);
 
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getRecentUsers());
     dispatch(getAllAppointments());
     dispatch(getAllUsers());
     dispatch(getAllAdmins());
@@ -38,6 +41,7 @@ function Dashboard() {
     dispatch(getAllPropertyManagers());
     dispatch(getAllCars());
     dispatch(getAllLands());
+    dispatch(getAllUsers());
   }, []);
 
   const isSidebarShown = useSelector(
@@ -105,7 +109,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <RecentUsers />
+        <RecentUsers recentUsers={recentUsers} users={users} />
       </div>
     </div>
   );
