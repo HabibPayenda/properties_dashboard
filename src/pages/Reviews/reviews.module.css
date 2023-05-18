@@ -26,15 +26,17 @@
 }
 
 .contentContainer {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
   justify-content: center;
+  justify-items: center;
   flex: 9;
+  gap: 10px;
   width: 100%;
-  flex-direction: column;
-  padding: 12px;
   gap: 6px;
-  background-color: #fff;
+  padding: 24px;
 }
 
 .graphsContainer {

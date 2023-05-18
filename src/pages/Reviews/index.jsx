@@ -33,7 +33,27 @@ function Reviews() {
           text="Discover the Best Sources: Unleashing the Power of Crowdsourced Reviews!"
         />
         <div className={styles.contentContainer}>
-          <ReviewCard />
+          <ItemsCard
+            title="Users Reviews"
+            text="These reviews belongs to users"
+            icon={<i className="fa-solid fa-house"></i>}
+            to="homes"
+            total={0}
+          />
+          <ItemsCard
+            title="Agents Reviews"
+            text="These reviews belongs to agents"
+            icon={<i className="fa-solid fa-house"></i>}
+            to="homes"
+            total={0}
+          />
+          <ItemsCard
+            title="Managers Reviews"
+            text="These reviews belongs to managers"
+            icon={<i className="fa-solid fa-house"></i>}
+            to="homes"
+            total={0}
+          />
         </div>
       </div>
     </div>
