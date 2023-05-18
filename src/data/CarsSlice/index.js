@@ -19,7 +19,6 @@ export const getAllCars = createAsyncThunk("cars/getAllCars", async () => {
 });
 export const getCar = createAsyncThunk("cars/getCar", async (id) => {
   // Code
-  console.log(id);
   try {
     const result = await PropertiesApi.get(`cars/${id}`, {
       onUploadProgress: (progress) => {
