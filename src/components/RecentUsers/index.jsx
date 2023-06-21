@@ -6,7 +6,7 @@ import SmallBtn from "../SmallBtn";
 function RecentUsers({ recentUsers, users }) {
   console.log(recentUsers);
   const renderUsers = recentUsers?.map((user) => {
-    return <RecentUserCard />;
+    return <RecentUserCard user={user} />;
   });
   return (
     <div className={styles.container}>

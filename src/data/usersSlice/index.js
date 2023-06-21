@@ -39,6 +39,19 @@ export const signOut = createAsyncThunk("users/signOut", async () => {
   return null;
 });
 
+export const sendNotification = createAsyncThunk(
+  "users/sendNotification",
+  async ({ id, title, body }) => {
+    // Code
+    const result = await PropertiesApi.post(`/user_notify/${id}`, {
+      title: title,
+      body: body,
+    });
+    console.log(result);
+    return result.data;
+  }
+);
+
 export const getAllUsers = createAsyncThunk("users/getAllUsers", async () => {
   // Code
   const result = await PropertiesApi.get("/users");

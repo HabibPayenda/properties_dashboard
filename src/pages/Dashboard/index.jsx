@@ -6,7 +6,11 @@ import styles from "./dashboard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Calendar from "../../components/Calendar";
 import { getAllAppointments } from "../../data/appointmentSlice";
-import { getAllUsers, getRecentUsers } from "../../data/usersSlice";
+import {
+  getAllUsers,
+  getRecentUsers,
+  sendNotification,
+} from "../../data/usersSlice";
 import { getAllAdmins } from "../../data/adminSlice";
 import { getAllHomes } from "../../data/homeSlice";
 import { getAllAgents } from "../../data/agentsSlice";
@@ -43,6 +47,10 @@ function Dashboard() {
     dispatch(getAllLands());
     dispatch(getAllUsers());
   }, []);
+
+  const send = () => {
+    dispatch(sendNotification({ id: 18, title: "hello", body: "how are you" }));
+  };
 
   const isSidebarShown = useSelector(
     (state) => state.appManagement.isSidebarShown
@@ -87,6 +95,7 @@ function Dashboard() {
             icon={<i className="fa-solid fa-mountain-sun"></i>}
             total={lands?.length}
           />
+          <button onClick={send}>Notify</button>
         </div>
         <div className={styles.dashboardTopRight}></div>
       </div>
